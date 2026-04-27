@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter - ToolGen</title>
+    <meta name="description" content="Format, validate and beautify JSON data online. Free JSON formatter tool.">
+    <link rel="canonical" href="https://toolgen.xyz/tools/json-formatter.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: 'Courier New', monospace; font-size: 0.95rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .error { color: #ef4444; font-size: 0.9rem; margin-top: 5px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>{ } JSON Formatter</h1>
+        <p class="subtitle">Format, validate and beautify JSON data instantly.</p>
+        <div class="card">
+            <textarea id="input" placeholder='Paste your JSON here...&#10;e.g., {"name":"John","age":30}'></textarea>
+            <button class="btn" onclick="format()">Format</button>
+            <button class="btn" onclick="minify()">Minify</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
+            <div class="error" id="error"></div>
+            <textarea id="output" readonly style="margin-top: 15px; color: #4ade80;"></textarea>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+    </footer>
+    <script>
+        function format() {
+            const input = document.getElementById('input').value;
+            document.getElementById('error').textContent = '';
+            try {
+                const obj = JSON.parse(input);
+                document.getElementById('output').value = JSON.stringify(obj, null, 2);
+            } catch(e) {
+                document.getElementById('error').textContent = '❌ Invalid JSON: ' + e.message;
+            }
+        }
+        function minify() {
+            const input = document.getElementById('input').value;
+            document.getElementById('error').textContent = '';
+            try {
+                const obj = JSON.parse(input);
+                document.getElementById('output').value = JSON.stringify(obj);
+            } catch(e) {
+                document.getElementById('error').textContent = '❌ Invalid JSON: ' + e.message;
+            }
+        }
+        function copy() { navigator.clipboard.writeText(document.getElementById('output').value); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor - ToolGen</title>
+    <meta name="description" content="Reduce image file size without losing quality. Free online image compressor.">
+    <meta name="keywords" content="image compressor, compress image, reduce image size, photo compressor">
+    <link rel="canonical" href="https://toolgen.xyz/tools/image-compressor.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; text-align: center; }
+        .drop-zone { border: 2px dashed #667eea; border-radius: 16px; padding: 60px 20px; cursor: pointer; transition: all 0.3s; }
+        .drop-zone:hover { background: rgba(102,126,234,0.1); }
+        .drop-zone p { color: #888; margin-top: 15px; }
+        input[type="file"] { display: none; }
+        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 20px; }
+        .result { display: none; margin-top: 20px; }
+        .result.show { display: block; }
+        .stats { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+        .stat { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: #667eea; }
+        .stat-label { color: #888; font-size: 0.85rem; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🗜️ Image Compressor</h1>
+        <p class="subtitle">Reduce image file size without losing quality. Free & instant.</p>
+        <div class="card">
+            <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
+                <div style="font-size: 3rem;">📁</div>
+                <p>Click or drag image here</p>
+            </div>
+            <input type="file" id="fileInput" accept="image/*" onchange="compressImage(this.files[0])">
+            <label style="margin-top: 15px; display: block; color: #888;">Quality: <span id="qualityLabel">80</span>%</label>
+            <input type="range" id="quality" min="10" max="100" value="80" style="width: 100%;" oninput="document.getElementById('qualityLabel').textContent = this.value">
+            <div class="result" id="result">
+                <div class="stats">
+                    <div class="stat"><div class="stat-value" id="originalSize">0 KB</div><div class="stat-label">Original</div></div>
+                    <div class="stat"><div class="stat-value" id="newSize">0 KB</div><div class="stat-label">Compressed</div></div>
+                    <div class="stat"><div class="stat-value" id="saved">0%</div><div class="stat-label">Saved</div></div>
+                </div>
+                <a class="btn" id="downloadBtn" download>⬇️ Download</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+    </footer>
+    <script>
+        let currentFile = null;
+        function compressImage(file) {
+            if (!file) return;
+            currentFile = file;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    const quality = parseInt(document.getElementById('quality').value) / 100;
+                    const compressed = canvas.toDataURL('image/jpeg', quality);
+                    const originalSize = file.size;
+                    const compressedSize = Math.round((compressed.length - compressed.indexOf(',') - 1) * 0.75);
+                    const saved = Math.round((1 - compressedSize / originalSize) * 100);
+                    document.getElementById('originalSize').textContent = (originalSize / 1024).toFixed(1) + ' KB';
+                    document.getElementById('newSize').textContent = (compressedSize / 1024).toFixed(1) + ' KB';
+                    document.getElementById('saved').textContent = saved + '%';
+                    document.getElementById('downloadBtn').href = compressed;
+                    document.getElementById('result').classList.add('show');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>

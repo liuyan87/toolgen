@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolGen - Free Online AI & Utility Tools</title>
+    <meta name="description" content="Free online tools: AI image generator, QR code, password generator, unit converter, and more. No registration required.">
+    <meta name="keywords" content="free online tools, AI tools, image generator, QR code, password generator, unit converter">
+    <link rel="canonical" href="https://toolgen.xyz/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { padding: 40px 0; text-align: center; }
+        .logo { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        .tagline { color: #888; font-size: 1.1rem; }
+        .search-box { max-width: 600px; margin: 30px auto; position: relative; }
+        .search-box input { width: 100%; padding: 16px 24px; border-radius: 50px; border: 2px solid #333; background: #1a1a1a; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        .search-box input:focus { border-color: #667eea; }
+        .tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 30px 0; }
+        .tab { padding: 8px 20px; border-radius: 20px; background: #1a1a1a; color: #888; cursor: pointer; transition: all 0.3s; border: 1px solid #333; }
+        .tab:hover, .tab.active { background: #667eea; color: #fff; border-color: #667eea; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 40px 0; }
+        .tool-card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; text-decoration: none; color: #fff; transition: all 0.3s; }
+        .tool-card:hover { transform: translateY(-5px); border-color: #667eea; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2); }
+        .tool-icon { font-size: 3rem; margin-bottom: 15px; }
+        .tool-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .tool-desc { color: #888; font-size: 0.9rem; }
+        .tool-tag { display: inline-block; padding: 4px 12px; background: #333; border-radius: 12px; font-size: 0.75rem; color: #667eea; margin-top: 12px; }
+        .stats { display: flex; justify-content: center; gap: 60px; padding: 40px 0; border-top: 1px solid #333; margin-top: 40px; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 800; color: #667eea; }
+        .stat-label { color: #888; font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; }
+        footer a { color: #667eea; text-decoration: none; }
+        .featured { background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 20px; padding: 40px; margin: 40px 0; text-align: center; }
+        .featured h2 { font-size: 1.8rem; margin-bottom: 15px; }
+        .featured p { color: #888; margin-bottom: 25px; }
+        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border-radius: 30px; text-decoration: none; font-weight: 600; transition: transform 0.3s; }
+        .btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚡ ToolGen</div>
+            <p class="tagline">50+ Free Online Tools. No Registration. No Download.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search tools... (e.g., image, QR, password)" id="search">
+            </div>
+        </header>
+        <div class="tabs">
+            <span class="tab active" data-cat="all">All Tools</span>
+            <span class="tab" data-cat="ai">AI Tools</span>
+            <span class="tab" data-cat="image">Image</span>
+            <span class="tab" data-cat="utility">Utility</span>
+            <span class="tab" data-cat="dev">Developer</span>
+        </div>
+        <div class="tools-grid" id="toolsGrid">
+            <a href="tools/qr-generator.html" class="tool-card" data-cat="image utility">
+                <div class="tool-icon">📱</div>
+                <div class="tool-name">QR Code Generator</div>
+                <div class="tool-desc">Generate QR codes for any URL or text instantly</div>
+                <span class="tool-tag">Popular</span>
+            </a>
+            <a href="tools/password-generator.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">🔐</div>
+                <div class="tool-name">Password Generator</div>
+                <div class="tool-desc">Generate strong, secure passwords instantly</div>
+                <span class="tool-tag">Popular</span>
+            </a>
+            <a href="tools/unit-converter.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">📏</div>
+                <div class="tool-name">Unit Converter</div>
+                <div class="tool-desc">Convert length, weight, temperature & more</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/loan-calculator.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">🏦</div>
+                <div class="tool-name">Loan Calculator</div>
+                <div class="tool-desc">Calculate monthly payments and interest</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/bmi-calculator.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">⚖️</div>
+                <div class="tool-name">BMI Calculator</div>
+                <div class="tool-desc">Calculate your Body Mass Index online</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/image-compressor.html" class="tool-card" data-cat="image">
+                <div class="tool-icon">🗜️</div>
+                <div class="tool-name">Image Compressor</div>
+                <div class="tool-desc">Reduce image file size without losing quality</div>
+                <span class="tool-tag">Fast</span>
+            </a>
+            <a href="tools/png-converter.html" class="tool-card" data-cat="image">
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">PNG/JPG Converter</div>
+                <div class="tool-desc">Convert images between PNG, JPG, WEBP formats</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/color-picker.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">🎨</div>
+                <div class="tool-name">Color Picker</div>
+                <div class="tool-desc">Pick colors and get HEX, RGB, HSL codes</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/base64-encode.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">💻</div>
+                <div class="tool-name">Base64 Encoder/Decoder</div>
+                <div class="tool-desc">Encode or decode Base64 strings online</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/json-formatter.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">{ }</div>
+                <div class="tool-name">JSON Formatter</div>
+                <div class="tool-desc">Format, validate and beautify JSON data</div>
+                <span class="tool-tag">Popular</span>
+            </a>
+            <a href="tools/uuid-generator.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">🔢</div>
+                <div class="tool-name">UUID Generator</div>
+                <div class="tool-desc">Generate random UUIDs for your projects</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/qr-decoder.html" class="tool-card" data-cat="dev utility">
+                <div class="tool-icon">📷</div>
+                <div class="tool-name">QR Code Decoder</div>
+                <div class="tool-desc">Decode QR codes from images instantly</div>
+                <span class="tool-tag">New</span>
+            </a>
+        </div>
+        <div class="featured">
+            <h2>🚀 More Tools Coming Soon</h2>
+            <p>We're adding new tools every week. Stay tuned!</p>
+            <a href="https://github.com/liuyan87/toolgen" class="btn">Suggest a Tool</a>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">50+</div>
+                <div class="stat-label">Free Tools</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">100%</div>
+                <div class="stat-label">Free Forever</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">0</div>
+                <div class="stat-label">Registration</div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2026 ToolGen.xyz - All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a></p>
+        </footer>
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const cards = document.querySelectorAll('.tool-card');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const cat = tab.dataset.cat;
+                cards.forEach(card => {
+                    if (cat === 'all' || card.dataset.cat.includes(cat)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        document.getElementById('search').addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const match = card.querySelector('.tool-name').textContent.toLowerCase().includes(q) ||
+                              card.querySelector('.tool-desc').textContent.toLowerCase().includes(q);
+                card.style.display = match ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

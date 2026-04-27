@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free QR Code Generator - ToolGen</title>
+    <meta name="description" content="Generate QR codes instantly for free. No registration required. Create QR codes for URLs, text, WiFi, contacts and more.">
+    <meta name="keywords" content="qr code generator, free qr code, qr code creator, online qr generator">
+    <link rel="canonical" href="https://toolgen.xyz/tools/qr-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; }
+        .back:hover { text-decoration: underline; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+        input, select, textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 20px; }
+        input:focus, textarea:focus, select:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s; }
+        .btn:hover { transform: scale(1.05); }
+        .result { text-align: center; padding: 30px; display: none; }
+        .result.show { display: block; }
+        .qr-box { background: #fff; padding: 20px; border-radius: 16px; display: inline-block; margin: 20px 0; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📱 QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes instantly for any URL, text, or data. Free & no registration.</p>
+        <div class="card">
+            <label for="qrType">QR Code Type</label>
+            <select id="qrType">
+                <option value="text">Plain Text</option>
+                <option value="url">Website URL</option>
+                <option value="wifi">WiFi Network</option>
+                <option value="email">Email Address</option>
+                <option value="phone">Phone Number</option>
+            </select>
+            <label for="qrContent">Content</label>
+            <textarea id="qrContent" rows="3" placeholder="Enter your text or URL here..."></textarea>
+            <label for="qrSize">Size</label>
+            <select id="qrSize">
+                <option value="150">Small (150x150)</option>
+                <option value="250" selected>Medium (250x250)</option>
+                <option value="350">Large (350x350)</option>
+                <option value="500">Extra Large (500x500)</option>
+            </select>
+            <button class="btn" onclick="generateQR()">Generate QR Code</button>
+        </div>
+        <div class="card result" id="result">
+            <h3>Your QR Code</h3>
+            <div class="qr-box">
+                <div id="qrcode"></div>
+            </div>
+            <br>
+            <button class="btn" onclick="downloadQR()">⬇️ Download PNG</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        let currentQR = null;
+        async function generateQR() {
+            const type = document.getElementById('qrType').value;
+            const content = document.getElementById('qrContent').value.trim();
+            const size = parseInt(document.getElementById('qrSize').value);
+            if (!content) { alert('Please enter content for the QR code'); return; }
+            let data = content;
+            if (type === 'wifi') {
+                const ssid = prompt('WiFi SSID:');
+                const password = prompt('WiFi Password:');
+                const hidden = prompt('Hidden Network? (yes/no):');
+                data = `WIFI:T:WPA;S:${ssid};P:${password};H:${hidden === 'yes' ? 'true' : 'false'};;`;
+            }
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = '';
+            try {
+                const canvas = document.createElement('canvas');
+                await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: '#000000', light: '#ffffff' } });
+                qrContainer.appendChild(canvas);
+                currentQR = canvas;
+                document.getElementById('result').classList.add('show');
+            } catch (err) { alert('Error generating QR code: ' + err.message); }
+        }
+        function downloadQR() {
+            if (!currentQR) return;
+            const link = document.createElement('a');
+            link.download = 'qrcode-toolgen.png';
+            link.href = currentQR.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+    </footer>
+</body>
+</html>

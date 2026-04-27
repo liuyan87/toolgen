@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Unit Converter - ToolGen</title>
+    <meta name="description" content="Free online unit converter. Convert length, weight, temperature, area, volume and more. No registration required.">
+    <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, free converter">
+    <link rel="canonical" href="https://toolgen.xyz/tools/unit-converter.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; }
+        .tab { padding: 10px 20px; border-radius: 25px; background: #333; color: #888; cursor: pointer; border: none; font-size: 0.9rem; transition: all 0.3s; }
+        .tab:hover, .tab.active { background: #667eea; color: #fff; }
+        .converter-row { display: flex; gap: 15px; align-items: end; flex-wrap: wrap; }
+        .input-group { flex: 1; min-width: 200px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #888; font-size: 0.85rem; }
+        input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; }
+        input:focus, select:focus { border-color: #667eea; }
+        .arrow { font-size: 2rem; color: #667eea; padding: 0 10px; padding-bottom: 10px; }
+        .result-box { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; padding: 20px; text-align: center; margin-top: 20px; }
+        .result-value { font-size: 2rem; font-weight: 800; }
+        .result-unit { font-size: 1rem; opacity: 0.9; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📏 Unit Converter</h1>
+        <p class="subtitle">Convert between different units instantly. Length, weight, temperature, and more.</p>
+        <div class="card">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('length')">Length</button>
+                <button class="tab" onclick="switchTab('weight')">Weight</button>
+                <button class="tab" onclick="switchTab('temperature')">Temperature</button>
+                <button class="tab" onclick="switchTab('area')">Area</button>
+                <button class="tab" onclick="switchTab('volume')">Volume</button>
+            </div>
+            <div class="converter-row">
+                <div class="input-group">
+                    <label>From</label>
+                    <input type="number" id="fromValue" placeholder="Enter value" oninput="convert()">
+                    <select id="fromUnit" onchange="convert()"></select>
+                </div>
+                <div class="arrow">→</div>
+                <div class="input-group">
+                    <label>To</label>
+                    <select id="toUnit" onchange="convert()"></select>
+                </div>
+            </div>
+            <div class="result-box">
+                <div class="result-value" id="resultValue">0</div>
+                <div class="result-unit" id="resultUnit"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+    </footer>
+    <script>
+        const units = {
+            length: [{name:'Meters (m)',factor:1},{name:'Kilometers (km)',factor:1000},{name:'Centimeters (cm)',factor:0.01},{name:'Millimeters (mm)',factor:0.001},{name:'Miles (mi)',factor:1609.344},{name:'Yards (yd)',factor:0.9144},{name:'Feet (ft)',factor:0.3048},{name:'Inches (in)',factor:0.0254}],
+            weight: [{name:'Kilograms (kg)',factor:1},{name:'Grams (g)',factor:0.001},{name:'Milligrams (mg)',factor:0.000001},{name:'Pounds (lb)',factor:0.453592},{name:'Ounces (oz)',factor:0.0283495},{name:'Tons (t)',factor:1000}],
+            temperature: [{name:'Celsius (°C)',factor:'c'},{name:'Fahrenheit (°F)',factor:'f'},{name:'Kelvin (K)',factor:'k'}],
+            area: [{name:'Square Meters (m²)',factor:1},{name:'Square Kilometers (km²)',factor:1000000},{name:'Hectares (ha)',factor:10000},{name:'Acres (ac)',factor:4046.856},{name:'Square Feet (ft²)',factor:0.092903}],
+            volume: [{name:'Liters (L)',factor:1},{name:'Milliliters (mL)',factor:0.001},{name:'Cubic Meters (m³)',factor:1000},{name:'Gallons (gal)',factor:3.78541},{name:'Quarts (qt)',factor:0.946353},{name:'Cups (cup)',factor:0.236588}]
+        };
+        let currentTab = 'length';
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('fromValue').value = '';
+            document.getElementById('resultValue').textContent = '0';
+            populateUnits();
+        }
+        function populateUnits() {
+            const fromSelect = document.getElementById('fromUnit');
+            const toSelect = document.getElementById('toUnit');
+            const unitList = units[currentTab];
+            fromSelect.innerHTML = ''; toSelect.innerHTML = '';
+            unitList.forEach((unit, i) => {
+                fromSelect.innerHTML += `<option value="${i}">${unit.name}</option>`;
+                toSelect.innerHTML += `<option value="${i}">${unit.name}</option>`;
+            });
+            if (unitList.length > 1) toSelect.value = '1';
+        }
+        function convert() {
+            const value = parseFloat(document.getElementById('fromValue').value);
+            const fromIdx = parseInt(document.getElementById('fromUnit').value);
+            const toIdx = parseInt(document.getElementById('toUnit').value);
+            const unitList = units[currentTab];
+            if (isNaN(value) || value === '') { document.getElementById('resultValue').textContent = '0'; return; }
+            let result;
+            const fromUnit = unitList[fromIdx];
+            const toUnit = unitList[toIdx];
+            if (currentTab === 'temperature') {
+                let celsius;
+                if (fromUnit.factor === 'c') celsius = value;
+                else if (fromUnit.factor === 'f') celsius = (value - 32) * 5/9;
+                else celsius = value - 273.15;
+                if (toUnit.factor === 'c') result = celsius;
+                else if (toUnit.factor === 'f') result = celsius * 9/5 + 32;
+                else result = celsius + 273.15;
+            } else {
+                const baseValue = value * fromUnit.factor;
+                result = baseValue / toUnit.factor;
+            }
+            document.getElementById('resultValue').textContent = result.toLocaleString(undefined, { maximumFractionDigits: 6 });
+            document.getElementById('resultUnit').textContent = toUnit.name;
+        }
+        populateUnits();
+    </script>
+</body>
+</html>
