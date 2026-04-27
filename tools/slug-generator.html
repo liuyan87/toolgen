@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Slug Generator - ToolGen</title>
+    <meta name="description" content="Convert any text to URL-friendly slugs. Free slug generator for SEO and web development.">
+    <meta name="keywords" content="slug generator, url slug, seo slug, clean url, slugify">
+    <link rel="canonical" href="https://toolgen.xyz/tools/slug-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 100px; }
+        textarea:focus { border-color: #667eea; }
+        .result { background: #0a0a0a; border: 2px solid #667eea; border-radius: 10px; padding: 15px; font-family: monospace; color: #667eea; font-size: 1.1rem; word-break: break-all; margin: 15px 0; }
+        .btn { display: inline-block; padding: 12px 28px; background: #667eea; color: #fff; border: none; border-radius: 25px; cursor: pointer; margin-right: 10px; }
+        .examples { margin-top: 20px; }
+        .examples h3 { color: #888; font-size: 0.9rem; margin-bottom: 10px; }
+        .examples p { color: #667eea; cursor: pointer; margin: 5px 0; font-size: 0.9rem; }
+        .examples p:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔗 Slug Generator</h1>
+        <p class="subtitle">Convert any text into URL-friendly slugs for SEO optimization.</p>
+        <div class="card">
+            <textarea id="input" placeholder="Type your text here..." oninput="generate()"></textarea>
+            <button class="btn" onclick="generate()">⚡ Generate</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
+            <div class="result" id="result" style="display:none;"></div>
+            <div class="examples">
+                <h3>Try these examples:</h3>
+                <p onclick="document.getElementById('input').value=this.textContent;generate()">Hello World, How Are You?</p>
+                <p onclick="document.getElementById('input').value=this.textContent;generate()">Top 10 Best Programming Languages in 2026</p>
+                <p onclick="document.getElementById('input').value=this.textContent;generate()">How to Build a Website – Complete Guide!</p>
+            </div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function generate() {
+            const text = document.getElementById('input').value;
+            const slug = text
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/[\s_-]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            const result = document.getElementById('result');
+            if (slug) {
+                result.textContent = slug;
+                result.style.display = 'block';
+            } else {
+                result.style.display = 'none';
+            }
+        }
+        function copy() {
+            const slug = document.getElementById('result').textContent;
+            if (slug) { navigator.clipboard.writeText(slug); alert('Copied!'); }
+        }
+    </script>
+</body>
+</html>

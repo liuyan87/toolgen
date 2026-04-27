@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToolGen - Free Online AI & Utility Tools</title>
     <meta name="description" content="Free online tools: AI image generator, QR code, password generator, unit converter, and more. No registration required.">
-    <meta name="keywords" content="free online tools, AI tools, image generator, QR code, password generator, unit converter">
+    <meta name="keywords" content="free online tools, AI tools, image generator, QR code, password generator, unit converter, PDF converter, background remover">
     <link rel="canonical" href="https://toolgen.xyz/">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,6 +27,8 @@
         .tool-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
         .tool-desc { color: #888; font-size: 0.9rem; }
         .tool-tag { display: inline-block; padding: 4px 12px; background: #333; border-radius: 12px; font-size: 0.75rem; color: #667eea; margin-top: 12px; }
+        .tool-tag.hot { background: #ef4444; color: #fff; }
+        .tool-tag.popular { background: #f59e0b; color: #000; }
         .stats { display: flex; justify-content: center; gap: 60px; padding: 40px 0; border-top: 1px solid #333; margin-top: 40px; }
         .stat { text-align: center; }
         .stat-num { font-size: 2rem; font-weight: 800; color: #667eea; }
@@ -53,21 +55,28 @@
             <span class="tab active" data-cat="all">All Tools</span>
             <span class="tab" data-cat="ai">AI Tools</span>
             <span class="tab" data-cat="image">Image</span>
-            <span class="tab" data-cat="utility">Utility</span>
+            <span class="tab" data-cat="pdf">PDF & Docs</span>
             <span class="tab" data-cat="dev">Developer</span>
+            <span class="tab" data-cat="utility">Utility</span>
         </div>
         <div class="tools-grid" id="toolsGrid">
             <a href="tools/qr-generator.html" class="tool-card" data-cat="image utility">
                 <div class="tool-icon">📱</div>
                 <div class="tool-name">QR Code Generator</div>
                 <div class="tool-desc">Generate QR codes for any URL or text instantly</div>
-                <span class="tool-tag">Popular</span>
+                <span class="tool-tag hot">🔥 Hot</span>
+            </a>
+            <a href="tools/background-remover.html" class="tool-card" data-cat="image ai">
+                <div class="tool-icon">✂️</div>
+                <div class="tool-name">Background Remover</div>
+                <div class="tool-desc">Remove background from any image automatically</div>
+                <span class="tool-tag hot">🔥 Hot</span>
             </a>
             <a href="tools/password-generator.html" class="tool-card" data-cat="utility">
                 <div class="tool-icon">🔐</div>
                 <div class="tool-name">Password Generator</div>
                 <div class="tool-desc">Generate strong, secure passwords instantly</div>
-                <span class="tool-tag">Popular</span>
+                <span class="tool-tag popular">⭐ Popular</span>
             </a>
             <a href="tools/unit-converter.html" class="tool-card" data-cat="utility">
                 <div class="tool-icon">📏</div>
@@ -91,7 +100,13 @@
                 <div class="tool-icon">🗜️</div>
                 <div class="tool-name">Image Compressor</div>
                 <div class="tool-desc">Reduce image file size without losing quality</div>
-                <span class="tool-tag">Fast</span>
+                <span class="tool-tag popular">⭐ Popular</span>
+            </a>
+            <a href="tools/image-resizer.html" class="tool-card" data-cat="image">
+                <div class="tool-icon">📐</div>
+                <div class="tool-name">Image Resizer</div>
+                <div class="tool-desc">Resize images to any dimension instantly</div>
+                <span class="tool-tag hot">🔥 Hot</span>
             </a>
             <a href="tools/png-converter.html" class="tool-card" data-cat="image">
                 <div class="tool-icon">🔄</div>
@@ -99,10 +114,34 @@
                 <div class="tool-desc">Convert images between PNG, JPG, WEBP formats</div>
                 <span class="tool-tag">Free</span>
             </a>
-            <a href="tools/color-picker.html" class="tool-card" data-cat="utility">
+            <a href="tools/image-to-base64.html" class="tool-card" data-cat="image dev">
+                <div class="tool-icon">🖼️</div>
+                <div class="tool-name">Image to Base64</div>
+                <div class="tool-desc">Convert images to Base64 for HTML embedding</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/pdf-to-jpg.html" class="tool-card" data-cat="pdf">
+                <div class="tool-icon">📄</div>
+                <div class="tool-name">PDF to JPG Converter</div>
+                <div class="tool-desc">Convert PDF pages to JPG images online</div>
+                <span class="tool-tag hot">🔥 Hot</span>
+            </a>
+            <a href="tools/youtube-thumbnail.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">📺</div>
+                <div class="tool-name">YouTube Thumbnail Downloader</div>
+                <div class="tool-desc">Download any YouTube video thumbnail in HD</div>
+                <span class="tool-tag popular">⭐ Popular</span>
+            </a>
+            <a href="tools/color-picker.html" class="tool-card" data-cat="dev utility">
                 <div class="tool-icon">🎨</div>
                 <div class="tool-name">Color Picker</div>
                 <div class="tool-desc">Pick colors and get HEX, RGB, HSL codes</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/hash-generator.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">🔏</div>
+                <div class="tool-name">Hash Generator</div>
+                <div class="tool-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes</div>
                 <span class="tool-tag">Free</span>
             </a>
             <a href="tools/base64-encode.html" class="tool-card" data-cat="dev">
@@ -115,7 +154,43 @@
                 <div class="tool-icon">{ }</div>
                 <div class="tool-name">JSON Formatter</div>
                 <div class="tool-desc">Format, validate and beautify JSON data</div>
-                <span class="tool-tag">Popular</span>
+                <span class="tool-tag popular">⭐ Popular</span>
+            </a>
+            <a href="tools/jwt-decoder.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">🔓</div>
+                <div class="tool-name">JWT Decoder</div>
+                <div class="tool-desc">Decode and inspect JWT tokens instantly</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/gradient-generator.html" class="tool-card" data-cat="dev image">
+                <div class="tool-icon">🌈</div>
+                <div class="tool-name">CSS Gradient Generator</div>
+                <div class="tool-desc">Create beautiful CSS gradients instantly</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/timestamp.html" class="tool-card" data-cat="dev utility">
+                <div class="tool-icon">⏰</div>
+                <div class="tool-name">Timestamp Converter</div>
+                <div class="tool-desc">Convert Unix timestamps and dates instantly</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/slug-generator.html" class="tool-card" data-cat="dev utility">
+                <div class="tool-icon">🔗</div>
+                <div class="tool-name">Slug Generator</div>
+                <div class="tool-desc">Convert text to URL-friendly slugs</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/html-escape.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">🏷️</div>
+                <div class="tool-name">HTML Escape/Unescape</div>
+                <div class="tool-desc">Escape or unescape HTML entities instantly</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/fake-data-generator.html" class="tool-card" data-cat="dev">
+                <div class="tool-icon">🎭</div>
+                <div class="tool-name">Fake Data Generator</div>
+                <div class="tool-desc">Generate fake names, emails, addresses for testing</div>
+                <span class="tool-tag">Free</span>
             </a>
             <a href="tools/uuid-generator.html" class="tool-card" data-cat="dev">
                 <div class="tool-icon">🔢</div>
@@ -123,11 +198,23 @@
                 <div class="tool-desc">Generate random UUIDs for your projects</div>
                 <span class="tool-tag">Free</span>
             </a>
-            <a href="tools/qr-decoder.html" class="tool-card" data-cat="dev utility">
+            <a href="tools/qr-decoder.html" class="tool-card" data-cat="image dev utility">
                 <div class="tool-icon">📷</div>
                 <div class="tool-name">QR Code Decoder</div>
                 <div class="tool-desc">Decode QR codes from images instantly</div>
                 <span class="tool-tag">New</span>
+            </a>
+            <a href="tools/word-counter.html" class="tool-card" data-cat="utility">
+                <div class="tool-icon">🔢</div>
+                <div class="tool-name">Word Counter</div>
+                <div class="tool-desc">Count words, characters, sentences instantly</div>
+                <span class="tool-tag">Free</span>
+            </a>
+            <a href="tools/lorem-ipsum.html" class="tool-card" data-cat="dev utility">
+                <div class="tool-icon">📝</div>
+                <div class="tool-name">Lorem Ipsum Generator</div>
+                <div class="tool-desc">Generate placeholder text for designs</div>
+                <span class="tool-tag">Free</span>
             </a>
         </div>
         <div class="featured">
@@ -136,18 +223,9 @@
             <a href="https://github.com/liuyan87/toolgen" class="btn">Suggest a Tool</a>
         </div>
         <div class="stats">
-            <div class="stat">
-                <div class="stat-num">50+</div>
-                <div class="stat-label">Free Tools</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">100%</div>
-                <div class="stat-label">Free Forever</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">0</div>
-                <div class="stat-label">Registration</div>
-            </div>
+            <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Free Tools</div></div>
+            <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free Forever</div></div>
+            <div class="stat"><div class="stat-num">0</div><div class="stat-label">Registration</div></div>
         </div>
         <footer>
             <p>&copy; 2026 ToolGen.xyz - All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a></p>

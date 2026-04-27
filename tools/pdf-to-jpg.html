@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free PDF to JPG Converter - ToolGen</title>
+    <meta name="description" content="Convert PDF pages to JPG images online for free. No registration, no watermarks.">
+    <meta name="keywords" content="pdf to jpg, pdf to image, convert pdf, free pdf converter">
+    <link rel="canonical" href="https://toolgen.xyz/tools/pdf-to-jpg.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; text-align: center; }
+        .drop-zone { border: 2px dashed #667eea; border-radius: 16px; padding: 60px 20px; cursor: pointer; transition: all 0.3s; }
+        .drop-zone:hover { background: rgba(102,126,234,0.1); }
+        input[type="file"] { display: none; }
+        .note { color: #888; font-size: 0.85rem; margin-top: 10px; }
+        .pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
+        .page { background: #0a0a0a; border: 1px solid #333; border-radius: 8px; padding: 10px; text-align: center; }
+        .page canvas { max-width: 100%; border-radius: 4px; }
+        .page-num { color: #888; font-size: 0.8rem; margin-top: 5px; }
+        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; margin: 5px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📄 PDF to JPG Converter</h1>
+        <p class="subtitle">Convert PDF pages to JPG images. Free & no watermarks.</p>
+        <div class="card">
+            <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
+                <div style="font-size: 3rem;">📑</div>
+                <p>Click or drag PDF file here</p>
+                <p class="note">Note: This tool creates preview images. For full PDF conversion, use a dedicated PDF converter.</p>
+            </div>
+            <input type="file" id="fileInput" accept=".pdf" onchange="convertPDF(this.files[0])">
+            <div id="pages" class="pages"></div>
+        </div>
+        <p style="color:#888;font-size:0.85rem;text-align:center;">💡 Tip: For best results, use PDFs with clear text and images</p>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        async function convertPDF(file) {
+            if (!file) return;
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+            const pagesDiv = document.getElementById('pages');
+            pagesDiv.innerHTML = '<p style="color:#888;">Loading PDF...</p>';
+            
+            for (let i = 1; i <= Math.min(pdf.numPages, 10); i++) {
+                const page = await pdf.getPage(i);
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale });
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+                
+                const pageDiv = document.createElement('div');
+                pageDiv.className = 'page';
+                pageDiv.innerHTML = '';
+                pageDiv.appendChild(canvas);
+                const num = document.createElement('p');
+                num.className = 'page-num';
+                num.textContent = `Page ${i}`;
+                pageDiv.appendChild(num);
+                pagesDiv.appendChild(pageDiv);
+            }
+            if (pdf.numPages > 10) {
+                pagesDiv.innerHTML += `<p style="color:#888;grid-column:1/-1;text-align:center;">Showing first 10 of ${pdf.numPages} pages</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

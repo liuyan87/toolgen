@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free YouTube Thumbnail Downloader - ToolGen</title>
+    <meta name="description" content="Download any YouTube video thumbnail in HD, SD, or max quality for free.">
+    <meta name="keywords" content="youtube thumbnail downloader, youtube thumbnail, download youtube thumbnail">
+    <link rel="canonical" href="https://toolgen.xyz/tools/youtube-thumbnail.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        .thumbnails { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .thumb-item { background: #0a0a0a; border: 1px solid #333; border-radius: 12px; padding: 10px; text-align: center; }
+        .thumb-item img { width: 100%; border-radius: 8px; }
+        .thumb-item p { color: #888; font-size: 0.85rem; margin: 8px 0; }
+        .thumb-item a { display: inline-block; padding: 8px 20px; background: #667eea; color: #fff; border-radius: 20px; text-decoration: none; font-size: 0.85rem; }
+        .error { color: #ef4444; margin-top: 10px; display: none; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📺 YouTube Thumbnail Downloader</h1>
+        <p class="subtitle">Download any YouTube video thumbnail in multiple quality options. Free!</p>
+        <div class="card">
+            <label>Paste YouTube URL or Video ID</label>
+            <input type="text" id="urlInput" placeholder="https://www.youtube.com/watch?v=... or just the video ID">
+            <button class="btn" onclick="getThumbnails()">⬇️ Get Thumbnails</button>
+            <p class="error" id="error">Invalid YouTube URL</p>
+            <div class="thumbnails" id="thumbnails"></div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function getYouTubeID(input) {
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&
+?#]+)/,
+                /^([a-zA-Z0-9_-]{11})$/
+            ];
+            for (const p of patterns) {
+                const m = input.match(p);
+                if (m) return m[1];
+            }
+            return null;
+        }
+        function getThumbnails() {
+            const input = document.getElementById('urlInput').value.trim();
+            const id = getYouTubeID(input);
+            const error = document.getElementById('error');
+            const container = document.getElementById('thumbnails');
+            
+            if (!id) { error.style.display = 'block'; container.innerHTML = ''; return; }
+            error.style.display = 'none';
+            
+            const qualities = [
+                { name: 'Max Quality (HD)', url: `https://img.youtube.com/vi/${id}/maxresdefault.jpg` },
+                { name: 'HD 720p', url: `https://img.youtube.com/vi/${id}/sddefault.jpg` },
+                { name: 'Medium Quality', url: `https://img.youtube.com/vi/${id}/hqdefault.jpg` },
+                { name: 'Medium 480p', url: `https://img.youtube.com/vi/${id}/sddefault.jpg` },
+                { name: 'Low Quality', url: `https://img.youtube.com/vi/${id}/mqdefault.jpg` },
+            ];
+            
+            container.innerHTML = qualities.map(q => `
+                <div class="thumb-item">
+                    <img src="${q.url}" alt="${q.name}" onerror="this.src='https://via.placeholder.com/320x180?text=No+Image'">
+                    <p>${q.name}</p>
+                    <a href="${q.url}" download>Download</a>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

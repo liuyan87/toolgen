@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Lorem Ipsum Generator - ToolGen</title>
+    <meta name="description" content="Generate Lorem Ipsum placeholder text instantly. Customizable paragraphs, words, and bytes.">
+    <meta name="keywords" content="lorem ipsum, lorem ipsum generator, placeholder text, dummy text">
+    <link rel="canonical" href="https://toolgen.xyz/tools/lorem-ipsum.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .options { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+        .options label { display: flex; flex-direction: column; gap: 5px; }
+        .options input, .options select { padding: 10px; border-radius: 8px; border: 2px solid #333; background: #0a0a0a; color: #fff; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .output { background: #0a0a0a; border: 2px solid #333; border-radius: 10px; padding: 20px; margin-top: 20px; line-height: 1.8; color: #ccc; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📝 Lorem Ipsum Generator</h1>
+        <p class="subtitle">Generate placeholder text for your designs and mockups. Free & instant.</p>
+        <div class="card">
+            <div class="options">
+                <label>Count<input type="number" id="count" value="5" min="1" max="100"></label>
+                <label>Type<select id="type"><option value="paragraphs">Paragraphs</option><option value="sentences">Sentences</option><option value="words">Words</option></select></label>
+                <label style="justify-content:flex-end;"><button class="btn" onclick="generate()">⚡ Generate</button></label>
+            </div>
+            <div class="output" id="output" style="display:none;"></div>
+            <button class="btn" id="copyBtn" style="display:none;margin-top:15px;" onclick="copy()">📋 Copy to Clipboard</button>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.".split(' ');
+        let generatedText = '';
+        function generate() {
+            const count = parseInt(document.getElementById('count').value);
+            const type = document.getElementById('type').value;
+            let result = '';
+            if (type === 'words') {
+                result = lorem.slice(0, count).join(' ');
+            } else if (type === 'sentences') {
+                const sent = lorem.join(' ') + '. ';
+                result = Array(count).fill(sent).join('\n\n');
+            } else {
+                const para = lorem.join(' ') + '. ';
+                result = Array(count).fill(para).join('\n\n');
+            }
+            generatedText = result;
+            const out = document.getElementById('output');
+            out.textContent = result;
+            out.style.display = 'block';
+            document.getElementById('copyBtn').style.display = 'inline-block';
+        }
+        function copy() { navigator.clipboard.writeText(generatedText); alert('Copied!'); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free HTML Escape/Unescape - ToolGen</title>
+    <meta name="description" content="Escape or unescape HTML entities. Convert special characters to HTML entities and vice versa.">
+    <meta name="keywords" content="html escape, html unescape, html entities, escape html, special characters">
+    <link rel="canonical" href="https://toolgen.xyz/tools/html-escape.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.95rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 150px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: #667eea; color: #fff; border: none; border-radius: 25px; cursor: pointer; margin-right: 10px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🏷️ HTML Escape / Unescape</h1>
+        <p class="subtitle">Escape or unescape HTML entities instantly.</p>
+        <div class="card">
+            <label>Input</label>
+            <textarea id="input" placeholder="Enter HTML text to escape or unescape..." oninput="escape()"></textarea>
+            <button class="btn" onclick="swapInOut()">⇅ Swap</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
+            <label style="margin-top:15px;">Output</label>
+            <textarea id="output" readonly></textarea>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function escape() {
+            const text = document.getElementById('input').value;
+            const escaped = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+            document.getElementById('output').value = escaped;
+        }
+        function unescape() {
+            const text = document.getElementById('input').value;
+            const div = document.createElement('div');
+            div.innerHTML = text;
+            document.getElementById('output').value = div.textContent;
+        }
+        function swapInOut() {
+            const inp = document.getElementById('input');
+            const out = document.getElementById('output');
+            const tmp = inp.value;
+            inp.value = out.value;
+            out.value = tmp;
+        }
+        function copy() { navigator.clipboard.writeText(document.getElementById('output').value); alert('Copied!'); }
+    </script>
+</body>
+</html>

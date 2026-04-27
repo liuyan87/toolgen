@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fake Data Generator - ToolGen</title>
+    <meta name="description" content="Generate fake names, emails, addresses, and more for testing. Free fake data generator.">
+    <meta name="keywords" content="fake data generator, test data generator, fake name generator, sample data">
+    <link rel="canonical" href="https://toolgen.xyz/tools/fake-data-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: #667eea; color: #fff; border: none; border-radius: 25px; cursor: pointer; margin-right: 10px; }
+        .output { background: #0a0a0a; border: 2px solid #333; border-radius: 10px; padding: 20px; margin-top: 15px; font-family: monospace; white-space: pre-wrap; color: #ccc; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🎭 Fake Data Generator</h1>
+        <p class="subtitle">Generate fake names, emails, addresses, and more for testing.</p>
+        <div class="card">
+            <label>Number of records</label>
+            <input type="number" id="count" value="10" min="1" max="100">
+            <label>Data types</label>
+            <div style="display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px;">
+                <label style="display:flex;align-items:center;gap:5px;cursor:pointer;"><input type="checkbox" id="chkName" checked> Name</label>
+                <label style="display:flex;align-items:center;gap:5px;cursor:pointer;"><input type="checkbox" id="chkEmail" checked> Email</label>
+                <label style="display:flex;align-items:center;gap:5px;cursor:pointer;"><input type="checkbox" id="chkPhone"> Phone</label>
+                <label style="display:flex;align-items:center;gap:5px;cursor:pointer;"><input type="checkbox" id="chkAddress"> Address</label>
+                <label style="display:flex;align-items:center;gap:5px;cursor:pointer;"><input type="checkbox" id="chkCompany"> Company</label>
+            </div>
+            <button class="btn" onclick="generate()">⚡ Generate</button>
+            <button class="btn" onclick="copy()">📋 Copy JSON</button>
+            <div class="output" id="output"></div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        const firstNames = ['James','Mary','John','Patricia','Robert','Jennifer','Michael','Linda','William','Elizabeth','David','Barbara','Richard','Susan','Joseph','Jessica','Thomas','Sarah','Charles','Karen','Daniel','Nancy','Matthew','Lisa','Anthony','Betty'];
+        const lastNames = ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez','Hernandez','Lopez','Gonzalez','Wilson','Anderson','Thomas','Taylor','Moore','Jackson','Martin'];
+        const domains = ['mail.com','email.com','webmail.com','inbox.com','fastmail.com'];
+        const streets = ['Main St','Oak Ave','Maple Dr','Cedar Ln','Pine Rd','Elm St','Park Ave','Lake Dr','Hill Rd','Forest Ave'];
+        const cities = ['New York','Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego','Dallas','San Jose'];
+        const companies = ['TechCorp','DataSystems','CloudWorks','WebSolutions','DigitalHub','InfoTech','NetWorks','SmartSoft','InnovateInc','FutureTech'];
+        let generatedData = [];
+        
+        function rnd(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+        function rndNum(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+        
+        function generate() {
+            const count = parseInt(document.getElementById('count').value);
+            generatedData = [];
+            
+            for (let i = 0; i < count; i++) {
+                const first = rnd(firstNames);
+                const last = rnd(lastNames);
+                const record = {};
+                if (document.getElementById('chkName').checked) record.name = first + ' ' + last;
+                if (document.getElementById('chkEmail').checked) record.email = first.toLowerCase() + '.' + last.toLowerCase() + rndNum(1,99) + '@' + rnd(domains);
+                if (document.getElementById('chkPhone').checked) record.phone = '+1 (' + rndNum(200,999) + ') ' + rndNum(200,999) + '-' + rndNum(1000,9999);
+                if (document.getElementById('chkAddress').checked) record.address = rndNum(100,9999) + ' ' + rnd(streets) + ', ' + rnd(cities);
+                if (document.getElementById('chkCompany').checked) record.company = rnd(companies);
+                generatedData.push(record);
+            }
+            
+            document.getElementById('output').textContent = JSON.stringify(generatedData, null, 2);
+        }
+        
+        function copy() {
+            if (generatedData.length) {
+                navigator.clipboard.writeText(JSON.stringify(generatedData, null, 2));
+                alert('Copied!');
+            }
+        }
+        
+        generate();
+    </script>
+</body>
+</html>
