@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free CSS Minifier - ToolGen</title>
+    <meta name="description" content="Minify and compress CSS code instantly. Reduce file size for faster website loading.">
+    <meta name="keywords" content="css minifier, compress css, css compressor, minify css online">
+    <link rel="canonical" href="https://toolgen.xyz/tools/css-minifier.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.95rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 250px; }
+        textarea:focus { border-color: #667eea; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .stat { background: #0a0a0a; border-radius: 10px; padding: 15px; text-align: center; }
+        .stat-num { font-size: 1.5rem; font-weight: 700; color: #667eea; }
+        .stat-label { color: #888; font-size: 0.85rem; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🎨 CSS Minifier</h1>
+        <p class="subtitle">Minify and compress CSS code to reduce file size and improve page load speed.</p>
+        <div class="card">
+            <label>Enter CSS code</label>
+            <textarea id="input" placeholder=".class {&#10;    color: #ffffff;&#10;    margin: 10px;&#10;    padding: 5px;&#10;}"></textarea>
+            <button class="btn" onclick="minify()">⚡ Minify CSS</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
+            <div class="stats" id="stats" style="display:none;">
+                <div class="stat"><div class="stat-num" id="origSize">0</div><div class="stat-label">Original (bytes)</div></div>
+                <div class="stat"><div class="stat-num" id="minSize">0</div><div class="stat-label">Minified (bytes)</div></div>
+                <div class="stat"><div class="stat-num" id="saved">0%</div><div class="stat-label">Saved</div></div>
+            </div>
+            <textarea id="output" readonly style="display:none;margin-top:15px;" placeholder="Minified output..."></textarea>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function minify() {
+            const css = document.getElementById('input').value;
+            if (!css.trim()) return;
+            const original = css.length;
+            // Simple CSS minification
+            const minified = css
+                .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
+                .replace(/\s+/g, ' ')                  // collapse whitespace
+                .replace(/\s*({|}|:|;|,|>|\+)\s*/g, '$1') // remove space around special chars
+                .replace(/;}/g, '}')                     // remove last semicolon in block
+                .trim();
+            document.getElementById('output').value = minified;
+            document.getElementById('output').style.display = 'block';
+            document.getElementById('origSize').textContent = original;
+            document.getElementById('minSize').textContent = minified.length;
+            document.getElementById('saved').textContent = Math.round((1 - minified.length / original) * 100) + '%';
+            document.getElementById('stats').style.display = 'grid';
+        }
+        function copy() { navigator.clipboard.writeText(document.getElementById('output').value); alert('Copied!'); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Percentage Calculator - ToolGen</title>
+    <meta name="description" content="Calculate percentages instantly. Find percentage of a number, percentage change, and more.">
+    <meta name="keywords" content="percentage calculator, percent calculator, percentage of a number">
+    <link rel="canonical" href="https://toolgen.xyz/tools/percentage-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .calc { background: #0a0a0a; border-radius: 12px; padding: 25px; margin: 15px 0; }
+        .calc h3 { color: #667eea; margin-bottom: 15px; font-size: 1.1rem; }
+        .calc-row { display: flex; gap: 10px; margin: 10px 0; align-items: center; }
+        .calc-row input { flex: 1; padding: 12px; border-radius: 8px; border: 2px solid #333; background: #1a1a1a; color: #fff; font-size: 1rem; }
+        .calc-row input:focus { border-color: #667eea; outline: none; }
+        .calc-row span { color: #888; font-size: 1.2rem; }
+        .result { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 10px; padding: 15px; text-align: center; font-size: 1.5rem; font-weight: 700; margin-top: 15px; }
+        .btn { display: inline-block; padding: 10px 24px; background: #667eea; color: #fff; border: none; border-radius: 20px; cursor: pointer; margin-top: 10px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📊 Percentage Calculator</h1>
+        <p class="subtitle">Calculate percentages instantly. 100% free.</p>
+        
+        <div class="card">
+            <div class="calc">
+                <h3>What is X% of Y?</h3>
+                <div class="calc-row"><input type="number" id="p1" placeholder="15"><span>% of</span><input type="number" id="n1" placeholder="200"><span>=</span></div>
+                <div class="result" id="r1">= 30</div>
+                <button class="btn" onclick="calc1()">Calculate</button>
+            </div>
+            
+            <div class="calc">
+                <h3>X is what % of Y?</h3>
+                <div class="calc-row"><input type="number" id="a2" placeholder="50"><span>is</span><input type="number" id="b2" placeholder="200"><span>% of</span></div>
+                <div class="result" id="r2">= 25%</div>
+                <button class="btn" onclick="calc2()">Calculate</button>
+            </div>
+            
+            <div class="calc">
+                <h3>Percentage change (X → Y)</h3>
+                <div class="calc-row"><span>From</span><input type="number" id="from" placeholder="100"><span>to</span><input type="number" id="to" placeholder="150"></div>
+                <div class="result" id="r3">= +50%</div>
+                <button class="btn" onclick="calc3()">Calculate</button>
+            </div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function calc1() {
+            const p = parseFloat(document.getElementById('p1').value) || 0;
+            const n = parseFloat(document.getElementById('n1').value) || 0;
+            document.getElementById('r1').textContent = `= ${(p * n / 100).toFixed(2)}`;
+        }
+        function calc2() {
+            const a = parseFloat(document.getElementById('a2').value) || 0;
+            const b = parseFloat(document.getElementById('b2').value) || 0;
+            document.getElementById('r2').textContent = b ? `= ${(a * 100 / b).toFixed(2)}%` : '= N/A';
+        }
+        function calc3() {
+            const from = parseFloat(document.getElementById('from').value) || 0;
+            const to = parseFloat(document.getElementById('to').value) || 0;
+            const change = from ? ((to - from) * 100 / from).toFixed(2) : 0;
+            const sign = change >= 0 ? '+' : '';
+            document.getElementById('r3').textContent = `= ${sign}${change}%`;
+        }
+    </script>
+</body>
+</html>

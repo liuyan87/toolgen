@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free URL Parser - ToolGen</title>
+    <meta name="description" content="Parse and analyze URL components. Extract protocol, host, path, query params, and more.">
+    <meta name="keywords" content="url parser, parse url, url components, url analyzer">
+    <link rel="canonical" href="https://toolgen.xyz/tools/url-parser.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .parts { display: grid; gap: 12px; margin-top: 20px; }
+        .part { background: #0a0a0a; border-radius: 8px; padding: 12px 16px; display: flex; gap: 10px; }
+        .part-label { color: #888; min-width: 100px; }
+        .part-value { color: #667eea; font-family: monospace; word-break: break-all; }
+        .query-table { width: 100%; margin-top: 15px; border-collapse: collapse; }
+        .query-table th, .query-table td { padding: 10px; text-align: left; border-bottom: 1px solid #333; }
+        .query-table th { color: #888; font-size: 0.85rem; }
+        .query-table td { color: #667eea; font-family: monospace; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔍 URL Parser</h1>
+        <p class="subtitle">Parse and analyze URL components. Extract protocol, host, path, query params.</p>
+        <div class="card">
+            <input type="url" id="urlInput" placeholder="https://example.com/path?param1=value1&param2=value2" oninput="parseUrl()">
+            <div id="parts" class="parts" style="display:none;"></div>
+            <div id="querySection" style="display:none;">
+                <h3 style="color:#aaa;margin-top:20px;">Query Parameters</h3>
+                <table class="query-table" id="queryTable"><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody></tbody></table>
+            </div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function parseUrl() {
+            const url = document.getElementById('urlInput').value;
+            if (!url) { document.getElementById('parts').style.display = 'none'; return; }
+            try {
+                const u = new URL(url);
+                const parts = document.getElementById('parts');
+                const data = [
+                    ['Protocol', u.protocol],
+                    ['Host', u.hostname],
+                    ['Port', u.port || '(default)'],
+                    ['Path', u.pathname],
+                    ['Query', u.search || '(none)'],
+                    ['Hash', u.hash || '(none)'],
+                    ['Full URL', u.href],
+                ];
+                parts.innerHTML = data.map(([l,v]) => `<div class="part"><span class="part-label">${l}</span><span class="part-value">${v}</span></div>`).join('');
+                parts.style.display = 'grid';
+                // Query params
+                const params = Object.fromEntries(u.searchParams);
+                const qSection = document.getElementById('querySection');
+                const tbody = document.querySelector('#queryTable tbody');
+                if (Object.keys(params).length) {
+                    tbody.innerHTML = Object.entries(params).map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+                    qSection.style.display = 'block';
+                } else { qSection.style.display = 'none'; }
+            } catch(e) { document.getElementById('parts').innerHTML = '<div class="part"><span style="color:#ef4444;">Invalid URL</span></div>'; document.getElementById('parts').style.display = 'grid'; }
+        }
+    </script>
+</body>
+</html>

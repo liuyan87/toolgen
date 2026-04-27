@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Meta Tag Generator - ToolGen</title>
+    <meta name="description" content="Generate SEO meta tags for your website. Include title, description, Open Graph, Twitter cards and more.">
+    <meta name="keywords" content="meta tag generator, seo meta tags, open graph generator, twitter card generator">
+    <link rel="canonical" href="https://toolgen.xyz/tools/meta-tag-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.85rem; color: #888; }
+        .form-group input, .form-group textarea, .form-group select { padding: 12px; border-radius: 8px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 0.95rem; }
+        .form-group textarea { resize: vertical; min-height: 80px; font-family: monospace; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #667eea; outline: none; }
+        .code-box { background: #0a0a0a; border: 2px solid #333; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 0.85rem; color: #667eea; white-space: pre-wrap; word-break: break-all; max-height: 300px; overflow: auto; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; cursor: pointer; font-size: 0.95rem; font-weight: 600; margin: 5px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+        @media(max-width:600px){ .form-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🏷️ Meta Tag Generator</h1>
+        <p class="subtitle">Generate SEO meta tags for your website. Includes Open Graph and Twitter cards.</p>
+        <div class="card">
+            <div class="form-grid">
+                <div class="form-group full"><label>Page Title</label><input type="text" id="title" placeholder="My Amazing Website"></div>
+                <div class="form-group full"><label>Page Description</label><textarea id="desc" placeholder="A brief description of your website..."></textarea></div>
+                <div class="form-group"><label>Page URL</label><input type="url" id="url" placeholder="https://example.com"></div>
+                <div class="form-group"><label>Image URL</label><input type="url" id="image" placeholder="https://example.com/og-image.jpg"></div>
+                <div class="form-group"><label>Twitter Handle</label><input type="text" id="twitter" placeholder="@yourhandle"></div>
+                <div class="form-group"><label>Locale</label><input type="text" id="locale" value="en_US"></div>
+            </div>
+            <button class="btn" onclick="generate()">⚡ Generate Meta Tags</button>
+            <button class="btn" onclick="copy()">📋 Copy All</button>
+            <div class="code-box" id="output"></div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function generate() {
+            const title = document.getElementById('title').value;
+            const desc = document.getElementById('desc').value;
+            const url = document.getElementById('url').value;
+            const image = document.getElementById('image').value;
+            const twitter = document.getElementById('twitter').value;
+            const locale = document.getElementById('locale').value || 'en_US';
+            const output = `<title>${title}</title>
+<meta name="description" content="${desc}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${url}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="${locale}">${image ? `
+<meta property="og:image" content="${image}">` : ''}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">${twitter ? `
+<meta name="twitter:site" content="${twitter}">` : ''}
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${desc}">${image ? `
+<meta name="twitter:image" content="${image}">` : ''}`;
+            document.getElementById('output').textContent = output.trim();
+        }
+        function copy() { navigator.clipboard.writeText(document.getElementById('output').textContent); alert('Copied!'); }
+    </script>
+</body>
+</html>
