@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free ReAct Pattern Builder - ToolGen</title><meta name="description" content="Build ReAct (Reason + Act) agents. Visual builder for thought-action-observation loops."><meta name="keywords" content="react pattern, reason act agent, ai agent loop, react agent builder, thought action observation"><link rel="canonical" href="https://toolgen.xyz/tools/react-pattern-builder.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}.loop-visual{border:2px solid #667eea;border-radius:16px;padding:20px;margin:20px 0;display:flex;flex-direction:column;gap:8px;background:#0a0a0a}.loop-step{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;font-size:0.9rem}.step-thought{background:rgba(102,126,234,0.1);border:1px solid rgba(102,126,234,0.3)}.step-action{background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3)}.step-observation{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3)}.step-final{background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.3)}.step-icon{font-size:1.2rem;flex-shrink:0;width:30px;text-align:center}.step-label{font-size:0.7rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}.step-text{font-family:monospace;font-size:0.85rem}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.8rem;color:#667eea;white-space:pre;max-height:400px;overflow:auto;margin-top:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔄 ReAct Pattern Builder</h1><p class="subtitle">Build ReAct (Reason + Act) agents. Visualize thought-action-observation loops.</p><div class="card"><input type="text" id="task" value="Find Tokyo population and compare to NYC" style="margin-bottom:15px"><button class="btn" onclick="buildLoop()">⚡ Build Loop</button><div class="loop-visual" id="loopVisual"></div><button class="btn" onclick="generateCode()">📄 Generate Code</button><div class="code-output" id="codeOutput" style="display:none"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const steps=[{type:'thought',icon:'💭',text:'Need to find Tokyo population, then NYC population.'},{type:'action',icon:'🔧',text:'web_search(query="Tokyo population 2024")'},{type:'observation',icon:'👁️',text:'Tokyo: 13.96 million (2024)'},{type:'thought',icon:'💭',text:'Got Tokyo. Now search NYC.'},{type:'action',icon:'🔧',text:'web_search(query="New York City population 2024")'},{type:'observation',icon:'👁️',text:'NYC: 8.34 million (2024)'},{type:'thought',icon:'💭',text:'Both numbers obtained. Calculate ratio.'},{type:'final',icon:'✅',text:'Tokyo (13.96M) is 67% larger than NYC (8.34M).'},{type:'final',icon:'🤖',text:'Tokyo has approximately 13.96 million people, while New York City has about 8.34 million. Tokyo is about 67% larger than NYC.'}];function buildLoop(){const task=document.getElementById('task').value;const visual=document.getElementById('loopVisual');let html='<div style="text-align:center;color:#667eea;font-weight:700;margin-bottom:10px">🔄 ReAct Loop: '+task+'</div>';steps.forEach(s=>{html+=`<div class="loop-step step-${s.type}"><div class="step-icon">${s.icon}</div><div><div class="step-label">${s.type}</div><div class="step-text">${s.text}</div></div></div>`;if(s.type!=='final')html+='<div style="text-align:center;color:#667eea;font-size:1rem;padding:3px">↓</div>';});visual.innerHTML=html;}function generateCode(){const code=`class ReActAgent:
+    def run(self, task: str) -> str:
+        context = {"task": task}
+        for i in range(10):
+            # 1. THINK
+            thought = self.think(context)
+            # 2. ACT
+            action = self.decide_action(thought)
+            if not action: break
+            # 3. OBSERVE
+            result = self.execute(action)
+            context["observation"] = result
+            if self.is_complete(result): break
+        return self.finalize(context)
+    
+    def think(self, ctx): 
+        return llm(f"Task: {ctx['task']}\\nObservation: {ctx.get('observation','')}\\nThink step by step.")
+    
+    def decide_action(self, thought):
+        # Parse tool call from thought
+        ...
+    
+    def execute(self, action):
+        return tools[action["name"]](**action["args"])
+    
+    def is_complete(self, obs): return "final" in obs.lower()`;document.getElementById('codeOutput').style.display='block';document.getElementById('codeOutput').textContent=code;}buildLoop();</script></body></html>
