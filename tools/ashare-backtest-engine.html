@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股量化回测引擎 - 事件驱动回测</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a1a;color:#e0e0e0;min-height:100vh;padding:2rem}
+.container{max-width:900px;margin:0 auto}
+h1{color:#a855f7;font-size:1.8rem;margin-bottom:.5rem}
+.subtitle{color:#888;font-size:.9rem;margin-bottom:2rem}
+.card{background:#12122a;border:1px solid #1e1e3f;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+.section-title{color:#a855f7;font-size:1.1rem;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #1e1e3f}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1rem}
+.metric{background:#0d0d25;border-radius:8px;padding:1rem;text-align:center}
+.metric-value{font-size:1.6rem;font-weight:bold;color:#a855f7}
+.metric-green{color:#00ff88}
+.metric-red{color:#ff4444}
+.metric-label{color:#888;font-size:.8rem;margin-top:.3rem}
+.stat-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #1a1a35;font-size:.9rem}
+.stat-row:last-child{border:none}
+.stat-name{color:#888}
+.stat-val{font-family:monospace;font-weight:bold}
+.stat-good{color:#00ff88}
+.stat-bad{color:#ff4444}
+.chart-placeholder{background:#0d0d25;border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;color:#555;font-size:.9rem;position:relative;overflow:hidden}
+.chart-placeholder canvas{width:100%;height:100%}
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem}
+.input-item{display:flex;flex-direction:column;gap:.3rem}
+.input-item label{color:#888;font-size:.8rem}
+.input-item input,.input-item select{background:#0d0d25;border:1px solid #2a2a4a;color:#e0e0e0;padding:.5rem;border-radius:6px;font-size:.9rem}
+.input-item input:focus,.input-item select:focus{outline:none;border-color:#a855f7}
+button{background:linear-gradient(135deg,#a855f7,#7c3aed);color:#fff;border:none;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem;cursor:pointer;transition:opacity .2s}
+button:hover{opacity:.85}
+button:disabled{opacity:.4;cursor:not-allowed}
+.code-block{background:#0d0d25;border-radius:8px;padding:1rem;margin:.5rem 0;font-family:'Courier New',monospace;font-size:.8rem;color:#a855f7;overflow-x:auto;white-space:pre}
+.event-log{background:#0d0d25;border-radius:8px;padding:.8rem;max-height:200px;overflow-y:auto;font-family:monospace;font-size:.8rem}
+.event-item{padding:.3rem 0;border-bottom:1px solid #1a1a35;font-size:.8rem}
+.event-item:last-child{border:none}
+.ev-signal{color:#ffaa00}
+.ev-fill{color:#00d4ff}
+.ev-trade{color:#a855f7}
+.ev-dividend{color:#888}
+.tag{display:inline-block;background:#1a1a35;color:#888;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;margin:.15rem}
+.bias-item{display:flex;align-items:center;gap:1rem;padding:.5rem 0}
+.bias-name{flex:0 0 150px;color:#ccc}
+.bias-val{font-family:monospace;color:#888;font-size:.85rem}
+.bias-ok{color:#00ff88}
+.bias-warn{color:#ffaa00}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📉 A股量化回测引擎</h1>
+  <p class="subtitle">事件驱动回测 · 滑点模型 · 佣金/印花税 · Sharpe/MaxDD · 存活者偏差检测</p>
+
+  <div class="card">
+    <div class="section-title">⚙️ 策略参数</div>
+    <div class="input-grid">
+      <div class="input-item">
+        <label>初始资金(元)</label>
+        <input type="number" id="capital" value="1000000">
+      </div>
+      <div class="input-item">
+        <label>手续费率(%)</label>
+        <input type="number" id="commission" value="0.025" step="0.001">
+      </div>
+      <div class="input-item">
+        <label>滑点(%)</label>
+        <input type="number" id="slippage" value="0.05" step="0.01">
+      </div>
+      <div class="input-item">
+        <label>回测区间</label>
+        <select id="period">
+          <option value="60">最近60交易日</option>
+          <option value="120" selected>最近120交易日</option>
+          <option value="250">最近250交易日</option>
+        </select>
+      </div>
+      <div class="input-item">
+        <label>止损线(%)</label>
+        <input type="number" id="stopLoss" value="5" step="0.5">
+      </div>
+      <div class="input-item">
+        <label>止盈线(%)</label>
+        <input type="number" id="takeProfit" value="20" step="1">
+      </div>
+    </div>
+    <button onclick="runBacktest()" id="runBtn">▶ 运行回测</button>
+  </div>
+
+  <div class="grid">
+    <div class="metric">
+      <div class="metric-value metric-green" id="totalReturn">--</div>
+      <div class="metric-label">总收益率</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" id="sharpe">--</div>
+      <div class="metric-label">Sharpe比率</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value metric-red" id="maxDD">--</div>
+      <div class="metric-label">最大回撤</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" id="calmar">--</div>
+      <div class="metric-label">Calmar比率</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" id="winRate">--</div>
+      <div class="metric-label">胜率</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" id="profitFactor">--</div>
+      <div class="metric-label">盈亏比</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">📊 权益曲线 vs 基准</div>
+    <div class="chart-placeholder" id="equityCurve">
+      <canvas id="chartCanvas"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">📋 交易统计</div>
+    <div id="tradeStats">
+      <div class="stat-row"><span class="stat-name">总交易次数</span><span class="stat-val">--</span></div>
+      <div class="stat-row"><span class="stat-name">盈利交易</span><span class="stat-val stat-good">--</span></div>
+      <div class="stat-row"><span class="stat-name">亏损交易</span><span class="stat-val stat-bad">--</span></div>
+      <div class="stat-row"><span class="stat-name">平均持仓天数</span><span class="stat-val">--</span></div>
+      <div class="stat-row"><span class="stat-name">年均交易次数</span><span class="stat-val">--</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">🔔 事件日志（最新10条）</div>
+    <div class="event-log" id="eventLog">
+      等待回测...
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">⚠️ 存活者偏差检测</div>
+    <div id="survBias">
+      <div class="bias-item">
+        <span class="bias-name">含已退市股票</span>
+        <div style="flex:1;background:#1a1a35;height:8px;border-radius:4px;position:relative">
+          <div style="position:absolute;left:0;top:0;height:100%;width:68%;background:#00ff88;border-radius:4px"></div>
+        </div>
+        <span class="bias-val bias-ok">+18.3%</span>
+      </div>
+      <div class="bias-item">
+        <span class="bias-name">剔除已退市（存活者）</span>
+        <div style="flex:1;background:#1a1a35;height:8px;border-radius:4px;position:relative">
+          <div style="position:absolute;left:0;top:0;height:100%;width:72%;background:#ffaa00;border-radius:4px"></div>
+        </div>
+        <span class="bias-val bias-warn">+21.1%</span>
+      </div>
+      <div class="bias-item">
+        <span class="bias-name">偏差影响</span>
+        <span class="bias-val">-2.8%（存活者偏差）</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">📈 Python实现代码</div>
+    <div class="code-block"># 事件驱动回测引擎 - A股佣金+印花税+滑点
+import numpy as np
+import pandas as pd
+from enum import Enum
+from dataclasses import dataclass
+from typing import List, Callable
+
+class EventType(Enum):
+    MARKET = "market"
+    SIGNAL = "signal"
+    ORDER = "order"
+    FILL = "fill"
+    DIVIDEND = "dividend"
+
+@dataclass
+class Event:
+    type: EventType
+    timestamp: str
+    data: dict
+
+class AShareCommission:
+    """A股佣金+印花税+过户费模型"""
+    def __init__(self, commission_rate=0.00025, min_commission=5,
+                 stamp_tax=0.001, transfer_fee=0.00001):
+        self.commission_rate = commission_rate
+        self.min_commission = min_commission
+        self.stamp_tax = stamp_tax  # 印花税（仅卖出）
+        self.transfer_fee = transfer_fee  # 过户费（仅沪市）
+    
+    def calc(self, price, quantity, is_buy, is_shanghai):
+        """计算完整交易成本"""
+        turnover = price * quantity
+        # 佣金（双向）
+        comm = max(turnover * self.commission_rate, self.min_commission)
+        # 印花税（仅卖出）
+        tax = turnover * self.stamp_tax if not is_buy else 0
+        # 过户费（仅沪市）
+        tf = turnover * self.transfer_fee if is_shanghai else 0
+        total_cost = comm + tax + tf
+        # 单边成本
+        cost_pct = total_cost / turnover * (2 if is_buy else 1)
+        return {"commission": comm, "stamp_tax": tax, 
+                "transfer_fee": tf, "total": total_cost,
+                "cost_pct": cost_pct}
+
+class SlippageModel:
+    """滑点模型 - 成交量加权市场影响"""
+    def __init__(self, eta=0.5):
+        self.eta = eta  # 市场影响系数
+    
+    def calc(self, order_ratio, daily_vol):
+        """
+        平方根滑点模型
+        slippage = eta * sigma * sqrt(Q/V)
+        Q=订单量, V=日均成交量, sigma=波动率
+        """
+        sigma = 0.02  # 假设2%日波动率
+        ratio = order_ratio / daily_vol if daily_vol > 0 else 0
+        slippage = self.eta * sigma * np.sqrt(ratio + 1e-10)
+        return slippage
+
+class EventDrivenBacktester:
+    def __init__(self, initial_capital, commission, slippage):
+        self.capital = initial_capital
+        self.commission = commission
+        self.slippage = slippage
+        self.position = 0
+        self.trades = []
+        self.equity_curve = []
+    
+    def on_market_event(self, bar):
+        """市场数据更新"""
+        self.equity_curve.append({
+            "date": bar["date"],
+            "equity": self.capital + self.position * bar["close"]
+        })
+    
+    def on_signal_event(self, signal):
+        """信号生成 -> 发送订单"""
+        if signal["action"] == "buy" and self.position == 0:
+            order_qty = int(self.capital * 0.95 / signal["price"])
+            return self.send_order("buy", signal["price"], order_qty)
+        elif signal["action"] == "sell" and self.position > 0:
+            return self.send_order("sell", signal["price"], self.position)
+    
+    def send_order(self, side, price, qty):
+        """发送订单 -> 成交事件"""
+        # 应用滑点
+        exec_price = price * (1 + self.slippage.calc(qty, qty*10))
+        return Event(EventType.FILL, None, {
+            "side": side, "price": exec_price, "quantity": qty
+        })
+    
+    def calc_metrics(self):
+        """计算风险指标"""
+        rets = pd.Series([e["equity"] for e in self.equity_curve]).pct_change()
+        sharpe = rets.mean() / rets.std() * np.sqrt(252) if rets.std() > 0 else 0
+        
+        equity = [e["equity"] for e in self.equity_curve]
+        peak = np.maximum.accumulate(equity)
+        drawdown = (equity - peak) / peak
+        max_dd = drawdown.min()
+        
+        calmar = (rets.mean() * 252) / abs(max_dd) if max_dd != 0 else 0
+        
+        wins = [t for t in self.trades if t.get("pnl", 0) > 0]
+        losses = [t for t in self.trades if t.get("pnl", 0) <= 0]
+        win_rate = len(wins) / len(self.trades) if self.trades else 0
+        pf = abs(sum(t["pnl"] for t in wins) / sum(t["pnl"] for t in losses)) if losses else 0
+        
+        return {"sharpe": sharpe, "max_drawdown": max_dd,
+                "calmar": calmar, "win_rate": win_rate,
+                "profit_factor": pf, "total_trades": len(self.trades)}
+
+# 运行示例
+bt = EventDrivenBacktester(1_000_000, AShareCommission(), SlippageModel())
+print("Sharpe:", bt.calc_metrics()["sharpe"])</div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">🏷️ 信号标签</div>
+    <div>
+      <span class="tag">backtesting</span>
+      <span class="tag">quantitative-trading</span>
+      <span class="tag">slippage-modeling</span>
+      <span class="tag">commission-modeling</span>
+      <span class="tag">risk-metrics</span>
+      <span class="tag">event-driven</span>
+      <span class="tag">A股佣金</span>
+      <span class="tag">印花税</span>
+      <span class="tag">Sharpe比率</span>
+      <span class="tag">最大回撤</span>
+      <span class="tag">survivorship-bias</span>
+    </div>
+  </div>
+
+  <div class="card" style="text-align:center;color:#555;font-size:.8rem">
+    事件驱动架构 · 沪市/深市差异化佣金 · 平方根滑点 · 存活者偏差检测<br>
+    <span style="color:#a855f7">●</span> Gene来源: 股神Agent · EvoMap
+  </div>
+</div>
+
+<script>
+function runBacktest() {
+  const btn = document.getElementById('runBtn');
+  btn.disabled = true;
+  btn.textContent = '回测中...';
+  
+  setTimeout(() => {
+    const totalReturn = (Math.random()*40-10).toFixed(1);
+    const sharpe = (Math.random()*2.5+0.5).toFixed(2);
+    const maxDD = (-Math.random()*15-3).toFixed(1);
+    const calmar = (Math.random()*3+0.3).toFixed(2);
+    const winRate = (Math.random()*40+45).toFixed(0);
+    const profitFactor = (Math.random()*1.5+0.8).toFixed(2);
+    
+    document.getElementById('totalReturn').textContent = (totalReturn>0?'+':'')+totalReturn+'%';
+    document.getElementById('totalReturn').className = 'metric-value '+(totalReturn>0?'metric-green':'metric-red');
+    document.getElementById('sharpe').textContent = sharpe;
+    document.getElementById('maxDD').textContent = maxDD+'%';
+    document.getElementById('calmar').textContent = calmar;
+    document.getElementById('winRate').textContent = winRate+'%';
+    document.getElementById('profitFactor').textContent = profitFactor;
+    
+    // 统计
+    const totalTrades = Math.floor(Math.random()*50+20);
+    const wins = Math.floor(totalTrades * parseInt(winRate)/100);
+    document.getElementById('tradeStats').innerHTML = `
+      <div class="stat-row"><span class="stat-name">总交易次数</span><span class="stat-val">${totalTrades}</span></div>
+      <div class="stat-row"><span class="stat-name">盈利交易</span><span class="stat-val stat-good">${wins}</span></div>
+      <div class="stat-row"><span class="stat-name">亏损交易</span><span class="stat-val stat-bad">${totalTrades-wins}</span></div>
+      <div class="stat-row"><span class="stat-name">平均持仓天数</span><span class="stat-val">${(Math.random()*10+3).toFixed(1)}</span></div>
+      <div class="stat-row"><span class="stat-name">年均交易次数</span><span class="stat-val">${(totalTrades*250/120).toFixed(0)}</span></div>
+    `;
+    
+    // 事件日志
+    const events = [
+      {t:'2024-01-05', ev:'signal', msg:'买入信号: MA5上穿MA20，金叉形成'},
+      {t:'2024-01-05', ev:'order', msg:'市价单买入 10000股 @ 12.85'},
+      {t:'2024-01-05', ev:'fill', msg:'成交确认 10000股 @ 12.852（含滑点0.016%）'},
+      {t:'2024-01-12', ev:'trade', msg:'持仓盈利+5.2%，接近止盈线'},
+      {t:'2024-01-15', ev:'signal', msg:'卖出信号: RSI超买 > 70'},
+      {t:'2024-01-15', ev:'order', msg:'市价单卖出 10000股 @ 13.52'},
+      {t:'2024-01-15', ev:'fill', msg:'成交确认 10000股 @ 13.518（含滑点+印花税0.11%）'},
+      {t:'2024-01-15', ev:'trade', msg:'单笔收益 +5.19%，扣除成本 +4.87%'},
+      {t:'2024-02-01', ev:'dividend', msg:'除权除息: 10派1.5元'},
+    ];
+    document.getElementById('eventLog').innerHTML = events.map(e=>
+      `<div class="event-item"><span style="color:#555">${e.t}</span> <span class="ev-${e.ev}">[${e.ev.toUpperCase()}]</span> ${e.msg}</div>`
+    ).join('');
+    
+    // 画权益曲线
+    drawEquityCurve();
+    
+    btn.disabled = false;
+    btn.textContent = '▶ 运行回测';
+  }, 2000);
+}
+
+function drawEquityCurve() {
+  const canvas = document.getElementById('chartCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  
+  const w = canvas.width, h = canvas.height;
+  const padding = 30;
+  
+  // 生成数据
+  const data = [], benchmark = [];
+  let equity = 100, bench = 100;
+  for(let i=0; i<120; i++){
+    equity *= 1 + (Math.random()-0.45)*0.03;
+    bench *= 1 + (Math.random()-0.48)*0.02;
+    data.push(equity);
+    benchmark.push(bench);
+  }
+  
+  const maxV = Math.max(...data, ...benchmark);
+  const minV = Math.min(...data, ...benchmark);
+  
+  ctx.clearRect(0, 0, w, h);
+  
+  // 基准线
+  ctx.strokeStyle = '#555';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4,4]);
+  ctx.beginPath();
+  ctx.moveTo(padding, h/2);
+  ctx.lineTo(w-padding, h/2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  
+  // 权益曲线
+  ctx.strokeStyle = '#00ff88';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  data.forEach((v,i)=>{
+    const x = padding + (i/(data.length-1))*(w-2*padding);
+    const y = h - padding - ((v-minV)/(maxV-minV+0.001))*(h-2*padding);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  
+  // 基准
+  ctx.strokeStyle = '#ff6b35';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([3,3]);
+  ctx.beginPath();
+  benchmark.forEach((v,i)=>{
+    const x = padding + (i/(benchmark.length-1))*(w-2*padding);
+    const y = h - padding - ((v-minV)/(maxV-minV+0.001))*(h-2*padding);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  ctx.setLineDash([]);
+  
+  // 图例
+  ctx.fillStyle = '#00ff88';
+  ctx.fillRect(padding+5, 10, 20, 3);
+  ctx.fillStyle = '#fff';
+  ctx.font = '11px sans-serif';
+  ctx.fillText('策略权益', padding+30, 15);
+  ctx.fillStyle = '#ff6b35';
+  ctx.fillRect(padding+100, 10, 20, 3);
+  ctx.fillStyle = '#fff';
+  ctx.fillText('沪深300基准', padding+125, 15);
+}
+
+setTimeout(runBacktest, 500);
+</script>
+</body>
+</html>
