@@ -5,6 +5,11 @@ A free online utility tools website. No registration, no download, 100% free.
 ## 🌐 Live Site
 **https://toolgen.xyz** (coming soon)
 
+## 🆕 Latest Tools (2026-04-28)
+- ashare-board-rotation: A股板块轮动分析引擎
+- ashare-microstructure-analysis: 市场微观结构博弈分析
+- ashare-backtest-engine: 量化回测引擎
+
 ## 🚀 Deploy to GitHub Pages
 1. Go to Settings → Pages
 2. Source: main branch, / (root)
