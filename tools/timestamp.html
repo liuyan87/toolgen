@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Timestamp Converter - ToolGen</title>
+    <meta name="description" content="Convert between Unix timestamp, UTC, and human-readable date. Free timestamp converter.">
+    <meta name="keywords" content="timestamp converter, unix timestamp, epoch converter, date converter">
+    <link rel="canonical" href="https://toolgen.xyz/tools/timestamp.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .result-box { background: #0a0a0a; border: 2px solid #667eea; border-radius: 10px; padding: 15px; margin: 10px 0; font-family: monospace; }
+        .result-box .label { color: #888; font-size: 0.8rem; }
+        .result-box .value { color: #667eea; font-size: 1.1rem; margin-top: 3px; word-break: break-all; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>⏰ Timestamp Converter</h1>
+        <p class="subtitle">Convert between Unix timestamp, UTC, and human-readable date.</p>
+        <div class="card">
+            <label>Unix Timestamp (seconds)</label>
+            <input type="number" id="tsInput" placeholder="e.g., 1714152000 or leave empty for now" oninput="convertTS()">
+            <label style="margin-top:15px;">Or enter a date</label>
+            <input type="datetime-local" id="dateInput" onchange="convertDate()">
+            <button class="btn" onclick="convertNow()">📅 Convert Current Time</button>
+            <div id="results"></div>
+        </div>
+    </div>
+    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+    <script>
+        function convertTS() {
+            const ts = document.getElementById('tsInput').value;
+            if (!ts) { document.getElementById('results').innerHTML = ''; return; }
+            const d = new Date(parseInt(ts) * 1000);
+            showResults(d);
+        }
+        function convertDate() {
+            const val = document.getElementById('dateInput').value;
+            if (!val) return;
+            const d = new Date(val);
+            showResults(d);
+        }
+        function convertNow() {
+            const d = new Date();
+            document.getElementById('tsInput').value = Math.floor(d.getTime() / 1000);
+            showResults(d);
+        }
+        function showResults(d) {
+            const results = document.getElementById('results');
+            results.innerHTML = `
+                <div class="result-box"><div class="label">Unix Timestamp (s)</div><div class="value">${Math.floor(d.getTime()/1000)}</div></div>
+                <div class="result-box"><div class="label">Unix Timestamp (ms)</div><div class="value">${d.getTime()}</div></div>
+                <div class="result-box"><div class="label">UTC</div><div class="value">${d.toUTCString()}</div></div>
+                <div class="result-box"><div class="label">Local Time</div><div class="value">${d.toString()}</div></div>
+                <div class="result-box"><div class="label">ISO 8601</div><div class="value">${d.toISOString()}</div></div>
+            `;
+        }
+        convertNow();
+    </script>
+</body>
+</html>
