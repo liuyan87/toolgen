@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI Agent Guardrails Builder - ToolGen</title><meta name="description" content="Build safety guardrails for AI agents. Content filters, output validators, and safety policies."><link rel="canonical" href="https://toolgen.xyz/tools/agent-guardrails-builder.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea,input,select{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}textarea{min-height:80px;resize:vertical}textarea:focus,input:focus,select:focus{border-color:#667eea}.guard-item{display:flex;gap:12px;align-items:center;padding:12px;background:#0a0a0a;border-radius:10px;margin-bottom:8px;border:2px solid transparent;cursor:pointer}.guard-item.active{border-color:#4ade80}.guard-item input{width:auto;margin:0}.guard-icon{font-size:1.5rem}.guard-name{font-weight:700;color:#667eea;font-size:0.9rem}.guard-desc{color:#888;font-size:0.8rem}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.8rem;color:#667eea;white-space:pre;max-height:400px;overflow:auto;margin-top:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🛡️ AI Agent Guardrails Builder</h1><p class="subtitle">Build safety guardrails for your AI agents.</p><div class="card"><h3 style="color:#667eea;margin-bottom:15px">Input Guards (User → Agent)</h3><div class="guard-item active" onclick="toggle(this)"><input type="checkbox" checked><div class="guard-icon">🚫</div><div><div class="guard-name">PII/Privacy Filter</div><div class="guard-desc">Block personal identifiable information (SSN, credit cards, passwords)</div></div></div><div class="guard-item active" onclick="toggle(this)"><input type="checkbox" checked><div class="guard-icon">🔒</div><div><div class="guard-name">Prompt Injection Detector</div><div class="guard-desc">Detect and block prompt injection attacks</div></div></div><div class="guard-item" onclick="toggle(this)"><input type="checkbox"><div class="guard-icon">🌍</div><div><div class="guard-name">Language Filter</div><div class="guard-desc">Allow only specific languages</div></div></div></div><div class="card"><h3 style="color:#667eea;margin-bottom:15px">Output Guards (Agent → User)</h3><div class="guard-item active" onclick="toggle(this)"><input type="checkbox" checked><div class="guard-icon">🔍</div><div><div class="guard-name">Output Content Filter</div><div class="guard-desc">Check outputs for harmful content</div></div></div><div class="guard-item active" onclick="toggle(this)"><input type="checkbox" checked><div class="guard-icon">📝</div><div><div class="guard-name">Sensitive Data Redactor</div><div class="guard-desc">Redact emails, phones, addresses from outputs</div></div></div></div><button class="btn" onclick="generateCode()">⚡ Generate Guardrails Code</button><div class="code-output" id="codeOutput"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function toggle(el){const cb=el.querySelector('input');cb.checked=!cb.checked;el.classList.toggle('active',cb.checked);}function generateCode(){const code=`# AI Agent Guardrails - ToolGen
+import re
+
+class AgentGuardrails:
+    def __init__(self):
+        self.pii_patterns = [
+            (r'\b\d{3}-\d{2}-\d{4}\b', '[SSN]'),
+            (r'\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b', '[CC]'),
+            (r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', '[EMAIL]'),
+        ]
+        self.inject_patterns = [
+            r'ignore (previous|all|above) instructions',
+            r'forget everything you were told',
+            r'you are now (?:a|an) ', r'new system prompt',
+        ]
+    
+    def check_input(self, text: str) -> dict:
+        for pattern, replacement in self.pii_patterns:
+            text = re.sub(pattern, replacement, text)
+        for pattern in self.inject_patterns:
+            if re.search(pattern, text, re.IGNORECASE):
+                return {"allowed": False, "reason": "Prompt injection detected"}
+        return {"allowed": True, "text": text}
+    
+    def check_output(self, text: str) -> dict:
+        for pattern, replacement in self.pii_patterns:
+            text = re.sub(pattern, replacement, text)
+        return {"allowed": True, "text": text}
+
+guardrails = AgentGuardrails()
+result = guardrails.check_input(user_input)`;document.getElementById('codeOutput').textContent=code;}generateCode();</script></body></html>

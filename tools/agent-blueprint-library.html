@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free AI Agent Blueprints - ToolGen</title><meta name="description" content="Proven AI agent blueprints: researcher, writer, coder, analyst, support. Copy and customize."><link rel="canonical" href="https://toolgen.xyz/tools/agent-blueprint-library.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea{width:100%;padding:14px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.85rem;resize:vertical;min-height:250px;outline:none}.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.filter{padding:8px 16px;background:#1a1a1a;border:2px solid #333;border-radius:20px;cursor:pointer;font-size:0.9rem;transition:all 0.2s}.filter:hover,.filter.active{border-color:#667eea;background:rgba(102,126,234,0.1)}.bp-card{background:#0a0a0a;border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:15px;cursor:pointer;transition:border-color 0.2s}.bp-card:hover{border-color:#667eea}.bp-name{font-weight:700;color:#667eea;font-size:1.05rem;margin-bottom:5px}.bp-desc{color:#aaa;font-size:0.9rem;margin-bottom:8px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📋 AI Agent Blueprint Library</h1><p class="subtitle">Proven agent blueprints ready to copy and use. Researcher, Writer, Coder, Analyst, Support.</p><div class="card"><div class="filters"><button class="filter active" onclick="filterAll(this)">All</button><button class="filter" onclick="filterAll(this,'research')">🔬 Research</button><button class="filter" onclick="filterAll(this,'coding')">💻 Coding</button><button class="filter" onclick="filterAll(this,'writing')">✍️ Writing</button><button class="filter" onclick="filterAll(this,'analysis')">📊 Analysis</button></div><div id="blueprints"></div></div><div class="card" id="detailCard" style="display:none"><h3 style="color:#667eea;margin-bottom:15px" id="detailTitle"></h3><textarea id="detailCode" readonly onclick="this.select()"></textarea><button class="btn" onclick="copyCode()">📋 Copy</button><button class="btn" onclick="closeDetail()">← Back</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const blueprints=[{name:"Deep Research Agent",category:"research",desc:"Autonomously research any topic, find sources, synthesize findings.",code:`research_agent = Agent(
+    role="Senior Research Analyst",
+    goal="Conduct thorough research and produce comprehensive reports",
+    backstory="You are a senior research analyst with expertise in finding, evaluating, and synthesizing information from diverse sources.",
+    tools=[web_search, file_read],
+    verbose=True
+)
+research_task = Task(
+    description="Research {topic} thoroughly. Find at least 5 credible sources, analyze, produce report.",
+    agent=research_agent
+)`},{name:"Code Generation Agent",category:"coding",desc:"Write production-quality code with tests, documentation, and best practices.",code:`coder_agent = Agent(
+    role="Senior Software Engineer",
+    goal="Write clean, efficient, well-documented code",
+    backstory="You are a senior software engineer with 15 years of experience. You write clean code following SOLID principles.",
+    tools=[code_execution, file_write],
+    verbose=True
+)
+coding_task = Task(
+    description="Write {description} in {language}. Follow best practices, include tests and docstrings.",
+    agent=coder_agent
+)`},{name:"Data Analysis Agent",category:"analysis",desc:"Analyze datasets, generate insights, create visualizations and statistical summaries.",code:`data_agent = Agent(
+    role="Senior Data Analyst",
+    goal="Analyze data and generate actionable insights",
+    backstory="You are a senior data analyst with expertise in statistics, visualization, and business intelligence.",
+    tools=[code_execution, file_read],
+    verbose=True,
+    code_interpreter=True
+)
+analysis_task = Task(
+    description="Analyze the dataset and generate insights, visualizations, and statistical summaries.",
+    agent=data_agent
+)`},{name:"Technical Blog Writer",category:"writing",desc:"Write engaging, SEO-optimized technical blog posts.",code:`writer_agent = Agent(
+    role="Senior Technical Writer",
+    goal="Write engaging, SEO-optimized technical content",
+    backstory="You are a senior technical writer for major tech blogs. You know how to write content that ranks.",
+    tools=[web_search],
+    verbose=True
+)
+writing_task = Task(
+    description="Write a technical blog post about {topic}. Include intro, H2/H3 subheadings, code examples, and conclusion.",
+    agent=writer_agent
+)`},{name:"Code Review Agent",category:"coding",desc:"Review code for bugs, performance, security vulnerabilities, and best practices.",code:`reviewer_agent = Agent(
+    role="Principal Software Architect",
+    goal="Identify bugs, security issues, and improvement opportunities",
+    backstory="You are a principal architect who has found critical vulnerabilities in major open source projects.",
+    tools=[code_execution, file_read],
+    verbose=True
+)
+review_task = Task(
+    description="Review the code for: (1) Bugs, (2) Security, (3) Performance, (4) Quality, (5) Tests.",
+    agent=reviewer_agent
+)`},{name:"Financial Analyst Agent",category:"analysis",desc:"Analyze financial data, create forecasts, and generate investment insights.",code:`finance_agent = Agent(
+    role="Senior Financial Analyst",
+    goal="Provide data-driven financial insights and recommendations",
+    backstory="You are a CFA-certified analyst with 12 years at Goldman Sachs. You specialize in quantitative analysis.",
+    tools=[code_execution, web_search],
+    verbose=True
+)
+finance_task = Task(
+    description="Analyze the financial data. Create forecasts, identify trends, assess risk, and provide recommendations.",
+    agent=finance_agent
+)`}];let currentFilter='';function filterAll(btn,filter){currentFilter=filter||'';document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));btn.classList.add('active');renderBlueprints();}function renderBlueprints(){const filtered=currentFilter?blueprints.filter(b=>b.category===currentFilter):blueprints;document.getElementById('blueprints').innerHTML=filtered.map(b=>`<div class="bp-card" onclick="showDetail('${b.name}')"><div class="bp-name">${b.name}</div><div class="bp-desc">${b.desc}</div></div>`).join('');}function showDetail(name){const bp=blueprints.find(b=>b.name===name);if(!bp)return;document.getElementById('detailTitle').textContent=bp.name;document.getElementById('detailCode').value=bp.code;document.getElementById('blueprints').parentElement.style.display='none';document.getElementById('detailCard').style.display='block';}function closeDetail(){document.getElementById('detailCard').style.display='none';document.getElementById('blueprints').parentElement.style.display='block';}function copyCode(){navigator.clipboard.writeText(document.getElementById('detailCode').value);}renderBlueprints();</script></body></html>

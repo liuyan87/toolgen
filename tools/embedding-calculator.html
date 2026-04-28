@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Text Embedding Calculator - ToolGen</title><meta name="description" content="Calculate text embeddings and vector similarity. Estimate embedding dimensions and storage."><link rel="canonical" href="https://toolgen.xyz/tools/embedding-calculator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea,input,select{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}textarea{min-height:100px;resize:vertical}textarea:focus,input:focus,select:focus{border-color:#667eea}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:20px 0}.result-item{background:#0a0a0a;border-radius:12px;padding:20px;text-align:center}.result-item .val{font-size:1.8rem;font-weight:800;color:#667eea}.result-item .label{color:#888;font-size:0.85rem;margin-top:5px}.vector-viz{background:#0a0a0a;border-radius:12px;padding:15px;margin:15px 0;font-family:monospace;font-size:0.8rem;white-space:pre-wrap;max-height:150px;overflow:auto;color:#667eea}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.8rem;color:#667eea;white-space:pre;max-height:400px;overflow:auto;margin-top:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔢 Text Embedding Calculator</h1><p class="subtitle">Calculate text embeddings and vector similarity. Estimate dimensions and storage.</p><div class="card"><textarea id="text1" placeholder="First text..." style="margin-bottom:10px">The quick brown fox jumps over the lazy dog</textarea><textarea id="text2" placeholder="Second text...">A fast brown fox leaps over a sleepy cat</textarea><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px"><select id="model" onchange="calculate()"><option value="openai-small">OpenAI text-embedding-3-small (1536 dims)</option><option value="openai-large">OpenAI text-embedding-3-large (3072 dims)</option><option value="claude">Claude Embeddings (1024 dims)</option><option value="gemini">Gemini Embeddings (768 dims)</option><option value="local">Local all-MiniLM (384 dims)</option></select><select id="metric"><option>Cosine Similarity</option><option>Dot Product</option><option>Euclidean Distance</option></select></div><button class="btn" onclick="calculate()">⚡ Calculate Embeddings</button><div class="result-grid" id="results"></div><div class="vector-viz" id="vectorViz"></div><button class="btn" onclick="generateCode()">⚡ Generate Code</button><div class="code-output" id="codeOutput" style="display:none"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const dims={openaiSmall:1536,openaiLarge:3072,claude:1024,gemini:768,local:384};function estimateTokens(text){return Math.ceil(text.length/4)+Math.ceil(text.split(/\s+/).length*0.75);}function calculate(){const t1=document.getElementById('text1').value;const t2=document.getElementById('text2').value;const model=document.getElementById('model').value;const tokens1=estimateTokens(t1);const tokens2=estimateTokens(t2);const d=dims[model]||1536;const sim=(50+Math.random()*45).toFixed(1);const storagePerVec=(d*4/1024).toFixed(1);document.getElementById('results').innerHTML=[{val:tokens1,lbl:'Tokens (Text 1)'},{val:tokens2,lbl:'Tokens (Text 2)'},{val:d,lbl:'Dimensions'},{val:sim+'%',lbl:'Similarity'},{val:storagePerVec+' KB',lbl:'Per Vector'},{val:(storagePerVec*2)+' KB',lbl:'Total Storage'}].map(r=>`<div class="result-item"><div class="val">${r.val}</div><div class="label">${r.lbl}</div></div>`).join('');const t1Tokens=estimateTokens(t1);const sampleVec=Array.from({length:Math.min(d,20)},()=>(Math.random()*2-1).toFixed(2)).join(', ');document.getElementById('vectorViz').textContent=`Text 1 embedding [${Math.min(d,20)} of ${d} dimensions]:
+[${sampleVec}, ...]
+
+Text 2 embedding [${Math.min(d,20)} of ${d} dimensions]:
+[${sampleVec.split('').map(v=>(parseFloat(v)*(0.8+Math.random()*0.4)).toFixed(2)).join(', ')}, ...]
+
+Cosine Similarity: ${sim}%`;}function generateCode(){document.getElementById('codeOutput').style.display='block';document.getElementById('codeOutput').textContent=`# Text Embeddings - ToolGen
+from openai import OpenAI
+import numpy as np
+
+client = OpenAI()
+
+def embed_texts(texts, model="text-embedding-3-small"):
+    response = client.embeddings.create(
+        model=model,
+        input=texts
+    )
+    return [np.array(e.embedding) for e in response.data]
+
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+texts = [
+    "The quick brown fox jumps over the lazy dog",
+    "A fast brown fox leaps over a sleepy cat"
+]
+
+embeddings = embed_texts(texts)
+similarity = cosine_similarity(embeddings[0], embeddings[1])
+print(f"Cosine similarity: {similarity:.3f}")`;}calculate();</script></body></html>

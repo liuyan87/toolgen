@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free RAG System Builder - ToolGen</title><meta name="description" content="Build a complete RAG pipeline. Generate code for retrieval, chunking, embedding, and vector search."><meta name="keywords" content="rag system builder, rag pipeline, retrieval augmented generation, vector search, rag code generator, chunking strategy"><link rel="canonical" href="https://toolgen.xyz/tools/rag-system-builder.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}select,input{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}select:focus,input:focus{border-color:#667eea}.step{display:flex;gap:12px;align-items:center;padding:15px;background:#0a0a0a;border-radius:10px;margin-bottom:10px;border-left:4px solid #667eea}.step-icon{font-size:1.5rem;flex-shrink:0}.step-name{font-weight:700;color:#667eea;font-size:0.95rem}.step-desc{color:#888;font-size:0.8rem}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.75rem;color:#667eea;white-space:pre;max-height:500px;overflow:auto;margin-top:15px}.code-tabs{display:flex;gap:8px;margin-bottom:10px}.code-tab{padding:8px 16px;background:#333;border-radius:8px;cursor:pointer;font-size:0.85rem}.code-tab.active{background:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📚 RAG System Builder</h1><p class="subtitle">Build a complete RAG pipeline. Generate chunking, embedding, vector DB, and retrieval code.</p><div class="card"><h3 style="color:#667eea;margin-bottom:15px">Pipeline Configuration</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px"><select id="dataSource"><option value="pdf">PDF Documents</option><option value="web">Web Pages</option><option value="notion">Notion Pages</option><option value="db">Database</option></select><select id="chunking"><option value="recursive">Recursive (by separators)</option><option value="fixed">Fixed Size (characters)</option><option value="semantic">Semantic (by meaning)</option></select></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin-bottom:15px"><input type="number" id="chunkSize" value="1000"><input type="number" id="chunkOverlap" value="200"><select id="embedModel"><option value="openai">OpenAI text-embedding-3-small</option><option value="local">Local (all-MiniLM)</option></select></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px"><select id="vecDb"><option value="chroma">ChromaDB</option><option value="pinecone">Pinecone</option><option value="pgvector">pgvector</option></select><input type="number" id="topK" value="5"></div></div><div class="card"><div class="step"><div class="step-icon">📄</div><div><div class="step-name">1. Document Loading</div><div class="step-desc">Load documents from source</div></div></div><div class="step"><div class="step-icon">✂️</div><div><div class="step-name">2. Text Chunking</div><div class="step-desc">Split into searchable chunks</div></div></div><div class="step"><div class="step-icon">🔢</div><div><div class="step-name">3. Embedding Generation</div><div class="step-desc">Convert text to vectors</div></div></div><div class="step"><div class="step-icon">🗄️</div><div><div class="step-name">4. Vector Storage</div><div class="step-desc">Store in vector database</div></div></div><div class="step"><div class="step-icon">🔍</div><div><div class="step-name">5. Retrieval</div><div class="step-desc">Find relevant chunks</div></div></div><div class="step"><div class="step-icon">🤖</div><div><div class="step-name">6. Generation</div><div class="step-desc">LLM generates answer</div></div></div><button class="btn" onclick="generateCode()">⚡ Generate RAG Code</button><div class="code-tabs"><span class="code-tab active" onclick="setTab('python',this)">Python</span><span class="code-tab" onclick="setTab('langchain',this)">LangChain</span><span class="code-tab" onclick="setTab('llamaindex',this)">LlamaIndex</span></div><div class="code-output" id="codeOutput"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>let currentTab='python';function setTab(tab,btn){currentTab=tab;document.querySelectorAll('.code-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');generateCode();}function generateCode(){const cs=document.getElementById('chunkSize').value;const co=document.getElementById('chunkOverlap').value;const vd=document.getElementById('vecDb').value;const em=document.getElementById('embedModel').value;const tk=document.getElementById('topK').value;const out=document.getElementById('codeOutput');if(currentTab==='python'){out.textContent=`# RAG System - Pure Python
+from langchain.document_loaders import PyPDFLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import ${vd==='chroma'?'Chroma':'Pinecone'}
+
+# 1. Load documents
+loader = PyPDFLoader("documents.pdf")
+docs = loader.load()
+
+# 2. Chunk documents
+splitter = RecursiveCharacterTextSplitter(chunk_size=${cs}, chunk_overlap=${co})
+chunks = splitter.split_documents(docs)\n
+# 3. Generate embeddings
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")\n
+# 4. Store in vector DB
+vectorstore = ${vd==='chroma'?"Chroma.from_documents(chunks, embeddings, persist_directory='./chroma_db')":"Pinecone.from_documents(chunks, embeddings, index_name='rag-index')"}\n
+# 5. Retrieve and query
+retriever = vectorstore.as_retriever(search_kwargs={"k": ${tk}})
+result = retriever.get_relevant_documents("your query")`;}else if(currentTab==='langchain'){out.textContent=`# RAG with LangChain
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain.chains import RetrievalQA
+
+llm = ChatOpenAI(model="gpt-4o")
+embeddings = OpenAIEmbeddings()
+vectorstore = ${vd==='chroma'?"Chroma(persist_directory='./chroma_db')":"Pinecone(index_name='rag')"}
+retriever = vectorstore.as_retriever(search_kwargs={"k": ${tk}})
+qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
+result = qa.run("your question")`;}else{out.textContent=`# RAG with LlamaIndex
+from llama_index import VectorStoreIndex, SimpleDirectoryReader
+from llama_index.vector_stores import ChromaVectorStore
+
+reader = SimpleDirectoryReader("./docs")
+docs = reader.load_data()
+index = VectorStoreIndex.from_documents(docs)
+query_engine = index.as_query_engine(similarity_top_k=${tk})
+response = query_engine.query("your question")`;}}generateCode();</script></body></html>

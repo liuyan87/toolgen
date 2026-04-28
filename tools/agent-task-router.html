@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>AI Agent Task Router - ToolGen</title><meta name="description" content="Route tasks to the right AI agent. Intent classification, task routing, and queue management."><link rel="canonical" href="https://toolgen.xyz/tools/agent-task-router.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea,input,select{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}textarea{min-height:100px;resize:vertical}textarea:focus,input:focus,select:focus{border-color:#667eea}.route-visual{background:#0a0a0a;border-radius:12px;padding:20px;margin:20px 0;min-height:200px}.route-step{display:flex;gap:12px;align-items:center;padding:12px;background:#1a1a1a;border-radius:10px;margin-bottom:8px}.route-icon{font-size:1.5rem}.route-label{font-weight:700;color:#667eea}.route-detail{color:#888;font-size:0.8rem}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.8rem;color:#667eea;white-space:pre;max-height:400px;overflow:auto;margin-top:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔀 Agent Task Router</h1><p class="subtitle">Build an AI agent task router. Classify intent and route to the right agent.</p><div class="card"><textarea id="sampleTask" placeholder="Enter a sample task..." style="margin-bottom:15px">Can you help me debug this Python code?</textarea><button class="btn" onclick="testRoute()">🧪 Test Routing</button><div class="route-visual" id="routeVisual"></div><button class="btn" onclick="generateRouter()">⚡ Generate Router Code</button><div class="code-output" id="codeOutput"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const agents=[{name:'Coder',keywords:'code,coding,debug,python,javascript,program,script'},{name:'Writer',keywords:'write,article,blog,content,copy,email,draft'},{name:'Researcher',keywords:'research,find,search,investigate,analyze,information'}];function testRoute(){const task=document.getElementById('sampleTask').value.toLowerCase();const visual=document.getElementById('routeVisual');let match=null;let maxScore=0;agents.forEach(a=>{const kws=a.keywords.split(',').map(k=>k.trim());const score=kws.filter(k=>task.includes(k)).length;if(score>maxScore){maxScore=score;match=a;}});if(!match){visual.innerHTML='<div style="color:#ef4444;text-align:center">No matching agent</div>';return;}visual.innerHTML=`<div class="route-step"><div class="route-icon">📥</div><div><div class="route-label">1. Intent Classification</div><div class="route-detail">Task: "${task.substring(0,50)}..."</div></div></div><div class="route-step" style="border:2px solid #4ade80"><div class="route-icon">🎯</div><div><div class="route-label">2. Match: ${match.name}</div><div class="route-detail">Score: ${maxScore}/${agents.length}</div></div></div><div class="route-step"><div class="route-icon">🤖</div><div><div class="route-label">3. ${match.name} Executing</div><div class="route-detail">Processing task...</div></div></div>`;}function generateRouter(){const code=`# Task Router - ToolGen
+class TaskRouter:
+    def __init__(self):
+        self.agents = {
+${agents.map(a=>`            "${a.name}": ${JSON.stringify(a.keywords.split(','))}`).join(',
+')}
+        }
+    
+    def classify(self, task: str) -> str:
+        task_lower = task.lower()
+        scores = {}
+        for agent_name, keywords in self.agents.items():
+            scores[agent_name] = sum(1 for kw in keywords if kw in task_lower)
+        best = max(scores, key=scores.get)
+        return best if scores[best] > 0 else None
+    
+    def route(self, task: str):
+        agent = self.classify(task)
+        if not agent:
+            return {"error": "No matching agent"}
+        return {"agent": agent, "task": task}
+
+router = TaskRouter()
+result = router.route("debug this code")
+print(result)`;document.getElementById('codeOutput').textContent=code;}testRoute();</script></body></html>

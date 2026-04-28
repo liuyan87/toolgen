@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Agent Orchestration Pipeline - ToolGen</title><meta name="description" content="Build AI agent orchestration pipelines. Sequence agents, define transitions, and generate workflow code."><link rel="canonical" href="https://toolgen.xyz/tools/agent-orchestration-pipeline.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}select,input{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}select:focus,input:focus{border-color:#667eea}.pipeline{display:flex;flex-direction:column;gap:10px;margin:20px 0}.stage{display:flex;gap:15px;align-items:center;padding:15px;background:#0a0a0a;border-radius:12px;border:2px solid #333}.stage:hover{border-color:#667eea}.stage-num{width:36px;height:36px;background:#667eea;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}.arrow{text-align:center;font-size:1.5rem;color:#667eea}.add-stage{background:#0a0a0a;border:2px dashed #667eea;border-radius:12px;padding:15px;text-align:center;cursor:pointer;color:#667eea;font-size:0.9rem;margin:10px 0}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.8rem;color:#667eea;white-space:pre;max-height:400px;overflow:auto;margin-top:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔀 Agent Orchestration Pipeline</h1><p class="subtitle">Build multi-agent workflows. Sequence agents and generate workflow code.</p><div class="card"><div class="pipeline" id="pipeline"></div><div class="add-stage" onclick="addStage()">+ Add Stage</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px"><select id="orchType"><option value="sequential">Sequential (one after another)</option><option value="parallel">Parallel (all at once)</option><option value="conditional">Conditional (route by result)</option></select><select id="outputFormat"><option value="crewai">CrewAI</option><option value="langgraph">LangGraph</option><option value="python">Python (raw)</option></select></div><button class="btn" onclick="generateCode()">⚡ Generate Pipeline Code</button><div class="code-output" id="codeOutput"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>let stages=[];let stageCount=0;const defaults=[{name:'Input Processing',agent:'DataProcessor'},{name:'Analysis',agent:'DataAnalyst'},{name:'Report Generation',agent:'ReportWriter'}];function addStage(){stageCount++;const d=defaults[Math.min(stageCount-1,defaults.length-1)];stages.push({id:stageCount,name:d.name,agent:d.agent});renderPipeline();}function removeStage(id){stages=stages.filter(s=>s.id!==id);renderPipeline();}function renderPipeline(){const p=document.getElementById('pipeline');p.innerHTML='';stages.forEach((s,i)=>{if(i>0){const a=document.createElement('div');a.className='arrow';a.textContent='⬇️';p.appendChild(a);}const div=document.createElement('div');div.className='stage';div.innerHTML=`<div class="stage-num">${i+1}</div><div style="flex:1"><input type="text" value="${s.name}" style="margin-bottom:5px" onchange="updateStage(${s.id},'name',this.value)"><input type="text" value="${s.agent}" placeholder="Agent name" onchange="updateStage(${s.id},'agent',this.value)"></div><button onclick="removeStage(${s.id})" style="background:#ef4444;border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer">×</button>`;p.appendChild(div);});}function updateStage(id,field,val){const s=stages.find(s=>s.id===id);if(s)s[field]=val;}function generateCode(){const fmt=document.getElementById('outputFormat').value;const out=document.getElementById('codeOutput');let code='# Pipeline: '+stages.map(s=>s.name).join(' -> ')+'
+
+';if(fmt==='crewai'){code+=`from crewai import Agent, Task, Crew, Process
+
+${stages.map(s=>`${s.agent.toLowerCase()} = Agent(
+    role="${s.agent}",
+    goal="Execute the ${s.name} stage",
+    backstory="You are an expert ${s.agent}.")
+`).join('
+')}
+
+${stages.map((s,i)=>`task_${i+1} = Task(description="${s.name}", agent=${s.agent.toLowerCase()})`).join('
+')}
+
+crew = Crew(
+    agents=[${stages.map(s=>s.agent.toLowerCase()).join(', ')}],
+    tasks=[${stages.map((_,i)=>`task_${i+1}`).join(', ')}],
+    process=Process.Sequential,
+    verbose=True
+)
+result = crew.kickoff()`;}else if(fmt==='langgraph'){code+=`from langgraph.graph import StateGraph, END
+
+def create_pipeline():
+    graph = StateGraph()
+    ${stages.map((s,i)=>`graph.add_node("${s.name}", lambda state: state)`).join('
+    ')}
+    ${stages.map((s,i)=>i===0?`graph.set_entry_point("${s.name}")`:`graph.add_edge("${stages[i-1].name}", "${s.name}")`).join('
+    ')}
+    graph.add_edge("${stages[stages.length-1].name}", END)
+    return graph.compile()`;}else{code+=`async def run_pipeline(input_data):
+    state = {"input": input_data}
+    ${stages.map((s,i)=>`state["${s.name}"] = await ${s.agent.toLowerCase()}.execute(state)`).join('
+    ')}
+    return state`;}out.textContent=code;}addStage();addStage();addStage();</script></body></html>

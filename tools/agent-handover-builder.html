@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Agent Handover & Escalation Builder - ToolGen</title><meta name="description" content="Build AI agent handover workflows. Define escalation rules, human-in-the-loop, and fallback agents."><link rel="canonical" href="https://toolgen.xyz/tools/agent-handover-builder.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}input,select,textarea{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}textarea{min-height:80px;resize:vertical}textarea:focus,input:focus,select:focus{border-color:#667eea}.rule-item{display:flex;gap:12px;align-items:center;padding:15px;background:#0a0a0a;border-radius:10px;margin-bottom:10px;border-left:4px solid #ef4444}.rule-icon{font-size:1.5rem}.rule-trigger{font-weight:700;color:#667eea;font-size:0.9rem}.rule-action{color:#888;font-size:0.85rem}.flow-visual{background:#0a0a0a;border-radius:12px;padding:20px;margin:20px 0;font-family:monospace;font-size:0.8rem;color:#ccc;white-space:pre}.code-output{background:#0a0a0a;border-radius:10px;padding:15px;font-family:monospace;font-size:0.8rem;color:#667eea;white-space:pre;max-height:400px;overflow:auto;margin-top:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📞 Agent Handover & Escalation Builder</h1><p class="subtitle">Build handover workflows for AI agents. Define escalation rules, human-in-the-loop, and fallback agents.</p><div class="card"><h3 style="color:#667eea;margin-bottom:15px">Escalation Rules</h3><div id="rules"></div><div onclick="addRule()" style="background:#0a0a0a;border:2px dashed #667eea;border-radius:12px;padding:12px;text-align:center;cursor:pointer;color:#667eea;font-size:0.9rem;margin-bottom:15px">+ Add Rule</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px"><select id="fallbackAgent"><option>Escalate to Human Agent</option><option>Escalate to Supervisor Agent</option></select><select id="maxRetries"><option>Max 2 retries</option><option selected>Max 3 retries</option></select></div><div class="flow-visual" id="flowVisual"></div><button class="btn" onclick="generateCode()">⚡ Generate Handover Code</button><div class="code-output" id="codeOutput"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>let rules=[];let ruleCount=0;function addRule(){ruleCount++;rules.push({id:ruleCount,trigger:'confidence < 0.5',action:'supervisor_agent'});renderRules();}function removeRule(id){rules=rules.filter(r=>r.id!==id);renderRules();}function renderRules(){document.getElementById('rules').innerHTML=rules.map(r=>`<div class="rule-item"><div class="rule-icon">🚨</div><div style="flex:1"><input type="text" value="${r.trigger}" placeholder="Trigger condition..." style="margin-bottom:5px" onchange="updateRule(${r.id},'trigger',this.value)"><input type="text" value="${r.action}" placeholder="Target agent..." onchange="updateRule(${r.id},'action',this.value)"></div><button onclick="removeRule(${r.id})" style="background:#ef4444;border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer">×</button></div>`).join('');updateFlow();}function updateRule(id,field,val){const r=rules.find(r=>r.id===id);if(r)r[field]=val;updateFlow();}function updateFlow(){const fallback=document.getElementById('fallbackAgent').value;document.getElementById('flowVisual').textContent=`USER INPUT → AGENT → FAIL? → YES → ${fallback}
+                   ↓ NO
+              OUTPUT TO USER
+
+Escalation Rules:
+${rules.map(r=>`  ${r.trigger} → ${r.action}`).join('
+')}`;}function generateCode(){const fallback=document.getElementById('fallbackAgent').value;const maxRetries=document.getElementById('maxRetries').value;const code=`# Agent Handover & Escalation System - ToolGen
+from dataclasses import dataclass
+from typing import Optional, Callable
+
+class EscalationRule:
+    def __init__(self, trigger_fn: Callable, target: str):
+        self.trigger_fn = trigger_fn
+        self.target = target
+    
+    def should_trigger(self, ctx) -> bool:
+        return self.trigger_fn(ctx)
+
+class AgentHandoverSystem:
+    def __init__(self, primary_agent, fallback="${fallback}"):
+        self.primary_agent = primary_agent
+        self.fallback = fallback
+        self.escalation_rules = []
+        self.max_retries = ${maxRetries.replace('Max ','').split(' ')[0]}
+    
+    def add_rule(self, trigger_fn: Callable, target: str):
+        self.escalation_rules.append(EscalationRule(trigger_fn, target))
+    
+    def run(self, task: str) -> str:
+        for attempt in range(self.max_retries):
+            try:
+                result = self.primary_agent.run(task)
+                for rule in self.escalation_rules:
+                    if rule.should_trigger(result):
+                        return f"[ESCALATED to {rule.target}]"
+                return result
+            except Exception as e:
+                if attempt == self.max_retries - 1:
+                    return f"[${this.fallback}]"
+        return f"[${this.fallback}]"
+
+system = AgentHandoverSystem(support_agent)
+system.add_rule(lambda c: c.confidence < 0.5, "supervisor_agent")
+result = system.run("I want a refund")`;document.getElementById('codeOutput').textContent=code;}rules=[{id:1,trigger:'confidence < 0.5',action:'supervisor_agent'},{id:2,trigger:"contains('refund') and attempts > 1",action:'billing_agent'}];renderRules();</script></body></html>
