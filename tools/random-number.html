@@ -4,28 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Random Number Generator - ToolGen</title>
-    <meta name="description" content="Generate random numbers in a range. Perfect for lotteries, dice, picks, and more.">
-    <meta name="keywords" content="random number generator, random number, lottery number generator, dice roller">
+    <meta name="description" content="Generate random numbers instantly. Pick random numbers for lotteries, giveaways, contests. Free online random number generator.">
+    <meta name="keywords" content="random number generator, random number, lottery number generator, pick random number, random picker">
     <link rel="canonical" href="https://toolgen.xyz/tools/random-number.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
-        .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
-        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; text-align: center; }
-        .range { display: flex; gap: 15px; margin: 20px 0; align-items: center; justify-content: center; }
-        .range input { width: 120px; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1.2rem; text-align: center; }
-        .range input:focus { border-color: #667eea; outline: none; }
-        .range span { font-size: 1.5rem; color: #888; }
-        .result { font-size: 5rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 30px 0; }
-        .count-group { margin: 15px 0; }
-        .count-group label { color: #888; margin-right: 10px; }
-        .count-group input { width: 80px; padding: 8px; border-radius: 6px; border: 2px solid #333; background: #0a0a0a; color: #fff; text-align: center; }
-        .numbers { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0; min-height: 60px; }
-        .num-bubble { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; }
-        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: 600; margin: 5px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        input { padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 30px; text-align: center; margin-top: 20px; }
+        .big-num { font-size: 4rem; font-weight: 800; color: #22c55e; }
+        .numbers-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px; }
+        .num-ball { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -34,39 +33,62 @@
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>🎲 Random Number Generator</h1>
-        <p class="subtitle">Generate random numbers in any range. Perfect for lotteries, dice, picks.</p>
+        <p class="subtitle">Generate random numbers for lotteries, giveaways, contests, and decisions.</p>
+
         <div class="card">
-            <div class="range">
-                <input type="number" id="min" value="1" placeholder="Min">
-                <span>to</span>
-                <input type="number" id="max" value="100" placeholder="Max">
+            <div class="input-row">
+                <div>
+                    <label>From</label>
+                    <input type="number" id="min" value="1" min="0">
+                </div>
+                <div>
+                    <label>To</label>
+                    <input type="number" id="max" value="100" min="1">
+                </div>
             </div>
-            <div class="count-group">
-                <label>How many numbers:</label>
-                <input type="number" id="count" value="1" min="1" max="100">
+            <label>Count</label>
+            <input type="number" id="count" value="1" min="1" max="20">
+
+            <button class="btn" onclick="generate()">Generate</button>
+            <button class="btn" style="background:#333;" onclick="clearResult()">Clear</button>
+
+            <div class="result-box" id="result">
+                <div class="big-num" id="mainNum">?</div>
+                <div class="numbers-list" id="numbersList"></div>
             </div>
-            <button class="btn" onclick="generate()">🎲 Generate</button>
-            <div class="numbers" id="numbers"></div>
         </div>
     </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/random-number.html">Random Number Generator</a> - 150+ Free Tools</p>
+    </footer>
+
     <script>
         function generate() {
             const min = parseInt(document.getElementById('min').value) || 1;
             const max = parseInt(document.getElementById('max').value) || 100;
-            const count = parseInt(document.getElementById('count').value) || 1;
-            const container = document.getElementById('numbers');
-            container.innerHTML = '';
-            for (let i = 0; i < Math.min(count, 100); i++) {
-                const num = Math.floor(Math.random() * (max - min + 1)) + min;
-                const bubble = document.createElement('div');
-                bubble.className = 'num-bubble';
-                bubble.textContent = num;
-                container.appendChild(bubble);
+            const count = Math.min(parseInt(document.getElementById('count').value) || 1, 20);
+
+            const numbers = [];
+            for (let i = 0; i < count; i++) {
+                numbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+
+            if (count === 1) {
+                document.getElementById('mainNum').textContent = numbers[0];
+                document.getElementById('numbersList').innerHTML = '';
+            } else {
+                document.getElementById('mainNum').textContent = '';
+                document.getElementById('numbersList').innerHTML = numbers.map(n =>
+                    `<div class="num-ball">${n}</div>`
+                ).join('');
             }
         }
-        generate();
+
+        function clearResult() {
+            document.getElementById('mainNum').textContent = '?';
+            document.getElementById('numbersList').innerHTML = '';
+        }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>
