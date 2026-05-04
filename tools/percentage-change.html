@@ -1,3 +1,81 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Percentage Change Calculator - ToolGen</title><meta name="description" content="Calculate percentage increase or decrease between two values. Free online calculator."><meta name="keywords" content="percentage change, percentage increase, percentage decrease, change calculator"><link rel="canonical" href="https://toolgen.xyz/tools/percentage-change.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:500px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-size:1.2rem;text-align:center;margin-bottom:15px}input:focus{border-color:#667eea;outline:none}.result{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:30px;text-align:center;font-size:2.5rem;font-weight:700;margin:20px 0}.result span{font-size:1rem;opacity:0.9}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📈 Percentage Change</h1><p class="subtitle">Calculate percentage increase or decrease.</p><div class="card"><label>Original Value</label><input type="number" id="from" placeholder="100" oninput="calc()"><label>New Value</label><input type="number" id="to" placeholder="150" oninput="calc()"><div class="result" id="result">0%<span>change</span></div><button class="btn" onclick="calc()">⚡ Calculate</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function calc(){const f=parseFloat(document.getElementById('from').value);const t=parseFloat(document.getElementById('to').value);if(!f)return;const change=((t-f)/f*100).toFixed(2);const sign=change>=0?'+':'';document.getElementById('result').innerHTML=`${sign}${change}%<span>${change>=0?'increase':'decrease'}</span>`;document.getElementById('result').style.background=change>=0?'linear-gradient(135deg,#4ade80,#22c55e)':'linear-gradient(135deg,#ef4444,#dc2626)';}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Percentage Change Calculator - ToolGen</title>
+    <meta name="description" content="Calculate percentage increase or decrease between two numbers. Free online percentage change calculator.">
+    <meta name="keywords" content="percentage change calculator, percent change, percentage increase, percentage decrease, how to calculate percentage change">
+    <link rel="canonical" href="https://toolgen.xyz/tools/percentage-change.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1.2rem; text-align: center; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 30px; text-align: center; margin-top: 20px; }
+        .result-box .num { font-size: 3rem; font-weight: 800; }
+        .result-box .label { color: #888; margin-top: 10px; }
+        .result-box.increase .num { color: #22c55e; }
+        .result-box.decrease .num { color: #ef4444; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📈 Percentage Change Calculator</h1>
+        <p class="subtitle">Calculate percentage increase or decrease between two values.</p>
+
+        <div class="card">
+            <label>Original Value:</label>
+            <input type="number" id="original" placeholder="100" value="100">
+
+            <label>New Value:</label>
+            <input type="number" id="new" placeholder="150" value="150">
+
+            <button class="btn" onclick="calculate()">Calculate</button>
+
+            <div class="result-box" id="result">
+                <div class="num" id="pctChange">+50%</div>
+                <div class="label" id="changeLabel">increase</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/percentage-change.html">Percentage Change</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function calculate() {
+            const original = parseFloat(document.getElementById('original').value) || 0;
+            const newVal = parseFloat(document.getElementById('new').value) || 0;
+
+            if (original === 0) {
+                alert('Original value cannot be zero');
+                return;
+            }
+
+            const change = ((newVal - original) / original) * 100;
+            const isIncrease = change >= 0;
+            const absChange = Math.abs(change);
+
+            const result = document.getElementById('result');
+            result.className = 'result-box ' + (isIncrease ? 'increase' : 'decrease');
+            document.getElementById('pctChange').textContent = (isIncrease ? '+' : '') + change.toFixed(2) + '%';
+            document.getElementById('changeLabel').textContent = isIncrease ? 'increase' : 'decrease';
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

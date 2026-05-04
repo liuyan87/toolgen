@@ -1,27 +1,142 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free YAML to JSON Converter - ToolGen</title><meta name="description" content="Convert YAML to JSON instantly. Free YAML to JSON converter."><meta name="keywords" content="yaml to json, convert yaml json, yaml json converter"><link rel="canonical" href="https://toolgen.xyz/tools/yaml-to-json.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:800px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.9rem;outline:none;resize:vertical;min-height:200px}textarea:focus{border-color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📋 YAML to JSON Converter</h1><p class="subtitle">Convert YAML to JSON instantly. Free & easy.</p><div class="card"><textarea id="input" placeholder="name: John&#10;age: 30&#10;city: New York"></textarea><button class="btn" onclick="convert()">⚡ Convert to JSON</button><button class="btn" onclick="copy()">📋 Copy</button><textarea id="output" readonly style="margin-top:15px"></textarea></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free YAML to JSON Converter - ToolGen</title>
+    <meta name="description" content="Convert YAML to JSON and JSON to YAML instantly. Free online YAML to JSON converter.">
+    <meta name="keywords" content="yaml to json, json to yaml, convert yaml json, yaml json converter, yaml parser">
+    <link rel="canonical" href="https://toolgen.xyz/tools/yaml-to-json.html">
     <style>
-        .faq {{ margin-top: 25px; }}
-        .faq-item {{ background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }}
-        .faq-item h4 {{ color: #fff; margin-bottom: 6px; font-size: 0.95rem; }}
-        .faq-item p {{ color: #888; font-size: 0.85rem; }}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.85rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
     </style>
-    <div class="faq">
-        <h3 style="color:#667eea; margin-bottom:12px;">❓ FAQ</h3>
-        <div class="faq-item">
-            <h4>Is my data safe?</h4>
-            <p>Yes. All processing happens in your browser. Your data never leaves your device.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Is this free?</h4>
-            <p>Yes, completely free with no registration required.</p>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📄 YAML to JSON Converter</h1>
+        <p class="subtitle">Convert between YAML and JSON formats.</p>
+
+        <div class="card">
+            <label>Input (YAML or JSON):</label>
+            <textarea id="input" placeholder="Paste YAML or JSON here..."></textarea>
+
+            <button class="btn" onclick="convert()">Detect & Convert</button>
+            <button class="btn" style="background:#333;" onclick="swap()">⇄ Swap</button>
+            <button class="btn" style="background:#333;" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <textarea id="output" placeholder="Converted output will appear here..." readonly></textarea>
         </div>
     </div>
 
     <footer>
-        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - 150+ Free Tools</p>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/yaml-to-json.html">YAML to JSON</a> - 150+ Free Tools</p>
     </footer>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
+
+    <script>
+        function isYaml(text) {
+            return text.includes(':') && !text.trim().startsWith('{') && !text.trim().startsWith('[');
+        }
+
+        function yamlToJson(yaml) {
+            const lines = yaml.split('\n');
+            const result = {};
+            const stack = [{indent: -1, obj: result}];
+            let currentArray = null;
+
+            for (const line of lines) {
+                if (!line.trim() || line.trim().startsWith('#')) continue;
+                const indent = line.search(/\S/);
+                const content = line.trim();
+
+                while (stack.length > 1 && stack[stack.length-1].indent >= indent) stack.pop();
+
+                if (content.endsWith(':')) {
+                    const key = content.slice(0, -1).trim();
+                    const newObj = {};
+                    stack[stack.length-1].obj[key] = newObj;
+                    stack.push({indent, obj: newObj});
+                } else if (content.includes(':')) {
+                    const colonIdx = content.indexOf(':');
+                    const key = content.substring(0, colonIdx).trim();
+                    let val = content.substring(colonIdx+1).trim();
+                    if (val === 'null' || val === '') val = null;
+                    else if (val === 'true') val = true;
+                    else if (val === 'false') val = false;
+                    else if (!isNaN(val) && val !== '') val = Number(val);
+                    stack[stack.length-1].obj[key] = val;
+                }
+            }
+
+            return result;
+        }
+
+        function jsonToYaml(obj, indent = 0) {
+            let yaml = '';
+            const spaces = '  '.repeat(indent);
+            if (Array.isArray(obj)) {
+                obj.forEach(item => {
+                    yaml += spaces + '- ' + (typeof item === 'object' ? '\n' + jsonToYaml(item, indent+1) : item) + '\n';
+                });
+            } else if (typeof obj === 'object' && obj !== null) {
+                for (const [key, val] of Object.entries(obj)) {
+                    if (typeof val === 'object' && val !== null) {
+                        yaml += spaces + key + ':\n' + jsonToYaml(val, indent+1);
+                    } else {
+                        yaml += spaces + key + ': ' + (val === null ? 'null' : val) + '\n';
+                    }
+                }
+            }
+            return yaml;
+        }
+
+        function convert() {
+            const input = document.getElementById('input').value.trim();
+            if (!input) return;
+
+            try {
+                if (isYaml(input)) {
+                    const obj = yamlToJson(input);
+                    document.getElementById('output').value = JSON.stringify(obj, null, 2);
+                } else {
+                    const obj = JSON.parse(input);
+                    document.getElementById('output').value = jsonToYaml(obj);
+                }
+            } catch(e) {
+                alert('Conversion error: ' + e.message);
+            }
+        }
+
+        function swap() {
+            const input = document.getElementById('input').value;
+            const output = document.getElementById('output').value;
+            document.getElementById('input').value = output;
+            document.getElementById('output').value = input;
+        }
+
+        function copy() {
+            const text = document.getElementById('output').value;
+            if (text) navigator.clipboard.writeText(text);
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('output').value = '';
+        }
+    </script>
 </body>
-</html><script>function parseYAML(yaml){const lines=yaml.split('\n');const result={};const stack=[{indent:-1,obj:result}];lines.forEach(line=>{if(!line.trim()||line.trim().startsWith('#'))return;const indent=line.search(/\S/);const content=line.trim();const keyMatch=content.match(/^([^:]+):(.*)$/);if(keyMatch){const[key,val]=keyMatch.slice(1);const value=val.trim();let obj=result;for(let i=stack.length-1;i>=0;i--){if(stack[i].indent<indent){obj=stack[i].obj;break;}}if(value){obj[key.trim()]=value.replace(/^['"]|['"]$/g,'');}else{obj[key.trim()]={};stack.push({indent,obj:obj[key.trim()]});}}else if(content.match(/^-\s*(.*)/)){const val=content.replace(/^-\s*/,'');const arr=Object.values(result)[Object.values(result).length-1];if(Array.isArray(arr))arr.push(val.replace(/^['"]|['"]$/g,''));}});return result;}function convert(){try{const yaml=document.getElementById('input').value;const json=parseYAML(yaml);document.getElementById('output').value=JSON.stringify(json,null,2);}catch(e){alert('Error: '+e.message);}}function copy(){navigator.clipboard.writeText(document.getElementById('output').value);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+</html>
