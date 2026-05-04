@@ -60,7 +60,62 @@
                 document.getElementById('error').textContent = '❌ Invalid JSON: ' + e.message;
             }
         }
-        function copy() { navigator.clipboard.writeText(document.getElementById('output').value); }
-    </script>
+<style>
+        .faq { margin-top: 30px; }
+        .faq h3 { color: #667eea; margin-bottom: 15px; }
+        .faq-item { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; margin-bottom: 12px; }
+        .faq-item h4 { color: #fff; margin-bottom: 8px; }
+        .faq-item p { color: #888; font-size: 0.9rem; }
+        .tips { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; margin-top: 20px; }
+        .tips h4 { color: #f59e0b; margin-bottom: 10px; }
+        .tips ul { color: #888; font-size: 0.85rem; padding-left: 20px; }
+        .tips li { margin: 5px 0; }
+        .related { margin-top: 25px; padding: 20px; background: #1a1a1a; border-radius: 12px; }
+        .related h4 { color: #667eea; margin-bottom: 12px; }
+        .related-links { display: flex; gap: 10px; flex-wrap: wrap; }
+        .related-links a { padding: 8px 16px; background: #0a0a0a; border: 1px solid #333; border-radius: 20px; color: #888; text-decoration: none; font-size: 0.85rem; }
+        .related-links a:hover { border-color: #667eea; color: #fff; }
+    </style>
+    <div class="faq">
+        <h3>💡 Quick Tips</h3>
+        <div class="tips">
+            <h4>Pro Tips for JSON Formatting:</h4>
+            <ul>
+                <li>Use Tab size 2 for readable, compact output</li>
+                <li>Minify when you need to copy-paste for production</li>
+                <li>Validate first to catch syntax errors before formatting</li>
+                <li>Copy the formatted JSON and paste it into your code editor</li>
+            </ul>
+        </div>
+    </div>
+    <div class="faq" style="margin-top:25px;">
+        <h3>❓ FAQ</h3>
+        <div class="faq-item">
+            <h4>Is my data sent to any server?</h4>
+            <p>No. All JSON processing happens entirely in your browser. Your data never leaves your device.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What does "Validate" do?</h4>
+            <p>It checks if your JSON is syntactically correct. Red highlighting shows the exact line and position of errors.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What is JSON?</h4>
+            <p>JSON (JavaScript Object Notation) is a lightweight data format used for APIs, configs, and data storage.</p>
+        </div>
+    </div>
+    <div class="related">
+        <h4>🔗 Related Developer Tools</h4>
+        <div class="related-links">
+            <a href="https://toolgen.xyz/tools/json-to-csv.html">JSON to CSV</a>
+            <a href="https://toolgen.xyz/tools/json-to-xml.html">JSON to XML</a>
+            <a href="https://toolgen.xyz/tools/yaml-to-json.html">YAML to JSON</a>
+            <a href="https://toolgen.xyz/tools/json-validator.html">JSON Validator</a>
+            <a href="https://toolgen.xyz/tools/regex-tester.html">Regex Tester</a>
+            <a href="https://toolgen.xyz/tools/sql-formatter.html">SQL Formatter</a>
+        </div>
+    </div>
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/json-formatter.html">JSON Formatter</a> - 150+ Free Tools</p>
+    </footer>
 </body>
 </html>
