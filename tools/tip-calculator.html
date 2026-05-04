@@ -1,3 +1,108 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Tip Calculator - ToolGen</title><meta name="description" content="Calculate tips and split bills. Works out tip amount, total, and per person."><meta name="keywords" content="tip calculator, bill splitter, calculate tip, restaurant calculator"><link rel="canonical" href="https://toolgen.xyz/tools/tip-calculator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:500px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-size:1.2rem;text-align:center;margin-bottom:15px}input:focus{border-color:#667eea;outline:none}.tip-presets{display:flex;gap:10px;margin-bottom:15px}.preset{flex:1;padding:10px;background:#0a0a0a;border:2px solid #333;border-radius:8px;color:#fff;cursor:pointer;text-align:center}.preset:hover,.preset.active{border-color:#667eea;background:rgba(102,126,234,0.1)}.summary{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:12px;padding:20px;margin-top:15px;text-align:center}.summary div{margin:8px 0;font-size:1.1rem}.summary .big{font-size:1.8rem;font-weight:700}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>💰 Tip Calculator</h1><p class="subtitle">Calculate tips and split bills easily.</p><div class="card"><label>Bill Amount ($)</label><input type="number" id="bill" value="50" oninput="calc()"><label>Tip %</label><div class="tip-presets"><div class="preset active" onclick="setTip(10)">10%</div><div class="preset" onclick="setTip(15)">15%</div><div class="preset" onclick="setTip(18)">18%</div><div class="preset" onclick="setTip(20)">20%</div><div class="preset" onclick="setTip(25)">25%</div></div><input type="number" id="tipPct" value="18" min="0" max="100" oninput="calc()"><label>Split Between</label><input type="number" id="split" value="1" min="1" oninput="calc()"><div class="summary"><div>Tip: $<span id="tipAmt">0.00</span></div><div>Total: $<span id="total">0.00</span></div><div class="big">$<span id="perPerson">0.00</span>/person</div></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function setTip(p){document.getElementById('tipPct').value=p;document.querySelectorAll('.preset').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');calc();}function calc(){const bill=parseFloat(document.getElementById('bill').value)||0;const tip=parseFloat(document.getElementById('tipPct').value)||0;const split=parseInt(document.getElementById('split').value)||1;const tipAmt=bill*tip/100;const total=bill+tipAmt;const perPerson=total/split;document.getElementById('tipAmt').textContent=tipAmt.toFixed(2);document.getElementById('total').textContent=total.toFixed(2);document.getElementById('perPerson').textContent=perPerson.toFixed(2);}calc();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Tip Calculator - ToolGen</title>
+    <meta name="description" content="Calculate tips and split bills instantly. Free online tip calculator for restaurants, bars, and services.">
+    <meta name="keywords" content="tip calculator, tip amount, calculate tip, bill split, restaurant calculator, service tip">
+    <link rel="canonical" href="https://toolgen.xyz/tools/tip-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1.2rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .preset-btns { display: flex; gap: 10px; margin-bottom: 15px; }
+        .preset-btn { flex: 1; padding: 10px; background: #0a0a0a; border: 2px solid #333; border-radius: 10px; color: #888; cursor: pointer; font-weight: 600; }
+        .preset-btn:hover { border-color: #667eea; color: #fff; }
+        .preset-btn.active { border-color: #667eea; background: rgba(102,126,234,0.15); color: #667eea; }
+        .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 20px; text-align: center; }
+        .result-box .val { font-size: 1.8rem; font-weight: 700; color: #22c55e; }
+        .result-box .label { color: #888; font-size: 0.85rem; margin-top: 5px; }
+        .result-box.highlight { grid-column: span 2; border: 2px solid #667eea; }
+        .result-box.highlight .val { font-size: 2.2rem; color: #667eea; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>💁 Tip Calculator</h1>
+        <p class="subtitle">Calculate tips and split bills. Never over-tip or under-tip again.</p>
+
+        <div class="card">
+            <label>Bill Amount ($)</label>
+            <input type="number" id="bill" placeholder="0.00" min="0" step="0.01">
+
+            <div class="preset-btns">
+                <button class="preset-btn" onclick="setTip(10)">10%</button>
+                <button class="preset-btn active" onclick="setTip(15)">15%</button>
+                <button class="preset-btn" onclick="setTip(18)">18%</button>
+                <button class="preset-btn" onclick="setTip(20)">20%</button>
+                <button class="preset-btn" onclick="setTip(25)">25%</button>
+            </div>
+
+            <label>Custom Tip %</label>
+            <input type="number" id="tipPct" value="15" min="0" max="100">
+
+            <label>Number of People</label>
+            <input type="number" id="people" value="1" min="1" max="50">
+
+            <button class="btn" onclick="calculate()">Calculate</button>
+
+            <div class="result-grid" id="results" style="display:none;">
+                <div class="result-box highlight">
+                    <div class="val" id="totalPerPerson">$0.00</div>
+                    <div class="label">Total per Person</div>
+                </div>
+                <div class="result-box">
+                    <div class="val" id="tipAmount">$0.00</div>
+                    <div class="label">Tip Amount</div>
+                </div>
+                <div class="result-box">
+                    <div class="val" id="totalBill">$0.00</div>
+                    <div class="label">Total with Tip</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/tip-calculator.html">Tip Calculator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function setTip(pct) {
+            document.getElementById('tipPct').value = pct;
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            calculate();
+        }
+
+        function calculate() {
+            const bill = parseFloat(document.getElementById('bill').value) || 0;
+            const tipPct = parseFloat(document.getElementById('tipPct').value) || 0;
+            const people = parseInt(document.getElementById('people').value) || 1;
+
+            const tip = bill * (tipPct / 100);
+            const total = bill + tip;
+            const perPerson = total / people;
+
+            document.getElementById('tipAmount').textContent = '$' + tip.toFixed(2);
+            document.getElementById('totalBill').textContent = '$' + total.toFixed(2);
+            document.getElementById('totalPerPerson').textContent = '$' + perPerson.toFixed(2);
+            document.getElementById('results').style.display = 'grid';
+        }
+    </script>
+</body>
+</html>

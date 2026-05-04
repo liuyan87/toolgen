@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Age Calculator - ToolGen</title>
-    <meta name="description" content="Calculate your exact age in years, months, and days. Find out how old you are in different units.">
-    <meta name="keywords" content="age calculator, how old am i, calculate age, birthday calculator">
+    <meta name="description" content="Calculate your exact age in years, months, days. Free online age calculator with birthday countdown.">
+    <meta name="keywords" content="age calculator, how old am i, birthday calculator, age in years, date of birth calculator">
     <link rel="canonical" href="https://toolgen.xyz/tools/age-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
-        .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
-        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; text-align: center; }
-        input[type="date"] { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; margin: 15px 0; }
-        input[type="date"]:focus { border-color: #667eea; outline: none; }
-        .result { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 16px; padding: 30px; margin: 20px 0; }
-        .result-num { font-size: 4rem; font-weight: 800; }
-        .result-label { font-size: 1.2rem; opacity: 0.9; }
-        .details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
-        .detail-box { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; }
-        .detail-box .num { font-size: 1.5rem; font-weight: 700; }
-        .detail-box .lbl { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
-        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: 600; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 25px; text-align: center; margin-top: 20px; }
+        .result-box .big-num { font-size: 4rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .result-box .sub { color: #888; margin-top: 10px; font-size: 0.9rem; }
+        .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
+        .detail-box { background: #0a0a0a; border-radius: 10px; padding: 15px; text-align: center; }
+        .detail-box .num { font-size: 1.5rem; font-weight: 700; color: #22c55e; }
+        .detail-box .label { color: #888; font-size: 0.8rem; margin-top: 5px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -33,42 +35,69 @@
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>🎂 Age Calculator</h1>
-        <p class="subtitle">Find out exactly how old you are in years, months, and days.</p>
+        <p class="subtitle">Calculate your exact age in years, months, days, and seconds.</p>
+
         <div class="card">
-            <label style="display:block;margin-bottom:8px;font-weight:600;color:#aaa;">Enter your birthdate</label>
-            <input type="date" id="birthdate" onchange="calculate()">
-            <button class="btn" onclick="calculate()">⚡ Calculate Age</button>
-            <div class="result" id="result" style="display:none;">
-                <div class="result-num" id="years">0</div>
-                <div class="result-label">years old</div>
-                <div class="details">
-                    <div class="detail-box"><div class="num" id="months">0</div><div class="lbl">Months</div></div>
-                    <div class="detail-box"><div class="num" id="days">0</div><div class="lbl">Days</div></div>
-                    <div class="detail-box"><div class="num" id="totalDays">0</div><div class="lbl">Total Days</div></div>
+            <label>Date of Birth:</label>
+            <input type="date" id="dob">
+
+            <button class="btn" onclick="calculate()">Calculate Age</button>
+
+            <div class="result-box" id="result" style="display:none;">
+                <div class="big-num" id="ageYears">0</div>
+                <div style="color:#888; font-size:1.2rem;">years old</div>
+                <div class="sub" id="nextBirthday"></div>
+
+                <div class="detail-grid">
+                    <div class="detail-box"><div class="num" id="totalDays">0</div><div class="label">Total Days</div></div>
+                    <div class="detail-box"><div class="num" id="totalMonths">0</div><div class="label">Total Months</div></div>
+                    <div class="detail-box"><div class="num" id="totalWeeks">0</div><div class="label">Total Weeks</div></div>
+                    <div class="detail-box"><div class="num" id="nextBirthdayNum">0</div><div class="label">Days to Birthday</div></div>
                 </div>
             </div>
         </div>
     </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/age-calculator.html">Age Calculator</a> - 150+ Free Tools</p>
+    </footer>
+
     <script>
         function calculate() {
-            const birth = document.getElementById('birthdate').value;
-            if (!birth) return;
-            const birthDate = new Date(birth);
-            const today = new Date();
-            let y = today.getFullYear() - birthDate.getFullYear();
-            let m = today.getMonth() - birthDate.getMonth();
-            let d = today.getDate() - birthDate.getDate();
-            if (d < 0) { m--; d += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
-            if (m < 0) { y--; m += 12; }
-            const totalDays = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
-            document.getElementById('years').textContent = y;
-            document.getElementById('months').textContent = m;
-            document.getElementById('days').textContent = d;
+            const dob = new Date(document.getElementById('dob').value);
+            if (!dob.getTime()) { alert('Please select your date of birth'); return; }
+
+            const now = new Date();
+            let years = now.getFullYear() - dob.getFullYear();
+            let months = now.getMonth() - dob.getMonth();
+            let days = now.getDate() - dob.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            const totalDays = Math.floor((now - dob) / (1000 * 60 * 60 * 24));
+            const totalMonths = years * 12 + months;
+            const totalWeeks = Math.floor(totalDays / 7);
+
+            // Next birthday
+            let nextBday = new Date(now.getFullYear(), dob.getMonth(), dob.getDate());
+            if (nextBday < now) nextBday = new Date(now.getFullYear() + 1, dob.getMonth(), dob.getDate());
+            const daysToBday = Math.ceil((nextBday - now) / (1000 * 60 * 60 * 24));
+
+            document.getElementById('ageYears').textContent = years;
             document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+            document.getElementById('totalMonths').textContent = totalMonths;
+            document.getElementById('totalWeeks').textContent = totalWeeks.toLocaleString();
+            document.getElementById('nextBirthdayNum').textContent = daysToBday;
+            document.getElementById('nextBirthday').textContent = `🎉 ${daysToBday} days until your next birthday!`;
             document.getElementById('result').style.display = 'block';
         }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>

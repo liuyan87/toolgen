@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free BMI Calculator - ToolGen</title>
-    <meta name="description" content="Free online BMI calculator. Calculate your Body Mass Index instantly.">
-    <meta name="keywords" content="bmi calculator, body mass index, health calculator, bmi check">
+    <meta name="description" content="Calculate your Body Mass Index (BMI) instantly. Free online BMI calculator with health category breakdown.">
+    <meta name="keywords" content="bmi calculator, body mass index, bmi chart, bmi range, health calculator, weight calculator">
     <link rel="canonical" href="https://toolgen.xyz/tools/bmi-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,20 +16,19 @@
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
-        input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 20px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
         input:focus, select:focus { border-color: #667eea; }
-        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        .result-box { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 16px; padding: 30px; text-align: center; margin-top: 20px; }
-        .bmi-value { font-size: 4rem; font-weight: 800; }
-        .bmi-category { font-size: 1.2rem; margin-top: 10px; }
-        .bmi-scale { display: flex; justify-content: space-between; margin-top: 20px; padding: 0 10px; }
-        .scale-item { text-align: center; font-size: 0.8rem; }
-        .scale-item span { display: block; font-weight: 700; }
-        .underweight { color: #60a5fa; }
-        .normal { color: #4ade80; }
-        .overweight { color: #f59e0b; }
-        .obese { color: #ef4444; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 30px; text-align: center; margin-top: 20px; }
+        .bmi-num { font-size: 4rem; font-weight: 800; color: #22c55e; }
+        .bmi-cat { font-size: 1.2rem; margin-top: 10px; padding: 8px 20px; border-radius: 20px; display: inline-block; }
+        .bmi-cat.underweight { background: #3b82f6; color: #fff; }
+        .bmi-cat.normal { background: #22c55e; color: #fff; }
+        .bmi-cat.overweight { background: #f59e0b; color: #fff; }
+        .bmi-cat.obese { background: #ef4444; color: #fff; }
+        .ranges { display: flex; justify-content: space-between; margin-top: 20px; padding: 15px; background: #111; border-radius: 10px; font-size: 0.8rem; color: #888; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -38,65 +37,83 @@
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>⚖️ BMI Calculator</h1>
-        <p class="subtitle">Calculate your Body Mass Index to check your health status.</p>
+        <p class="subtitle">Calculate your Body Mass Index and check your health category.</p>
+
         <div class="card">
-            <label>Height</label>
-            <div style="display: flex; gap: 10px;">
-                <input type="number" id="height" placeholder="Enter height" style="flex: 1;">
-                <select id="heightUnit" style="width: 100px;" onchange="calculate()">
-                    <option value="cm">cm</option>
-                    <option value="in">inches</option>
-                </select>
+            <div class="input-row">
+                <div>
+                    <label>Height</label>
+                    <input type="number" id="height" placeholder="170" min="50" max="300">
+                </div>
+                <div>
+                    <label>Unit</label>
+                    <select id="heightUnit">
+                        <option value="cm">cm</option>
+                        <option value="in">inches</option>
+                    </select>
+                </div>
             </div>
-            <label>Weight</label>
-            <div style="display: flex; gap: 10px;">
-                <input type="number" id="weight" placeholder="Enter weight" style="flex: 1;">
-                <select id="weightUnit" style="width: 100px;" onchange="calculate()">
-                    <option value="kg">kg</option>
-                    <option value="lb">lb</option>
-                </select>
+            <div class="input-row">
+                <div>
+                    <label>Weight</label>
+                    <input type="number" id="weight" placeholder="70" min="10" max="500">
+                </div>
+                <div>
+                    <label>Unit</label>
+                    <select id="weightUnit">
+                        <option value="kg">kg</option>
+                        <option value="lb">lbs</option>
+                    </select>
+                </div>
             </div>
-            <br>
+
             <button class="btn" onclick="calculate()">Calculate BMI</button>
-            <div class="result-box" id="result" style="display: none;">
-                <div class="bmi-value" id="bmiValue">0</div>
-                <div class="bmi-category" id="bmiCategory"></div>
-                <div class="bmi-scale">
-                    <div class="scale-item underweight"><span>&lt;18.5</span>Underweight</div>
-                    <div class="scale-item normal"><span>18.5-24.9</span>Normal</div>
-                    <div class="scale-item overweight"><span>25-29.9</span>Overweight</div>
-                    <div class="scale-item obese"><span>&gt;30</span>Obese</div>
+
+            <div class="result-box" id="result" style="display:none;">
+                <div class="bmi-num" id="bmiNum">0.0</div>
+                <div class="bmi-cat" id="bmiCat">Normal</div>
+                <div class="ranges">
+                    <span>Underweight<br>&lt;18.5</span>
+                    <span>Normal<br>18.5-24.9</span>
+                    <span>Overweight<br>25-29.9</span>
+                    <span>Obese<br>&gt;30</span>
                 </div>
             </div>
         </div>
     </div>
+
     <footer>
-        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/bmi-calculator.html">BMI Calculator</a> - 150+ Free Tools</p>
     </footer>
+
     <script>
         function calculate() {
-            let height = parseFloat(document.getElementById('height').value);
-            let weight = parseFloat(document.getElementById('weight').value);
-            const heightUnit = document.getElementById('heightUnit').value;
-            const weightUnit = document.getElementById('weightUnit').value;
-            if (!height || !weight) return;
-            if (heightUnit === 'in') height = height * 2.54;
-            if (weightUnit === 'lb') weight = weight * 0.453592;
-            const heightM = height / 100;
-            const bmi = weight / (heightM * heightM);
+            let h = parseFloat(document.getElementById('height').value);
+            let w = parseFloat(document.getElementById('weight').value);
+            const hUnit = document.getElementById('heightUnit').value;
+            const wUnit = document.getElementById('weightUnit').value;
+
+            if (!h || !w) { alert('Please enter height and weight'); return; }
+
+            // Convert to cm and kg
+            if (hUnit === 'in') h = h * 2.54;
+            if (wUnit === 'lb') w = w * 0.453592;
+
+            const heightM = h / 100;
+            const bmi = w / (heightM * heightM);
+
+            let cat, catClass;
+            if (bmi < 18.5) { cat = 'Underweight'; catClass = 'underweight'; }
+            else if (bmi < 25) { cat = 'Normal'; catClass = 'normal'; }
+            else if (bmi < 30) { cat = 'Overweight'; catClass = 'overweight'; }
+            else { cat = 'Obese'; catClass = 'obese'; }
+
+            document.getElementById('bmiNum').textContent = bmi.toFixed(1);
+            const catEl = document.getElementById('bmiCat');
+            catEl.textContent = cat;
+            catEl.className = 'bmi-cat ' + catClass;
             document.getElementById('result').style.display = 'block';
-            document.getElementById('bmiValue').textContent = bmi.toFixed(1);
-            let category, color;
-            if (bmi < 18.5) { category = 'Underweight'; color = '#60a5fa'; }
-            else if (bmi < 25) { category = 'Normal'; color = '#4ade80'; }
-            else if (bmi < 30) { category = 'Overweight'; color = '#f59e0b'; }
-            else { category = 'Obese'; color = '#ef4444'; }
-            const catEl = document.getElementById('bmiCategory');
-            catEl.textContent = category;
-            catEl.style.color = color;
-            document.getElementById('bmiValue').style.color = color;
         }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>
