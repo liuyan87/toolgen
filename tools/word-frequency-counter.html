@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Word Frequency Counter - ToolGen</title>
+    <meta name="description" content="Count word frequency in any text. Find most common words. Free online word frequency analyzer for SEO and content analysis.">
+    <meta name="keywords" content="word frequency, count words, most common words, text analysis, seo tools, keyword count">
+    <link rel="canonical" href="https://toolgen.xyz/tools/word-frequency-counter.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        input[type="number"] { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input[type="number"]:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .results { background: #0a0a0a; border-radius: 12px; padding: 20px; margin-top: 20px; max-height: 400px; overflow-y: auto; }
+        .word-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; }
+        .word-item:last-child { border-bottom: none; }
+        .word { color: #fff; }
+        .count { color: #667eea; font-weight: 700; }
+        .bar { width: 100px; height: 6px; background: #333; border-radius: 3px; overflow: hidden; margin-left: 10px; align-self: center; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔤 Word Frequency Counter</h1>
+        <p class="subtitle">Find the most common words in any text. Perfect for SEO keyword research.</p>
+
+        <div class="card">
+            <label>Enter your text:</label>
+            <textarea id="input" placeholder="Paste or type your text here..." oninput="analyze()"></textarea>
+            <label>Top N words to show:</label>
+            <input type="number" id="topN" value="20" min="5" max="100" oninput="analyze()">
+            <button class="btn" onclick="analyze()">Analyze</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+        </div>
+
+        <div class="results" id="results">
+            <p style="color:#888; text-align:center;">Enter text to see word frequency analysis...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/word-frequency-counter.html">Word Frequency</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const stopWords = new Set(['the','a','an','and','or','but','in','on','at','to','for','of','with','by','is','are','was','were','be','been','being','have','has','had','do','does','did','will','would','could','should','may','might','must','can','this','that','these','those','i','you','he','she','it','we','they','what','which','who','when','where','how','all','each','every','both','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','just','also','now','here','there','then','once','if','as','from','into','through','during','before','after','above','below','between','under','again','further','then','once','about','out','up','down','off','over','under','again','further','then','once']);
+
+        function analyze() {
+            const text = document.getElementById('input').value.trim();
+            const topN = parseInt(document.getElementById('topN').value) || 20;
+
+            if (!text) {
+                document.getElementById('results').innerHTML = '<p style="color:#888; text-align:center;">Enter text to see word frequency analysis...</p>';
+                return;
+            }
+
+            const words = text.toLowerCase()
+                .replace(/[^a-zA-Z\s]/g, ' ')
+                .split(/\s+/)
+                .filter(w => w.length > 2 && !stopWords.has(w));
+
+            const freq = {};
+            words.forEach(w => freq[w] = (freq[w] || 0) + 1);
+
+            const sorted = Object.entries(freq)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, topN);
+
+            const maxCount = sorted[0]?.[1] || 1;
+
+            document.getElementById('results').innerHTML = sorted.map(([word, count]) =>
+                `<div class="word-item">
+                    <div style="display:flex; align-items:center;">
+                        <span class="word">${word}</span>
+                        <div class="bar"><div class="bar-fill" style="width:${(count/maxCount*100).toFixed(0)}%"></div></div>
+                    </div>
+                    <span class="count">${count}</span>
+                </div>`
+            ).join('');
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('results').innerHTML = '<p style="color:#888; text-align:center;">Enter text to see word frequency analysis...</p>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free UUID Generator v4 - ToolGen</title>
+    <meta name="description" content="Generate UUID v4 (random) instantly. Free UUID generator for developers. Create unique identifiers for databases, APIs, and more.">
+    <meta name="keywords" content="uuid generator, uuid v4, generate uuid, unique id generator, guid generator, random id generator">
+    <link rel="canonical" href="https://toolgen.xyz/tools/uuid-generator-v4.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        input[type="number"] { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 20px; }
+        input[type="number"]:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .uuid-list { background: #0a0a0a; border-radius: 12px; padding: 20px; margin-top: 20px; }
+        .uuid-item { font-family: monospace; font-size: 1.1rem; color: #22c55e; padding: 10px 0; border-bottom: 1px solid #222; word-break: break-all; }
+        .uuid-item:last-child { border-bottom: none; }
+        .uuid-item button { background: none; border: none; color: #667eea; cursor: pointer; margin-left: 10px; float: right; }
+        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-left: 10px; }
+        .formats { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+        .format-btn { padding: 8px 16px; background: #0a0a0a; border: 2px solid #333; border-radius: 20px; color: #888; cursor: pointer; font-size: 0.85rem; }
+        .format-btn.active { border-color: #667eea; color: #fff; background: rgba(102,126,234,0.1); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🎲 UUID v4 Generator</h1>
+        <p class="subtitle">Generate RFC 4122 compliant UUID v4 (random) instantly. Free for developers.</p>
+
+        <div class="card">
+            <label>Number of UUIDs to generate:</label>
+            <input type="number" id="count" value="5" min="1" max="100">
+
+            <div class="formats">
+                <button class="format-btn active" data-format="standard" onclick="setFormat('standard')">Standard (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)</button>
+                <button class="format-btn" data-format="nocurse" onclick="setFormat('ncurse')">No Hyphens</button>
+                <button class="format-btn" data-format="urn" onclick="setFormat('urn')">URN</button>
+            </div>
+
+            <button class="btn" onclick="generate()">Generate UUIDs</button>
+            <button class="btn" style="background:#333;" onclick="copyAll()">📋 Copy All</button>
+        </div>
+
+        <div class="uuid-list" id="uuidList">
+            <p style="color:#888; text-align:center;">Click "Generate UUIDs" to create...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/uuid-generator-v4.html">UUID Generator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        let currentFormat = 'standard';
+
+        function setFormat(fmt) {
+            currentFormat = fmt;
+            document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-format="${fmt}"]`).classList.add('active');
+            generate();
+        }
+
+        function uuid4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function formatUUID(uuid) {
+            switch(currentFormat) {
+                case 'ncurse': return uuid.replace(/-/g, '');
+                case 'urn': return 'urn:uuid:' + uuid;
+                default: return uuid;
+            }
+        }
+
+        function generate() {
+            const count = parseInt(document.getElementById('count').value) || 1;
+            const list = document.getElementById('uuidList');
+            const uuids = [];
+
+            for (let i = 0; i < Math.min(count, 100); i++) {
+                const uuid = uuid4();
+                uuids.push(uuid);
+            }
+
+            list.innerHTML = uuids.map((uuid, i) => {
+                const formatted = formatUUID(uuid);
+                return `<div class="uuid-item">
+                    ${formatted}
+                    <button onclick="copyUUID('${formatted}')">📋</button>
+                    <span class="copy-msg" id="copy-${i}"></span>
+                </div>`;
+            }).join('');
+        }
+
+        function copyUUID(uuid) {
+            navigator.clipboard.writeText(uuid).then(() => {
+                // brief feedback handled by UI
+            });
+        }
+
+        function copyAll() {
+            const uuids = Array.from(document.querySelectorAll('.uuid-item'))
+                .map(el => el.textContent.replace('📋', '').trim())
+                .join('\n');
+            navigator.clipboard.writeText(uuids);
+            alert('All UUIDs copied to clipboard!');
+        }
+    </script>
+</body>
+</html>

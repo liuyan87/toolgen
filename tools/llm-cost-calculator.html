@@ -1,2 +1,94 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free LLM API Cost Calculator - ToolGen</title><meta name="description" content="Calculate OpenAI, Anthropic Claude, Gemini, Deepseek API costs. Compare LLM pricing. Free calculator."><meta name="keywords" content="llm cost calculator, openai api cost, anthropic claude cost, gemini api pricing, deepseek cost, api cost calculator, llm pricing"><link rel="canonical" href="https://toolgen.xyz/tools/llm-cost-calculator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px}.row input,.row select{padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:1rem;outline:none;width:100%}.row input:focus,.row select:focus{border-color:#667eea}input{padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:1rem;outline:none;margin-bottom:15px;width:100%}.input-full{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:15px}.input-full div{display:flex;flex-direction:column;gap:8px}.input-full label{font-size:0.85rem}.input-full input{width:100%;margin:0}.cost-display{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:30px;text-align:center;margin:20px 0}.cost-display .total{font-size:4rem;font-weight:800}.cost-display .label{opacity:0.9;font-size:1rem;margin-top:5px}.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:15px}.breakdown-item{background:#0a0a0a;border-radius:10px;padding:15px;text-align:center}.breakdown-item .val{font-size:1.5rem;font-weight:700;color:#667eea}.breakdown-item .lbl{color:#888;font-size:0.8rem;margin-top:3px}.models{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:15px}.model-btn{padding:12px;background:#0a0a0a;border:2px solid #333;border-radius:10px;cursor:pointer;text-align:left;font-size:0.9rem;transition:border-color 0.2s;color:#fff}.model-btn:hover,.model-btn.active{border-color:#667eea;background:rgba(102,126,234,0.1)}.model-btn .name{font-weight:700;color:#667eea;display:block}.model-btn .price{color:#888;font-size:0.8rem}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🤖 LLM API Cost Calculator</h1><p class="subtitle">Calculate API costs for OpenAI, Claude, Gemini, Deepseek and more. Compare LLM pricing instantly.</p><div class="card"><h3 style="color:#667eea;margin-bottom:15px">Select Model</h3><div class="models"><button class="model-btn active" onclick="selectModel('gpt-4o','input',2.5,'output',10,'OpenAI GPT-4o')"><span class="name">GPT-4o</span><span class="price">$2.50 / $10.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('gpt-4o-mini','input',0.15,'output',0.6,'OpenAI GPT-4o-mini')"><span class="name">GPT-4o-mini</span><span class="price">$0.15 / $0.60 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('o1-preview','input',15,'output',60,'OpenAI o1-preview')"><span class="name">o1-preview</span><span class="price">$15.00 / $60.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('o1-mini','input',3,'output',12,'OpenAI o1-mini')"><span class="name">o1-mini</span><span class="price">$3.00 / $12.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('claude-3-5-sonnet','input',3,'output',15,'Claude 3.5 Sonnet')"><span class="name">Claude 3.5 Sonnet</span><span class="price">$3.00 / $15.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('claude-3-opus','input',15,'output',75,'Claude 3 Opus')"><span class="name">Claude 3 Opus</span><span class="price">$15.00 / $75.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('claude-3-haiku','input',0.8,'output',4,'Claude 3 Haiku')"><span class="name">Claude 3 Haiku</span><span class="price">$0.80 / $4.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('gemini-1-5-pro','input',1.25,'output',5,'Gemini 1.5 Pro')"><span class="name">Gemini 1.5 Pro</span><span class="price">$1.25 / $5.00 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('gemini-1-5-flash','input',0.075,'output',0.3,'Gemini 1.5 Flash')"><span class="name">Gemini 1.5 Flash</span><span class="price">$0.075 / $0.30 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('deepseek-chat','input',0.27,'output',1.1,'DeepSeek V3')"><span class="name">DeepSeek V3</span><span class="price">$0.27 / $1.10 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('deepseek-coder','input',0.27,'output',1.1,'DeepSeek Coder')"><span class="name">DeepSeek Coder</span><span class="price">$0.27 / $1.10 per 1M tokens</span></button><button class="model-btn" onclick="selectModel('mistral-large','input',2,'output',6,'Mistral Large')"><span class="name">Mistral Large</span><span class="price">$2.00 / $6.00 per 1M tokens</span></button></div><div class="row" style="margin-top:20px"><div><label>Model</label><select id="model"><option value="gpt-4o">GPT-4o</option><option value="gpt-4o-mini">GPT-4o-mini</option><option value="o1-preview">o1-preview</option><option value="o1-mini">o1-mini</option><option value="claude-3-5-sonnet">Claude 3.5 Sonnet</option><option value="claude-3-opus">Claude 3 Opus</option><option value="claude-3-haiku">Claude 3 Haiku</option><option value="gemini-1-5-pro">Gemini 1.5 Pro</option><option value="gemini-1-5-flash">Gemini 1.5 Flash</option><option value="deepseek-chat">DeepSeek V3</option><option value="deepseek-coder">DeepSeek Coder</option><option value="mistral-large">Mistral Large</option></select></div><div><label>Requests / Day</label><input type="number" id="reqDay" value="100" placeholder="100" oninput="calc()"></div></div><div class="input-full"><div><label>Input Tokens / Request</label><input type="number" id="inputTokens" value="1000" oninput="calc()"></div><div><label>Output Tokens / Request</label><input type="number" id="outputTokens" value="500" oninput="calc()"></div><div><label>Days / Month</label><input type="number" id="days" value="30" oninput="calc()"></div></div><div class="cost-display"><div class="total" id="totalCost">$0.00</div><div class="label">Estimated Monthly Cost</div><div class="breakdown"><div class="breakdown-item"><div class="val" id="inputCost">$0.00</div><div class="lbl">Input Cost</div></div><div class="breakdown-item"><div class="val" id="outputCost">$0.00</div><div class="lbl">Output Cost</div></div><div class="breakdown-item"><div class="val" id="totalTokens">0</div><div class="lbl">Total Tokens/Month</div></div></div></div><div class="row"><div><label>Cost per 1M Input Tokens ($)</label><input type="number" id="inputPrice" value="2.5" step="0.001" oninput="calc()"></div><div><label>Cost per 1M Output Tokens ($)</label><input type="number" id="outputPrice" value="10" step="0.001" oninput="calc()"></div></div><button class="btn" onclick="calc()">⚡ Calculate</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const presets={'gpt-4o':[2.5,10],'gpt-4o-mini':[0.15,0.6],'o1-preview':[15,60],'o1-mini':[3,12],'claude-3-5-sonnet':[3,15],'claude-3-opus':[15,75],'claude-3-haiku':[0.8,4],'gemini-1-5-pro':[1.25,5],'gemini-1-5-flash':[0.075,0.3],'deepseek-chat':[0.27,1.1],'deepseek-coder':[0.27,1.1],'mistral-large':[2,6]};function selectModel(id,inp,inv,out,outv,name){document.getElementById('model').value=id;document.getElementById('inputPrice').value=inv;document.getElementById('outputPrice').value=outv;document.querySelectorAll('.model-btn').forEach(b=>b.classList.remove('active'));event.target.closest('.model-btn').classList.add('active');calc();}function fmt(n){if(n<0.01)return'$'+n.toFixed(6);if(n<1)return'$'+n.toFixed(4);return'$'+n.toFixed(2);}function calc(){const model=document.getElementById('model').value;const reqDay=parseInt(document.getElementById('reqDay').value)||0;const inputTokens=parseInt(document.getElementById('inputTokens').value)||0;const outputTokens=parseInt(document.getElementById('outputTokens').value)||0;const days=parseInt(document.getElementById('days').value)||30;const inputPrice=(parseFloat(document.getElementById('inputPrice').value)||0)/1000000;const outputPrice=(parseFloat(document.getElementById('outputPrice').value)||0)/1000000;const totalReq=reqDay*days;const totalInput=totalReq*inputTokens;const totalOutput=totalReq*outputTokens;const totalTokens=totalInput+totalOutput;const inputCost=totalInput*inputPrice;const outputCost=totalOutput*outputPrice;const total=inputCost+outputCost;document.getElementById('totalCost').textContent=total<0.01?'<$0.01':fmt(total);document.getElementById('inputCost').textContent=fmt(inputCost);document.getElementById('outputCost').textContent=fmt(outputCost);document.getElementById('totalTokens').textContent=totalTokens>=1000000?(totalTokens/1000000).toFixed(1)+'M':totalTokens>=1000?(totalTokens/1000).toFixed(0)+'K':totalTokens;}calc();</script></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free LLM Cost Calculator - ToolGen</title>
+    <meta name="description" content="Calculate LLM API costs for GPT-4o, Claude, Gemini, DeepSeek. Compare OpenAI, Anthropic, Google pricing. Save up to 80% on AI costs.">
+    <meta name="keywords" content="llm cost calculator, openai pricing, claude pricing, gemini cost, deepseek pricing, ai api cost, gpt-4o cost, token cost">
+    <link rel="canonical" href="https://toolgen.xyz/tools/llm-cost-calculator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus, select:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 20px; text-align: center; }
+        .result-box .model { color: #888; font-size: 0.85rem; margin-bottom: 8px; }
+        .result-box .price { font-size: 1.8rem; font-weight: 800; color: #22c55e; }
+        .result-box .label { color: #666; font-size: 0.8rem; margin-top: 5px; }
+        .result-box.highlight { border: 2px solid #667eea; }
+        .result-box.highlight .price { color: #667eea; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>💰 LLM Cost Calculator</h1>
+        <p class="subtitle">Compare AI model costs. Find the cheapest option for your use case. Save up to 80%.</p>
+
+        <div class="card">
+            <label>Input tokens (prompt):</label>
+            <input type="number" id="inputTokens" value="1000" min="1" oninput="calculate()">
+
+            <label>Output tokens (completion):</label>
+            <input type="number" id="outputTokens" value="500" min="1" oninput="calculate()">
+        </div>
+
+        <div class="result-grid" id="results">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/llm-cost-calculator.html">LLM Cost Calculator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const models = [
+            { name: 'GPT-4o', provider: 'OpenAI', input: 2.50, output: 10.00, unit: '1M tokens' },
+            { name: 'GPT-4o Mini', provider: 'OpenAI', input: 0.15, output: 0.60, unit: '1M tokens' },
+            { name: 'GPT-4 Turbo', provider: 'OpenAI', input: 10.00, output: 30.00, unit: '1M tokens' },
+            { name: 'Claude 3.5 Sonnet', provider: 'Anthropic', input: 3.00, output: 15.00, unit: '1M tokens' },
+            { name: 'Claude 3 Opus', provider: 'Anthropic', input: 15.00, output: 75.00, unit: '1M tokens' },
+            { name: 'Claude 3 Haiku', provider: 'Anthropic', input: 0.25, output: 1.25, unit: '1M tokens' },
+            { name: 'Gemini 1.5 Pro', provider: 'Google', input: 1.25, output: 5.00, unit: '1M tokens' },
+            { name: 'Gemini 1.5 Flash', provider: 'Google', input: 0.00, output: 0.35, unit: '1M tokens' },
+            { name: 'DeepSeek V2', provider: 'DeepSeek', input: 0.14, output: 0.28, unit: '1M tokens' },
+            { name: 'Llama 3 70B', provider: 'Meta', input: 0.65, output: 2.75, unit: '1M tokens' },
+        ];
+
+        function calculate() {
+            const input = parseInt(document.getElementById('inputTokens').value) || 0;
+            const output = parseInt(document.getElementById('outputTokens').value) || 0;
+
+            const sorted = [...models].sort((a, b) => {
+                const costA = (input * a.input + output * a.output) / 1e6;
+                const costB = (input * b.input + output * b.output) / 1e6;
+                return costA - costB;
+            });
+
+            document.getElementById('results').innerHTML = sorted.map((m, i) => {
+                const cost = (input * m.input + output * m.output) / 1e6;
+                return `<div class="result-box ${i === 0 ? 'highlight' : ''}">
+                    <div class="model">${m.provider} ${m.name}</div>
+                    <div class="price">$${cost.toFixed(4)}</div>
+                    <div class="label">${m.unit} | Input: $${m.input}/M | Output: $${m.output}/M</div>
+                </div>`;
+            }).join('');
+        }
+
+        calculate();
+    </script>
+</body>
+</html>
