@@ -1,2 +1,114 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Number to Words Converter - ToolGen</title><meta name="description" content="Convert numbers to words. Perfect for writing checks, invoices, and legal documents."><meta name="keywords" content="number to words, number to text, convert number to words, check amount to words"><link rel="canonical" href="https://toolgen.xyz/tools/number-to-words.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:600px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px;text-align:center}input{width:100%;padding:16px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-size:2rem;text-align:center;outline:none;margin-bottom:20px}input:focus{border-color:#667eea}.result{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:25px;text-align:center;font-size:1.5rem;font-weight:700;margin:15px 0;min-height:60px;word-break:break-word}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}.quick button{background:#0a0a0a;border:2px solid #333;border-radius:8px;padding:12px;color:#fff;cursor:pointer;font-size:0.9rem}.quick button:hover{border-color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔢 Number to Words</h1><p class="subtitle">Convert numbers to written words. Perfect for checks and invoices.</p><div class="card"><input type="number" id="num" placeholder="1234567" oninput="convert()"><div class="result" id="result">One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven</div><div class="quick"><button onclick="set(100)">100</button><button onclick="set(1000)">1K</button><button onclick="set(1000000)">1M</button><button onclick="set(1000000000)">1B</button></div><button class="btn" onclick="copy()">📋 Copy</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const ones=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];const tens=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];function numToWords(n){if(n===0)return'Zero';if(n<0)return'Minus '+numToWords(-n);let str='';if(n>=1000000000){str+=numToWords(Math.floor(n/1000000000))+' Billion ';n%=1000000000;}if(n>=1000000){str+=numToWords(Math.floor(n/1000000))+' Million ';n%=1000000;}if(n>=1000){str+=numToWords(Math.floor(n/1000))+' Thousand ';n%=1000;}if(n>=100){str+=ones[Math.floor(n/100)]+' Hundred ';n%=100;}if(n>=20){str+=tens[Math.floor(n/10)];if(n%10>0)str+=' '+ones[n%10];}else if(n>0)str+=ones[n];return str.trim();}function convert(){const n=parseFloat(document.getElementById('num').value);if(isNaN(n)||n===''){document.getElementById('result').textContent='Enter a number...';return;}const dollars=Math.floor(n);const cents=Math.round((n-dollars)*100);let text=numToWords(dollars);if(cents>0)text+=' and '+numToWords(cents)+'/100';document.getElementById('result').textContent=text.charAt(0).toUpperCase()+text.slice(1);}function set(n){document.getElementById('num').value=n;convert();}function copy(){navigator.clipboard.writeText(document.getElementById('result').textContent);}</script></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Number to Words Converter - ToolGen</title>
+    <meta name="description" content="Convert numbers to words. Perfect for writing checks, legal documents, and invoices. Free online number to words converter.">
+    <meta name="keywords" content="number to words, numbers in words, check writing, amount to words, number words, currency to words, convert number to text">
+    <link rel="canonical" href="https://toolgen.xyz/tools/number-to-words.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-size: 1.5rem; outline: none; margin-bottom: 15px; font-family: monospace; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .output-box { background: #0a0a0a; border-radius: 12px; padding: 25px; margin-top: 15px; font-size: 1.3rem; color: #22c55e; min-height: 80px; }
+        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-top: 8px; }
+        .examples { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .ex-btn { padding: 6px 14px; background: #0a0a0a; border: 1px solid #333; border-radius: 15px; color: #888; cursor: pointer; font-size: 0.8rem; }
+        .ex-btn:hover { border-color: #667eea; color: #fff; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔢 Number to Words Converter</h1>
+        <p class="subtitle">Convert numbers to English words. Essential for writing checks and legal documents.</p>
+
+        <div class="card">
+            <label>Enter a number:</label>
+            <input type="text" id="input" placeholder="e.g. 1234567.89" oninput="convert()">
+
+            <button class="btn" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="output-box" id="output">Your result will appear here...</div>
+            <p class="copy-msg" id="copyMsg"></p>
+
+            <div class="examples">
+                <button class="ex-btn" onclick="example('100')">100</button>
+                <button class="ex-btn" onclick="example('1234.56')">1,234.56</button>
+                <button class="ex-btn" onclick="example('1000000')">1,000,000</button>
+                <button class="ex-btn" onclick="example('99.99')">99.99</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/number-to-words.html">Number to Words</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+        const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+        function convert() {
+            const input = document.getElementById('input').value.trim().replace(/,/g, '');
+            if (!input || isNaN(input)) {
+                document.getElementById('output').textContent = 'Your result will appear here...';
+                return;
+            }
+
+            const [whole, decimal] = input.split('.');
+            const wholeNum = parseInt(whole) || 0;
+            const decimalNum = decimal ? parseInt(decimal.padEnd(2, '0').substring(0, 2)) : 0;
+
+            let words = numberToWords(wholeNum);
+            if (decimalNum > 0) {
+                words += ' and ' + numberToWords(decimalNum) + '/100';
+            }
+
+            document.getElementById('output').textContent = words.charAt(0).toUpperCase() + words.slice(1);
+        }
+
+        function numberToWords(num) {
+            if (num === 0) return 'zero';
+            if (num < 20) return ones[num];
+            if (num < 100) return tens[Math.floor(num / 10)] + (num % 10 ? ' ' + ones[num % 10] : '');
+            if (num < 1000) return ones[Math.floor(num / 100)] + ' hundred' + (num % 100 ? ' ' + numberToWords(num % 100) : '');
+            if (num < 1000000) return numberToWords(Math.floor(num / 1000)) + ' thousand' + (num % 1000 ? ' ' + numberToWords(num % 1000) : '');
+            if (num < 1000000000) return numberToWords(Math.floor(num / 1000000)) + ' million' + (num % 1000000 ? ' ' + numberToWords(num % 1000000) : '');
+            return numberToWords(Math.floor(num / 1000000000)) + ' billion' + (num % 1000000000 ? ' ' + numberToWords(num % 1000000000) : '');
+        }
+
+        function example(val) {
+            document.getElementById('input').value = val;
+            convert();
+        }
+
+        function copy() {
+            const text = document.getElementById('output').textContent;
+            if (text && text !== 'Your result will appear here...') {
+                navigator.clipboard.writeText(text);
+                document.getElementById('copyMsg').textContent = '✓ Copied!';
+                setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
+            }
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('output').textContent = 'Your result will appear here...';
+        }
+    </script>
+</body>
+</html>
