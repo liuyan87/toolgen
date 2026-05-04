@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Plagiarism Checker - ToolGen</title>
+    <meta name="description" content="Check your text for plagiarism online for free. Instant results with detailed similarity reports. No registration required.">
+    <meta name="keywords" content="plagiarism checker, free plagiarism checker, check plagiarism, plagiarism detector, content originality">
+    <link rel="canonical" href="https://toolgen.xyz/tools/plagiarism-checker.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-card { background: #1a1a1a; border: 2px solid #333; border-radius: 16px; padding: 30px; margin-top: 20px; display: none; }
+        .result-card.show { display: block; }
+        .score-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; margin: 20px auto; }
+        .score-high { background: #22c55e; color: #fff; }
+        .score-medium { background: #f59e0b; color: #fff; }
+        .score-low { background: #ef4444; color: #fff; }
+        .result-text { text-align: center; margin-bottom: 20px; }
+        .result-details { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; }
+        .result-details p { margin-bottom: 10px; color: #aaa; }
+        .highlight-original { background: rgba(239,68,68,0.2); color: #ef4444; padding: 2px 4px; border-radius: 3px; }
+        .highlight-suspicious { background: rgba(245,158,11,0.2); color: #f59e0b; padding: 2px 4px; border-radius: 3px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+        .disclaimer { background: #1a1a1a; border: 1px solid #333; border-radius: 10px; padding: 15px; margin-top: 20px; font-size: 0.85rem; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔍 Plagiarism Checker</h1>
+        <p class="subtitle">Check your text for plagiarism instantly. Free, no registration.</p>
+
+        <div class="card">
+            <label>Enter your text to check:</label>
+            <textarea id="inputText" placeholder="Paste or type your text here to check for plagiarism..."></textarea>
+            <button class="btn" onclick="checkPlagiarism()">Check Plagiarism</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+        </div>
+
+        <div class="result-card" id="resultCard">
+            <div class="result-text">
+                <h2>Originality Score</h2>
+                <div class="score-circle" id="scoreCircle">--</div>
+                <p id="resultMessage">Analyzing your text...</p>
+            </div>
+            <div class="result-details" id="resultDetails"></div>
+        </div>
+
+        <div class="disclaimer">
+            ⚠️ This is a text similarity analysis tool. For academic use, please consult your institution's official plagiarism detection system.
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> — 150+ Free Online Tools</p>
+    </footer>
+
+    <script>
+        function checkPlagiarism() {
+            const text = document.getElementById('inputText').value.trim();
+            if (!text) { alert('Please enter some text to check.'); return; }
+
+            const words = text.split(/\s+/).filter(w => w.length > 3);
+            const totalWords = words.length;
+            const resultCard = document.getElementById('resultCard');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultDetails = document.getElementById('resultDetails');
+
+            // Simple local similarity analysis
+            // Checks for: repeated phrases, common sentence structures, known phrase matches
+            const commonPhrases = [
+                'it is important to', 'in order to', 'as well as', 'on the other hand',
+                'in addition to', 'moreover', 'furthermore', 'therefore', 'however',
+                'in conclusion', 'for example', 'in fact', 'as a result',
+                'take into consideration', 'when it comes to', 'the fact that'
+            ];
+
+            let suspiciousCount = 0;
+            let repeatedPhrases = [];
+            let lowerText = text.toLowerCase();
+
+            commonPhrases.forEach(phrase => {
+                const regex = new RegExp(phrase, 'gi');
+                const matches = (lowerText.match(regex) || []).length;
+                if (matches > 2) {
+                    suspiciousCount += matches;
+                    repeatedPhrases.push(phrase);
+                }
+            });
+
+            // Check for repeated n-grams (5+ word sequences)
+            const ngrams = {};
+            for (let i = 0; i < words.length - 4; i++) {
+                const ngram = words.slice(i, i + 5).join(' ').toLowerCase();
+                ngrams[ngram] = (ngrams[ngram] || 0) + 1;
+            }
+
+            let repeatedNgrams = Object.entries(ngrams)
+                .filter(([_, count]) => count > 1)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            suspiciousCount += repeatedNgrams.reduce((sum, [_, c]) => sum + c - 1, 0);
+
+            const similarityRatio = Math.min(suspiciousCount / Math.max(totalWords, 1), 1);
+            const originalityScore = Math.round((1 - similarityRatio * 0.5) * 100);
+
+            resultCard.classList.add('show');
+            scoreCircle.textContent = originalityScore + '%';
+
+            scoreCircle.className = 'score-circle ' + (
+                originalityScore >= 80 ? 'score-high' :
+                originalityScore >= 50 ? 'score-medium' : 'score-low'
+            );
+
+            resultMessage.textContent = originalityScore >= 80
+                ? '✅ Your text appears largely original!'
+                : originalityScore >= 50
+                ? '⚠️ Some repetitive patterns detected.'
+                : '❌ High repetition or low originality detected.';
+
+            let details = `<p>📊 Total words analyzed: <strong>${totalWords}</strong></p>`;
+            details += `<p>⚠️ Repetitive phrases found: <strong>${repeatedPhrases.length}</strong></p>`;
+            details += `<p>📝 Repeated 5-word sequences: <strong>${repeatedNgrams.length}</strong></p>`;
+
+            if (repeatedPhrases.length > 0) {
+                details += `<p style="margin-top:15px;">Common repeated phrases:</p><ul>`;
+                repeatedPhrases.slice(0, 5).forEach(p => {
+                    details += `<li style="color:#f59e0b; margin:5px 0;">"${p}"</li>`;
+                });
+                details += `</ul>`;
+            }
+
+            if (repeatedNgrams.length > 0) {
+                details += `<p style="margin-top:15px;">Most repeated sequences:</p><ul>`;
+                repeatedNgrams.forEach(([ngram, count]) => {
+                    details += `<li style="color:#888; margin:5px 0;">"${ngram}" (×${count})</li>`;
+                });
+                details += `</ul>`;
+            }
+
+            details += `<p style="margin-top:15px; color:#888; font-size:0.85rem;">Note: This is a pattern-based analysis, not a full web search. For complete results, use a dedicated plagiarism detection service.</p>`;
+
+            resultDetails.innerHTML = details;
+        }
+
+        function clearText() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('resultCard').classList.remove('show');
+        }
+    </script>
+</body>
+</html>

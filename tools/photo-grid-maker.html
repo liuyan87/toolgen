@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Photo Grid Maker - ToolGen</title>
+    <meta name="description" content="Create beautiful photo grids online. Combine multiple images into stunning grid layouts. Free, no registration.">
+    <meta name="keywords" content="photo grid, image grid maker, combine photos, photo collage, instagram grid, photo mosaic">
+    <link rel="canonical" href="https://toolgen.xyz/tools/photo-grid-maker.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        .grid-options { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .grid-option { padding: 10px 20px; background: #0a0a0a; border: 2px solid #333; border-radius: 10px; cursor: pointer; text-align: center; transition: all 0.3s; }
+        .grid-option:hover, .grid-option.active { border-color: #667eea; background: rgba(102,126,234,0.1); }
+        .grid-option .grid-preview { display: grid; gap: 2px; margin-bottom: 8px; }
+        .grid-preview .cell { background: #333; border-radius: 2px; }
+        .upload-area { border: 2px dashed #333; border-radius: 16px; padding: 40px; text-align: center; cursor: pointer; transition: all 0.3s; margin-bottom: 20px; }
+        .upload-area:hover { border-color: #667eea; background: rgba(102,126,234,0.05); }
+        .upload-area input { display: none; }
+        .upload-icon { font-size: 3rem; margin-bottom: 15px; }
+        .preview-grid { display: grid; gap: 4px; margin: 20px 0; }
+        .preview-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; background: #333; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-download { background: #22c55e; }
+        canvas { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🖼️ Photo Grid Maker</h1>
+        <p class="subtitle">Create stunning photo grids. Combine multiple images into beautiful layouts.</p>
+
+        <div class="card">
+            <label>Choose grid layout:</label>
+            <div class="grid-options" id="gridOptions">
+                <div class="grid-option active" data-cols="2" data-rows="2" onclick="selectGrid(this)">
+                    <div class="grid-preview" style="grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(2,1fr); width:50px; height:50px;">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                    2×2
+                </div>
+                <div class="grid-option" data-cols="3" data-rows="3" onclick="selectGrid(this)">
+                    <div class="grid-preview" style="grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(3,1fr); width:50px; height:50px;">
+                        ${Array(9).fill('<div class="cell"></div>').join('')}
+                    </div>
+                    3×3
+                </div>
+                <div class="grid-option" data-cols="2" data-rows="3" onclick="selectGrid(this)">
+                    <div class="grid-preview" style="grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,1fr); width:50px; height:60px;">
+                        ${Array(6).fill('<div class="cell"></div>').join('')}
+                    </div>
+                    2×3
+                </div>
+                <div class="grid-option" data-cols="3" data-rows="2" onclick="selectGrid(this)">
+                    <div class="grid-preview" style="grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(2,1fr); width:60px; height:40px;">
+                        ${Array(6).fill('<div class="cell"></div>').join('')}
+                    </div>
+                    3×2
+                </div>
+            </div>
+
+            <label style="margin-top:20px;">Upload images:</label>
+            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">📷</div>
+                <p>Click to upload images</p>
+                <p style="color:#666; font-size:0.85rem; margin-top:5px;">Supports JPG, PNG, WebP</p>
+                <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFiles(this.files)">
+            </div>
+
+            <div class="preview-grid" id="previewGrid"></div>
+
+            <canvas id="canvas" style="display:none;"></canvas>
+
+            <button class="btn" onclick="generateGrid()">Generate Grid</button>
+            <button class="btn btn-download" onclick="downloadGrid()" id="downloadBtn" disabled>Download</button>
+            <button class="btn" style="background:#333;" onclick="clearAll()">Clear</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> — 150+ Free Online Tools</p>
+    </footer>
+
+    <script>
+        let selectedGrid = { cols: 2, rows: 2 };
+        let uploadedImages = [];
+        let generatedCanvas = null;
+
+        function selectGrid(el) {
+            document.querySelectorAll('.grid-option').forEach(o => o.classList.remove('active'));
+            el.classList.add('active');
+            selectedGrid = {
+                cols: parseInt(el.dataset.cols),
+                rows: parseInt(el.dataset.rows)
+            };
+        }
+
+        function handleFiles(files) {
+            const previewGrid = document.getElementById('previewGrid');
+            previewGrid.style.gridTemplateColumns = `repeat(${selectedGrid.cols}, 1fr)`;
+
+            Array.from(files).slice(0, selectedGrid.cols * selectedGrid.rows).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    uploadedImages.push(e.target.result);
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    previewGrid.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function generateGrid() {
+            if (uploadedImages.length === 0) {
+                alert('Please upload at least one image.');
+                return;
+            }
+
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const cellSize = 400;
+            const gap = 8;
+            const padding = 16;
+
+            canvas.width = selectedGrid.cols * cellSize + (selectedGrid.cols - 1) * gap + padding * 2;
+            canvas.height = selectedGrid.rows * cellSize + (selectedGrid.rows - 1) * gap + padding * 2;
+
+            // Fill background
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            let loaded = 0;
+            uploadedImages.forEach((src, i) => {
+                const img = new Image();
+                img.onload = () => {
+                    const col = i % selectedGrid.cols;
+                    const row = Math.floor(i / selectedGrid.cols);
+                    const x = padding + col * (cellSize + gap);
+                    const y = padding + row * (cellSize + gap);
+
+                    // Draw rounded rectangle
+                    const radius = 12;
+                    ctx.beginPath();
+                    ctx.roundRect(x, y, cellSize, cellSize, radius);
+                    ctx.closePath();
+                    ctx.clip();
+
+                    // Draw image
+                    const scale = Math.max(cellSize / img.width, cellSize / img.height);
+                    const dx = (cellSize - img.width * scale) / 2;
+                    const dy = (cellSize - img.height * scale) / 2;
+                    ctx.drawImage(img, x + dx, y + dy, img.width * scale, img.height * scale);
+
+                    loaded++;
+                    if (loaded === uploadedImages.length) {
+                        canvas.style.display = 'block';
+                        document.getElementById('downloadBtn').disabled = false;
+                        generatedCanvas = canvas;
+                    }
+                };
+                img.src = src;
+            });
+        }
+
+        function downloadGrid() {
+            if (!generatedCanvas) return;
+            const link = document.createElement('a');
+            link.download = 'photo-grid.png';
+            link.href = generatedCanvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function clearAll() {
+            uploadedImages = [];
+            document.getElementById('previewGrid').innerHTML = '';
+            document.getElementById('previewGrid').style.display = 'none';
+            document.getElementById('canvas').style.display = 'none';
+            document.getElementById('downloadBtn').disabled = true;
+            generatedCanvas = null;
+        }
+    </script>
+</body>
+</html>

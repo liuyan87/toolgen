@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Paraphrasing Tool - ToolGen</title>
+    <meta name="description" content="Paraphrase and rewrite text instantly. Free online paraphrasing tool with multiple modes.">
+    <meta name="keywords" content="paraphrasing tool, rewrite text, article rewriter, text spinner, sentence rewriter, free paraphrasing">
+    <link rel="canonical" href="https://toolgen.xyz/tools/paraphrasing-tool.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 150px; }
+        textarea:focus { border-color: #667eea; }
+        .mode-selector { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .mode-btn { padding: 10px 20px; background: #0a0a0a; border: 2px solid #333; border-radius: 25px; cursor: pointer; transition: all 0.3s; color: #888; font-size: 0.9rem; }
+        .mode-btn:hover, .mode-btn.active { border-color: #667eea; background: rgba(102,126,234,0.1); color: #fff; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .arrow { text-align: center; font-size: 2rem; color: #667eea; margin: 5px 0; }
+        .result-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; min-height: 150px; color: #22c55e; font-family: monospace; white-space: pre-wrap; }
+        .stats { display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap; }
+        .stat { background: #0a0a0a; padding: 10px 15px; border-radius: 8px; font-size: 0.85rem; }
+        .stat span { color: #667eea; font-weight: 700; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔄 Paraphrasing Tool</h1>
+        <p class="subtitle">Rewrite and paraphrase text instantly. Free with 5 modes.</p>
+
+        <div class="card">
+            <label>Select mode:</label>
+            <div class="mode-selector">
+                <div class="mode-btn active" onclick="setMode(this, 'standard')">Standard</div>
+                <div class="mode-btn" onclick="setMode(this, 'fluency')">Fluency</div>
+                <div class="mode-btn" onclick="setMode(this, 'creative')">Creative</div>
+                <div class="mode-btn" onclick="setMode(this, 'formal')">Formal</div>
+                <div class="mode-btn" onclick="setMode(this, 'simple')">Simple</div>
+            </div>
+
+            <label>Enter text to paraphrase:</label>
+            <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
+
+            <button class="btn" onclick="paraphrase()">Paraphrase</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="arrow">↓</div>
+
+            <div class="result-box" id="resultBox">Your paraphrased text will appear here...</div>
+
+            <div class="stats" id="statsBox" style="display:none;">
+                <div class="stat">Words: <span id="wordCount">0</span></div>
+                <div class="stat">Characters: <span id="charCount">0</span></div>
+                <div class="stat">Changes: <span id="changeCount">0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> — 150+ Free Online Tools</p>
+    </footer>
+
+    <script>
+        let currentMode = 'standard';
+
+        const synonyms = {
+            'important': ['crucial', 'essential', 'vital', 'significant'],
+            'good': ['excellent', 'great', 'positive', 'beneficial'],
+            'bad': ['negative', 'poor', 'unfavorable', 'detrimental'],
+            'big': ['large', 'substantial', 'significant', 'massive'],
+            'small': ['minor', 'tiny', 'slight', 'modest'],
+            'happy': ['pleased', 'delighted', 'joyful', 'glad'],
+            'sad': ['unhappy', 'disappointed', 'sorrowful', 'melancholy'],
+            'beautiful': ['stunning', 'gorgeous', 'lovely', 'attractive'],
+            'fast': ['quick', 'rapid', 'swift', 'speedy'],
+            'slow': ['gradual', 'unhurried', 'leisurely', 'steady'],
+            'strong': ['powerful', 'robust', 'mighty', 'vigorous'],
+            'weak': ['feeble', 'fragile', 'frail', 'delicate'],
+            'easy': ['simple', 'straightforward', 'effortless', 'uncomplicated'],
+            'hard': ['difficult', 'challenging', 'tough', 'demanding'],
+            'help': ['assist', 'support', 'aid', 'benefit'],
+            'think': ['believe', 'consider', 'suppose', 'reckon'],
+            'want': ['desire', 'wish', 'need', 'prefer'],
+            'use': ['utilize', 'employ', 'apply', 'adopt'],
+            'show': ['demonstrate', 'illustrate', 'display', 'exhibit'],
+            'tell': ['inform', 'notify', 'explain', 'describe'],
+            'ask': ['inquire', 'question', 'query', 'request'],
+            'work': ['function', 'operate', 'perform', 'act'],
+            'try': ['attempt', 'endeavor', 'strive', 'seek'],
+            'give': ['provide', 'offer', 'grant', 'deliver'],
+            'need': ['require', 'demand', 'necessitate', 'want'],
+            'feel': ['sense', 'perceive', 'experience', 'believe'],
+            'become': ['turn into', 'develop into', 'grow into', 'transform'],
+            'leave': ['depart', 'exit', 'go away', 'abandon'],
+            'put': ['place', 'position', 'set', 'locate'],
+            'keep': ['maintain', 'retain', 'preserve', 'hold'],
+            'let': ['allow', 'permit', 'enable', 'authorize'],
+            'begin': ['start', 'commence', 'initiate', 'launch'],
+            'seem': ['appear', 'look', 'sound', 'feel'],
+            'help': ['assist', 'aid', 'support', 'collaborate'],
+            'talk': ['speak', 'communicate', 'discuss', 'converse'],
+            'walk': ['stroll', 'march', 'move', 'proceed'],
+            'buy': ['purchase', 'acquire', 'obtain', 'procure'],
+            'wait': ['stay', 'remain', 'pause', 'delay'],
+            'serve': ['assist', 'help', 'attend', 'cater'],
+            'die': ['pass away', 'expire', 'perish', 'end'],
+            'send': ['dispatch', 'transmit', 'forward', 'mail'],
+            'expect': ['anticipate', 'predict', 'foresee', 'hope'],
+            'spend': ['invest', 'expend', 'allocate', 'devote'],
+            'grow': ['develop', 'expand', 'increase', 'flourish'],
+            'live': ['reside', 'dwell', 'exist', 'survive'],
+            'believe': ['think', 'trust', 'conceive', 'accept'],
+            'bring': ['carry', 'deliver', 'fetch', 'transport'],
+            'happen': ['occur', 'take place', 'arise', 'emerge'],
+            'write': ['compose', 'create', 'draft', 'author'],
+            'provide': ['supply', 'offer', 'give', 'furnish'],
+            'sit': ['remain', 'stay', 'rest', 'position'],
+            'stand': ['remain', 'stay upright', 'endure', 'last'],
+            'lose': ['miss', 'forfeit', 'shed', 'drop'],
+            'pay': ['compensate', 'remit', 'settle', 'spend'],
+            'meet': ['encounter', 'gather', 'assemble', 'convene'],
+            'include': ['contain', 'comprise', 'incorporate', 'involve'],
+            'continue': ['carry on', 'proceed', 'persist', 'resume'],
+            'set': ['establish', 'place', 'determine', 'fix'],
+            'learn': ['acquire', 'discover', 'study', 'master'],
+            'change': ['alter', 'modify', 'adjust', 'transform'],
+            'lead': ['guide', 'direct', 'govern', 'control'],
+            'understand': ['comprehend', 'grasp', 'realize', 'follow'],
+            'watch': ['observe', 'monitor', 'view', 'see'],
+            'follow': ['track', 'pursue', 'trail', 'obey'],
+            'stop': ['cease', 'halt', 'end', 'quit'],
+            'create': ['generate', 'produce', 'build', 'establish'],
+            'speak': ['talk', 'communicate', 'state', 'express'],
+            'read': ['examine', 'study', 'review', 'interpret'],
+            'spend': ['invest', 'devote', 'allocate', 'use'],
+            'grow': ['develop', 'increase', 'expand', 'cultivate'],
+            'open': ['uncover', 'reveal', 'unfold', 'initiate'],
+            'walk': ['stroll', 'amble', 'march', 'proceed'],
+            'win': ['succeed', 'triumph', 'prevail', 'achieve'],
+            'offer': ['provide', 'extend', 'present', 'propose'],
+            'remember': ['recall', 'recollect', 'retain', 'recall'],
+            'love': ['adore', 'cherish', 'appreciate', 'admire'],
+            'consider': ['contemplate', 'examine', 'reflect', 'weigh'],
+            'appear': ['emerge', 'show up', 'seem', 'look'],
+            'buy': ['purchase', 'obtain', 'acquire', 'procure'],
+            'wait': ['await', 'expect', 'pause', 'remain'],
+            'serve': ['assist', 'help', 'attend to', 'cater'],
+            'die': ['expire', 'pass away', 'perish', 'cease'],
+            'send': ['dispatch', 'transmit', 'forward', 'ship'],
+            'expect': ['anticipate', 'foresee', 'predict', 'await'],
+            'build': ['construct', 'establish', 'create', 'develop'],
+            'stay': ['remain', 'continue', 'persist', 'last'],
+            'fall': ['drop', 'decline', 'descend', 'tumble'],
+            'cut': ['slice', 'trim', 'reduce', 'diminish'],
+            'reach': ['attain', 'achieve', 'arrive', 'extend'],
+            'kill': ['eliminate', 'end', 'destroy', 'terminate'],
+            'remain': ['stay', 'continue', 'persist', 'endure'],
+        };
+
+        const replacements = {
+            fluency: {
+                'a lot of': 'much',
+                'in order to': 'to',
+                'due to the fact that': 'because',
+                'at this point in time': 'now',
+                'in the event that': 'if',
+                'with regard to': 'about',
+                'for the purpose of': 'to',
+                'in spite of the fact that': 'although',
+            },
+            creative: {
+                'very happy': 'ecstatic',
+                'very sad': 'heartbroken',
+                'very big': 'enormous',
+                'very small': 'minuscule',
+                'very important': 'crucial',
+                'a lot': 'numerous',
+                'good': 'exceptional',
+                'bad': 'terrible',
+                'nice': 'wonderful',
+                'thing': 'item',
+            },
+            formal: {
+                'a lot of': 'considerable',
+                'get': 'obtain',
+                'got': 'obtained',
+                'kids': 'children',
+                'buy': 'purchase',
+                'show': 'demonstrate',
+                'tell': 'inform',
+                'ask': 'inquire',
+                'want': 'desire',
+            },
+            simple: {
+                'utilize': 'use',
+                'commence': 'start',
+                'terminate': 'end',
+                'endeavor': 'try',
+                'assistance': 'help',
+                'nevertheless': 'still',
+                'subsequently': 'then',
+                'accordingly': 'so',
+            }
+        };
+
+        function setMode(btn, mode) {
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentMode = mode;
+        }
+
+        function paraphrase() {
+            let text = document.getElementById('inputText').value.trim();
+            if (!text) { alert('Please enter some text.'); return; }
+
+            const modeMap = replacements[currentMode] || {};
+            const words = text.split(/(\s+)/);
+
+            const result = words.map(part => {
+                if (/^\s+$/.test(part)) return part;
+
+                const lower = part.toLowerCase().replace(/[.,!?;:'"()]/g, '');
+                const punct = part.match(/[.,!?;:'"()]+$/)?.[0] || '';
+                const key = lower;
+
+                if (modeMap[key]) {
+                    return modeMap[key] + punct;
+                }
+
+                if (synonyms[key] && Math.random() > 0.5) {
+                    const syns = synonyms[key];
+                    const syn = syns[Math.floor(Math.random() * syns.length)];
+                    return (part[0] === part[0].toUpperCase() ? syn.charAt(0).toUpperCase() + syn.slice(1) : syn) + punct;
+                }
+
+                return part;
+            }).join('');
+
+            const resultBox = document.getElementById('resultBox');
+            resultBox.textContent = result;
+
+            const statsBox = document.getElementById('statsBox');
+            statsBox.style.display = 'flex';
+
+            const originalWords = text.split(/\s+/).length;
+            const resultWords = result.split(/\s+/).length;
+            const changes = Math.abs(resultWords - originalWords);
+
+            document.getElementById('wordCount').textContent = resultWords;
+            document.getElementById('charCount').textContent = result.length;
+            document.getElementById('changeCount').textContent = changes + (result !== text ? '~' : '0');
+        }
+
+        function clearText() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('resultBox').textContent = 'Your paraphrased text will appear here...';
+            document.getElementById('statsBox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
