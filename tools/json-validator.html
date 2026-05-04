@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free JSON Validator - ToolGen</title>
-    <meta name="description" content="Validate and format JSON data. Check JSON syntax and beautify your JSON code.">
-    <meta name="keywords" content="json validator, json formatter, json parser, json beautifier, validate json">
+    <meta name="description" content="Validate and format JSON instantly. Check JSON syntax and pretty print. Free online JSON validator and formatter.">
+    <meta name="keywords" content="json validator, json formatter, validate json, json pretty print, json parser, json checker, json syntax">
     <link rel="canonical" href="https://toolgen.xyz/tools/json-validator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
-        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.95rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 250px; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.85rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 250px; }
         textarea:focus { border-color: #667eea; }
-        .status { padding: 12px 20px; border-radius: 8px; margin: 15px 0; font-weight: 600; display: none; }
-        .status.valid { background: rgba(74, 222, 128, 0.2); color: #4ade80; border: 1px solid #4ade80; }
-        .status.invalid { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
-        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; cursor: pointer; font-size: 0.95rem; font-weight: 600; margin-right: 10px; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn.error { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .btn.success { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .status { margin-top: 15px; padding: 12px 20px; border-radius: 8px; font-weight: 600; }
+        .status.ok { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid #22c55e; }
+        .status.err { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid #ef4444; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -29,79 +32,79 @@
 <body>
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
-        <h1>{ } JSON Validator</h1>
-        <p class="subtitle">Validate, format, and beautify JSON data. Free & instant.</p>
+        <h1>📋 JSON Validator</h1>
+        <p class="subtitle">Validate and format JSON. Check syntax and pretty print with colors.</p>
+
         <div class="card">
-            <label>Paste your JSON</label>
-            <textarea id="input" placeholder='{"name":"John","age":30,"city":"New York"}'></textarea>
-            <div class="status" id="status"></div>
-            <button class="btn" onclick="validate()">✓ Validate</button>
-            <button class="btn" onclick="format()">⚡ Format/Beautify</button>
-            <button class="btn" onclick="minify()">🗜️ Minify</button>
-            <button class="btn" onclick="copy()">📋 Copy</button>
-            <textarea id="output" readonly style="display:none;margin-top:15px;"></textarea>
-        </div>
-    </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
-    <style>
-        .faq {{ margin-top: 25px; }}
-        .faq-item {{ background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }}
-        .faq-item h4 {{ color: #fff; margin-bottom: 6px; font-size: 0.95rem; }}
-        .faq-item p {{ color: #888; font-size: 0.85rem; }}
-    </style>
-    <div class="faq">
-        <h3 style="color:#667eea; margin-bottom:12px;">❓ FAQ</h3>
-        <div class="faq-item">
-            <h4>Is my data safe?</h4>
-            <p>Yes. All processing happens in your browser. Your data never leaves your device.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Is this free?</h4>
-            <p>Yes, completely free with no registration required.</p>
+            <label>Paste your JSON:</label>
+            <textarea id="input" placeholder='{"name": "John", "age": 30, "city": "New York"}' oninput="validate()"></textarea>
+
+            <button class="btn" onclick="format()">Format / Pretty Print</button>
+            <button class="btn" onclick="minify()">Minify</button>
+            <button class="btn" style="background:#333;" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div id="status" class="status ok" style="display:none;">✓ Valid JSON</div>
         </div>
     </div>
 
     <footer>
-        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - 150+ Free Tools</p>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/json-validator.html">JSON Validator</a> - 150+ Free Tools</p>
     </footer>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body>
-</html>
+
     <script>
-        function showResult(valid, msg) {
-            const el = document.getElementById('status');
-            el.style.display = 'block';
-            el.className = 'status ' + (valid ? 'valid' : 'invalid');
-            el.textContent = msg;
-        }
         function validate() {
+            const input = document.getElementById('input').value;
+            const status = document.getElementById('status');
+            if (!input.trim()) {
+                status.style.display = 'none';
+                return;
+            }
             try {
-                const val = JSON.parse(document.getElementById('input').value);
-                showResult(true, '✅ Valid JSON!');
-                document.getElementById('output').value = JSON.stringify(val, null, 2);
-                document.getElementById('output').style.display = 'block';
+                JSON.parse(input);
+                status.textContent = '✓ Valid JSON';
+                status.className = 'status ok';
+                status.style.display = 'block';
             } catch(e) {
-                showResult(false, '❌ Invalid JSON: ' + e.message);
+                status.textContent = '✗ Invalid: ' + e.message;
+                status.className = 'status err';
+                status.style.display = 'block';
             }
         }
+
         function format() {
+            const input = document.getElementById('input').value;
             try {
-                const val = JSON.parse(document.getElementById('input').value);
-                document.getElementById('output').value = JSON.stringify(val, null, 2);
-                document.getElementById('output').style.display = 'block';
-                showResult(true, '✅ Formatted!');
-            } catch(e) { showResult(false, '❌ ' + e.message); }
+                const parsed = JSON.parse(input);
+                document.getElementById('input').value = JSON.stringify(parsed, null, 2);
+                validate();
+            } catch(e) {
+                alert('Cannot format invalid JSON');
+            }
         }
+
         function minify() {
+            const input = document.getElementById('input').value;
             try {
-                const val = JSON.parse(document.getElementById('input').value);
-                document.getElementById('output').value = JSON.stringify(val);
-                document.getElementById('output').style.display = 'block';
-                showResult(true, '✅ Minified!');
-            } catch(e) { showResult(false, '❌ ' + e.message); }
+                const parsed = JSON.parse(input);
+                document.getElementById('input').value = JSON.stringify(parsed);
+                validate();
+            } catch(e) {
+                alert('Cannot minify invalid JSON');
+            }
         }
-        function copy() { navigator.clipboard.writeText(document.getElementById('output').value || document.getElementById('input').value); alert('Copied!'); }
+
+        function copy() {
+            const text = document.getElementById('input').value;
+            if (text) navigator.clipboard.writeText(text);
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('status').style.display = 'none';
+        }
+
+        validate();
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>
