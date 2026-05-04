@@ -1,3 +1,163 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Fake Data Generator - ToolGen</title><meta name="description" content="Generate fake names, emails, addresses, and more for testing. Free fake data generator."><meta name="keywords" content="fake data generator, fake name generator, test data generator, sample data"><link rel="canonical" href="https://toolgen.xyz/tools/fake-data-generator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}.data-item{background:#0a0a0a;border-radius:8px;padding:12px 15px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}.data-item label{color:#888;font-size:0.85rem}.data-item span{color:#667eea;font-family:monospace}.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🎭 Fake Data Generator</h1><p class="subtitle">Generate fake names, emails, addresses and more for testing.</p><div class="card"><div class="data-grid"><div class="data-item"><label>Full Name</label><span id="name">-</span></div><div class="data-item"><label>Email</label><span id="email">-</span></div><div class="data-item"><label>Phone</label><span id="phone">-</span></div><div class="data-item"><label>Address</label><span id="address">-</span></div><div class="data-item"><label>City</label><span id="city">-</span></div><div class="data-item"><label>Country</label><span id="country">-</span></div><div class="data-item"><label>Company</label><span id="company">-</span></div><div class="data-item"><label>Job Title</label><span id="job">-</span></div></div><button class="btn" onclick="generate()">🎲 Generate New</button><button class="btn" onclick="copyAll()">📋 Copy All</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const first=['James','Mary','John','Patricia','Robert','Jennifer','Michael','Linda','William','Barbara','David','Elizabeth','Richard','Susan','Joseph','Jessica','Thomas','Sarah','Charles','Karen','Emma','Olivia','Ava','Sophia','Isabella','Mia','Charlotte','Amelia','Harper','Evelyn','Abigail'];const last=['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez','Hernandez','Lopez','Gonzalez','Wilson','Anderson','Thomas','Taylor','Moore','Jackson','Martin','Lee','Perez','Thompson','White','Harris','Sanchez','Clark','Ramirez','Lewis'];const streets=['Main St','Oak Ave','Maple Dr','Cedar Ln','Pine Rd','Elm St','Park Ave','Lake Dr','Hill Rd','Forest Way'];const cities=['New York','Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego','Dallas','San Jose','Austin','Jacksonville','Fort Worth','Columbus','Charlotte'];const countries=['United States','Canada','United Kingdom','Australia','Germany','France','Japan','Brazil','India','Mexico'];const companies=['TechCorp','GlobalTech','InnovateCo','DataSystems','CloudWorks','WebLogic','SoftServe','CodeBase','DigitalHub','Net Solutions'];const jobs=['Software Engineer','Product Manager','Data Analyst','Marketing Manager','Sales Representative','Designer','HR Manager','Accountant','Teacher','Nurse'];function rand(arr){return arr[Math.floor(Math.random()*arr.length)];}function generate(){document.getElementById('name').textContent=rand(first)+' '+rand(last);const ln=rand(last).toLowerCase();document.getElementById('email').textContent=ln+'@example.com';document.getElementById('phone').textContent=`(${Math.floor(Math.random()*900)+100}) ${Math.floor(Math.random()*900)+100}-${Math.floor(Math.random()*9000)+1000}`;document.getElementById('address').textContent=`${Math.floor(Math.random()*9000)+100} ${rand(streets)}`;document.getElementById('city').textContent=rand(cities);document.getElementById('country').textContent=rand(countries);document.getElementById('company').textContent=rand(companies);document.getElementById('job').textContent=rand(jobs);}function copyAll(){const text=Object.entries({Name:document.getElementById('name').textContent,Email:document.getElementById('email').textContent,Phone:document.getElementById('phone').textContent,Address:document.getElementById('address').textContent,City:document.getElementById('city').textContent,Country:document.getElementById('country').textContent,Company:document.getElementById('company').textContent,Job:document.getElementById('job').textContent}).map(([k,v])=>`${k}: ${v}`).join('\n');navigator.clipboard.writeText(text);}generate();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fake Data Generator - ToolGen</title>
+    <meta name="description" content="Generate fake data for testing: names, emails, addresses, phone numbers, dates. Free online fake data generator for developers.">
+    <meta name="keywords" content="fake data generator, generate test data, mock data, sample data generator, test data for developers, fake address generator">
+    <link rel="canonical" href="https://toolgen.xyz/tools/fake-data-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .controls { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; align-items: end; }
+        .control-group { display: flex; flex-direction: column; gap: 5px; }
+        .control-group label { color: #888; font-size: 0.8rem; }
+        input, select { padding: 10px; border-radius: 8px; border: 2px solid #333; background: #0a0a0a; color: #fff; }
+        .btn { display: inline-block; padding: 10px 24px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+        .btn:hover { transform: translateY(-2px); }
+        .output-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; font-family: monospace; font-size: 0.9rem; color: #22c55e; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📊 Fake Data Generator</h1>
+        <p class="subtitle">Generate fake data for testing and development. Names, emails, addresses, and more.</p>
+
+        <div class="card">
+            <div class="controls">
+                <div class="control-group">
+                    <label>Format</label>
+                    <select id="format">
+                        <option value="json">JSON</option>
+                        <option value="csv">CSV</option>
+                        <option value="sql">SQL INSERT</option>
+                        <option value="txt">Plain Text</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Rows</label>
+                    <input type="number" id="rows" value="10" min="1" max="100">
+                </div>
+                <div class="control-group">
+                    <label>Type</label>
+                    <select id="type">
+                        <option value="mixed">Mixed (All)</option>
+                        <option value="names">Names Only</option>
+                        <option value="addresses">Addresses Only</option>
+                        <option value="companies">Companies</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="generate()">🎲 Generate</button>
+                <button class="btn" onclick="copyData()">📋 Copy</button>
+            </div>
+
+            <div class="output-box" id="output"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/fake-data-generator.html">Fake Data Generator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const firstNames = ['James','Mary','John','Patricia','Robert','Jennifer','Michael','Linda','William','Elizabeth','David','Barbara','Susan','Thomas','Sarah'];
+        const lastNames = ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez','Hernandez','Lopez','Wilson','Anderson','Thomas'];
+        const streets = ['Main St','Oak Ave','Maple Dr','Cedar Ln','Pine Rd','Elm St','Washington Blvd','Park Ave','Lake Dr','Hill Rd'];
+        const cities = ['New York','Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego','Dallas','San Jose'];
+        const companies = ['Acme Corp','Global Tech','NextGen Solutions','PrimeDigital','Apex Industries','CloudFirst','DataWave','InnovateLab','SmartSystems','TechNova'];
+        const domains = ['gmail.com','yahoo.com','outlook.com','protonmail.com','email.com','mail.com'];
+
+        function rand(arr) { return arr[Math.floor(Math.random() * arr.length]; }
+        function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+        function generate() {
+            const format = document.getElementById('format').value;
+            const rows = Math.min(parseInt(document.getElementById('rows').value) || 10, 100);
+            const type = document.getElementById('type').value;
+            const output = document.getElementById('output');
+            let result = '';
+
+            if (format === 'json') {
+                const data = [];
+                for (let i = 0; i < rows; i++) {
+                    const fn = rand(firstNames), ln = rand(lastNames);
+                    const email = (fn + ln + randInt(1,999)).toLowerCase() + '@' + rand(domains);
+                    const phone = `(${randInt(200,999)}) ${randInt(200,999)}-${randInt(1000,9999)}`;
+                    const streetNum = randInt(100, 9999);
+                    const zip = randInt(10000, 99999);
+                    const company = rand(companies);
+                    const job = ['Engineer','Manager','Analyst','Designer','Director'][randInt(0,4)];
+
+                    let obj = { id: i + 1 };
+                    if (type === 'mixed' || type === 'names') {
+                        obj.first_name = fn; obj.last_name = ln; obj.email = email; obj.phone = phone;
+                    }
+                    if (type === 'mixed' || type === 'addresses') {
+                        obj.address = `${streetNum} ${rand(streets)}`; obj.city = rand(cities); obj.zip = zip;
+                    }
+                    if (type === 'mixed' || type === 'companies') {
+                        obj.company = company; obj.job_title = `${job}`;
+                    }
+                    data.push(obj);
+                }
+                result = JSON.stringify(data, null, 2);
+            } else if (format === 'csv') {
+                let header = type === 'names' ? 'first_name,last_name,email,phone' :
+                             type === 'addresses' ? 'address,city,zip,phone' :
+                             type === 'companies' ? 'company,job_title,email,phone' :
+                             'first_name,last_name,email,phone,address,city,zip,company,job_title';
+                result = header + '\n';
+                for (let i = 0; i < rows; i++) {
+                    const fn = rand(firstNames), ln = rand(lastNames);
+                    const email = (fn+ln+randInt(1,999)).toLowerCase()+'@'+rand(domains);
+                    const phone = `(${randInt(200,999)}) ${randInt(200,999)}-${randInt(1000,9999)}`;
+                    const streetNum = randInt(100,9999);
+                    const zip = randInt(10000,99999);
+                    const company = rand(companies);
+                    const job = ['Engineer','Manager','Analyst','Designer','Director'][randInt(0,4)];
+                    if (type === 'names') result += `${fn},${ln},${email},${phone}\n`;
+                    else if (type === 'addresses') result += `${streetNum} ${rand(streets)},${rand(cities)},${zip},${phone}\n`;
+                    else if (type === 'companies') result += `${company},${job},${email},${phone}\n`;
+                    else result += `${fn},${ln},${email},${phone},${streetNum} ${rand(streets)},${rand(cities)},${zip},${company},${job}\n`;
+                }
+            } else if (format === 'sql') {
+                result = 'INSERT INTO users (first_name, last_name, email, phone, address, city, zip, company) VALUES\n';
+                const values = [];
+                for (let i = 0; i < rows; i++) {
+                    const fn = rand(firstNames), ln = rand(lastNames);
+                    const email = (fn+ln+randInt(1,999)).toLowerCase()+'@'+rand(domains);
+                    const phone = `(${randInt(200,999)}) ${randInt(200,999)}-${randInt(1000,9999)}`;
+                    const streetNum = randInt(100,9999);
+                    const zip = randInt(10000,99999);
+                    values.push(`('${fn}', '${ln}', '${email}', '${phone}', '${streetNum} ${rand(streets)}', '${rand(cities)}', ${zip}, '${rand(companies)}')`);
+                }
+                result += values.join(',\n') + ';';
+            } else {
+                for (let i = 0; i < rows; i++) {
+                    const fn = rand(firstNames), ln = rand(lastNames);
+                    const email = (fn+ln+randInt(1,999)).toLowerCase()+'@'+rand(domains);
+                    result += `${fn} ${ln} | ${email} | ${rand(streets)} ${randInt(100,9999)} ${rand(cities)} | ${rand(companies)}\n`;
+                }
+            }
+
+            output.textContent = result;
+        }
+
+        function copyData() {
+            const text = document.getElementById('output').textContent;
+            if (text) navigator.clipboard.writeText(text);
+        }
+
+        generate();
+    </script>
+</body>
+</html>

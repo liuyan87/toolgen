@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fake Name Generator - ToolGen</title>
+    <meta name="description" content="Generate realistic fake names for testing, mockups, and privacy. 1000+ fake person names. Free online fake name generator.">
+    <meta name="keywords" content="fake name generator, random name generator, fake person name, mockup name, test data generator, fictional name">
+    <link rel="canonical" href="https://toolgen.xyz/tools/fake-name-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+        input[type="number"] { padding: 10px; border-radius: 8px; border: 2px solid #333; background: #0a0a0a; color: #fff; width: 80px; }
+        select { padding: 10px; border-radius: 8px; border: 2px solid #333; background: #0a0a0a; color: #fff; }
+        .btn { display: inline-block; padding: 10px 24px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+        .btn:hover { transform: translateY(-2px); }
+        .names-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 20px; }
+        .name-card { background: #0a0a0a; border-radius: 10px; padding: 15px; }
+        .name-card .name { color: #fff; font-size: 1.1rem; font-weight: 600; }
+        .name-card .detail { color: #888; font-size: 0.8rem; margin-top: 5px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🎭 Fake Name Generator</h1>
+        <p class="subtitle">Generate realistic fake names for testing, mockups, and privacy protection.</p>
+
+        <div class="card">
+            <div class="controls">
+                <label style="color:#888;">Count:</label>
+                <input type="number" id="count" value="10" min="1" max="50">
+                <label style="color:#888; margin-left:10px;">Country:</label>
+                <select id="country">
+                    <option value="us">🇺🇸 United States</option>
+                    <option value="uk">🇬🇧 United Kingdom</option>
+                    <option value="cn">🇨🇳 China</option>
+                    <option value="jp">🇯🇵 Japan</option>
+                    <option value="kr">🇰🇷 Korea</option>
+                    <option value="de">🇩🇪 Germany</option>
+                    <option value="fr">🇫🇷 France</option>
+                    <option value="ru">🇷🇺 Russia</option>
+                </select>
+                <button class="btn" onclick="generate()">🎲 Generate</button>
+            </div>
+            <div class="names-grid" id="namesGrid"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/fake-name-generator.html">Fake Name Generator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const firstNames = {
+            us: ['James','Mary','John','Patricia','Robert','Jennifer','Michael','Linda','William','Elizabeth','David','Barbara','Richard','Susan','Joseph','Jessica','Thomas','Sarah','Charles','Karen','Christopher','Nancy','Daniel','Lisa','Matthew','Betty','Anthony','Margaret','Mark','Sandra'],
+            uk: ['Oliver','Amelia','George','Emma','Harry','Sophia','Noah','Isabella','Jack','Mia','Jacob','Grace','Leo','Chloe','Alfie','Ella','Oscar','Charlotte','Charlie','Lily'],
+            cn: ['Wei','Jie','Ming','Lin','Hui','Jun','Yan','Xin','Kai','Yu','Xuan','Zhen','Yu','Lin','Hao','Ran','En','Xiang','Fei','Jia'],
+            jp: ['Yuto','Sora','Ryu','Haru','Hana','Yui','Aoi','Saki','Miyu','Koharu','Mei','Yuma','Natsuki','Sena','Mako'],
+            kr: ['Min-jun','Seo-yeon','Ha-joon','Ji-woo','Yoona','Jun-ho','Eun-ji','Si-woo','Ji-hye','Hyun-seo'],
+            de: ['Fritz','Hans','Klaus','Werner','Peter','Michael','Stefan','Thomas','Christian','Andreas'],
+            fr: ['Jean','Pierre','Marie','Michel','Jacques','Anne','Sylvie','Catherine','Nicolas','Francois'],
+            ru: ['Ivan','Sergei','Dmitri','Alexei','Nikolai','Viktor','Andrei','Vladimir','Pavel','Denis']
+        };
+        const lastNames = {
+            us: ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez','Hernandez','Lopez','Gonzalez','Wilson','Anderson','Thomas','Taylor','Moore','Jackson','Martin'],
+            uk: ['Smith','Jones','Williams','Brown','Taylor','Davies','Wilson','Evans','Roberts','Walker'],
+            cn: ['Wang','Li','Zhang','Liu','Chen','Yang','Huang','Zhao','Wu','Zhou'],
+            jp: ['Suzuki','Tanaka','Sato','Watanabe','Takahashi','Ito','Nakamura','Kobayashi','Saito','Kato'],
+            kr: ['Kim','Lee','Park','Choi','Jung','Kang','Yoon','Jang','Lim','Han'],
+            de: ['Muller','Schmidt','Schneider','Fischer','Weber','Meyer','Wagner','Becker','Schulz','Hoffmann'],
+            fr: ['Martin','Bernard','Dubois','Thomas','Robert','Richard','Petit','Durand','Leroy','Moreau'],
+            ru: ['Ivanov','Petrov','Sidorov','Kuznetsov','Volkov','Kozlov','Novikov','Morozov','Fedorov','Sokolov']
+        };
+        const ages = ['28','32','35','41','27','39','45','23','36','29','31','44','26','38','42'];
+        const jobs = {
+            us: ['Software Engineer','Teacher','Accountant','Nurse','Manager','Sales Associate','Customer Service','Administrative Assistant','Project Manager','Marketing Specialist'],
+            uk: ['Teacher','Nurse','Accountant','Manager','Software Developer','HR Manager','Sales Executive','Marketing Manager','Project Manager','Business Analyst'],
+            cn: ['软件工程师','教师','会计','经理','销售','市场营销','人力资源','产品经理','设计师','数据分析师'],
+            jp: ['エンジニア','先生','会計士','マネージャー','デザイナー','営業','、人事','项目经理','開発者']
+        };
+
+        function generate() {
+            const count = parseInt(document.getElementById('count').value) || 10;
+            const country = document.getElementById('country').value;
+            const first = firstNames[country] || firstNames.us;
+            const last = lastNames[country] || lastNames.us;
+            const jobList = jobs[country] || jobs.us;
+
+            const grid = document.getElementById('namesGrid');
+            grid.innerHTML = '';
+            for (let i = 0; i < Math.min(count, 50); i++) {
+                const f = first[Math.floor(Math.random() * first.length)];
+                const l = last[Math.floor(Math.random() * last.length)];
+                const age = ages[Math.floor(Math.random() * ages.length)];
+                const job = jobList[Math.floor(Math.random() * jobList.length)];
+                const email = (f + l + Math.floor(Math.random() * 999)).toLowerCase() + '@gmail.com';
+                grid.innerHTML += `<div class="name-card">
+                    <div class="name">${f} ${l}</div>
+                    <div class="detail">📧 ${email}</div>
+                    <div class="detail">💼 ${job}</div>
+                    <div class="detail">🎂 Age: ${age}</div>
+                </div>`;
+            }
+        }
+
+        generate();
+    </script>
+</body>
+</html>
