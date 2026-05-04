@@ -1,3 +1,95 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Character Counter - ToolGen</title><meta name="description" content="Count characters in your text with or without spaces. Twitter/X character counter included."><meta name="keywords" content="character counter, count characters, twitter character counter, letter counter"><link rel="canonical" href="https://toolgen.xyz/tools/character-counter.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:800px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.95rem;outline:none;resize:vertical;min-height:200px}textarea:focus{border-color:#667eea}.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}.platform{background:#0a0a0a;border-radius:10px;padding:20px;text-align:center;border:2px solid #333}.platform.active{border-color:#4ade80}.platform.warning{border-color:#eab308}.platform.danger{border-color:#ef4444}.platform-name{color:#888;font-size:0.85rem;margin-bottom:8px}.platform-count{font-size:2rem;font-weight:700;color:#667eea}.platform-limit{color:#888;font-size:0.85rem}.result{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}.result-item{background:#0a0a0a;border-radius:10px;padding:15px;text-align:center}.result-item .num{font-size:1.5rem;font-weight:700;color:#667eea}.result-item .lbl{color:#888;font-size:0.85rem}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔤 Character Counter</h1><p class="subtitle">Count characters with or without spaces. Includes Twitter/X and SMS limits.</p><div class="card"><textarea id="input" placeholder="Type or paste your text here..." oninput="count()"></textarea><div class="platforms"><div class="platform" id="twitter"><div class="platform-name">Twitter / X</div><div class="platform-count" id="tcount">0</div><div class="platform-limit">/ 280</div></div><div class="platform" id="sms"><div class="platform-name">SMS</div><div class="platform-count" id="scount">0</div><div class="platform-limit">/ 160</div></div><div class="platform" id="meta"><div class="platform-name">Meta / Instagram</div><div class="platform-count" id="mcount">0</div><div class="platform-limit">/ 2200</div></div></div><div class="result"><div class="result-item"><div class="num" id="withSpace">0</div><div class="lbl">With spaces</div></div><div class="result-item"><div class="num" id="noSpace">0</div><div class="lbl">Without spaces</div></div></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function count(){const t=document.getElementById('input').value;const len=t.length;const noSpace=t.replace(/\s/g,'').length;document.getElementById('tcount').textContent=len;document.getElementById('scount').textContent=len;document.getElementById('mcount').textContent=len;document.getElementById('withSpace').textContent=len;document.getElementById('noSpace').textContent=noSpace;['twitter','sms','meta'].forEach(id=>{const el=document.getElementById(id);el.className='platform';});const tw=document.getElementById('twitter');tw.className=len>280?'platform danger':len>260?'platform warning':'platform active';const sm=document.getElementById('sms');sm.className=len>160?'platform danger':len>140?'platform warning':'platform active';}count();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Character Counter - ToolGen</title>
+    <meta name="description" content="Count characters, words, and sentences in any text. Free online character counter with detailed statistics.">
+    <meta name="keywords" content="character counter, word counter, count characters, text counter, letter counter, count words">
+    <link rel="canonical" href="https://toolgen.xyz/tools/character-counter.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-size: 1rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
+        .stat-box { background: #0a0a0a; border-radius: 12px; padding: 20px; text-align: center; }
+        .stat-box .num { font-size: 2rem; font-weight: 800; color: #667eea; }
+        .stat-box .label { color: #888; font-size: 0.8rem; margin-top: 5px; }
+        .progress-bar { background: #333; border-radius: 4px; height: 6px; margin-top: 8px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 4px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>⌨️ Character Counter</h1>
+        <p class="subtitle">Count characters, words, sentences, and paragraphs. Real-time with progress bars.</p>
+
+        <div class="card">
+            <textarea id="input" placeholder="Type or paste your text here..." oninput="count()"></textarea>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="num" id="chars">0</div>
+                    <div class="label">Characters</div>
+                    <div class="progress-bar"><div class="progress-fill" id="charsBar" style="width:0%"></div></div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="charsNoSpace">0</div>
+                    <div class="label">No Spaces</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="words">0</div>
+                    <div class="label">Words</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="sentences">0</div>
+                    <div class="label">Sentences</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="paragraphs">0</div>
+                    <div class="label">Paragraphs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num" id="readTime">0</div>
+                    <div class="label">Min Read</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/character-counter.html">Character Counter</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function count() {
+            const text = document.getElementById('input').value;
+            const chars = text.length;
+            const charsNoSpace = text.replace(/\s/g, '').length;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim()).length;
+            const paragraphs = text.split(/\n\n+/).filter(p => p.trim()).length;
+            const readTime = Math.ceil(words / 200);
+
+            document.getElementById('chars').textContent = chars;
+            document.getElementById('charsNoSpace').textContent = charsNoSpace;
+            document.getElementById('words').textContent = words;
+            document.getElementById('sentences').textContent = sentences;
+            document.getElementById('paragraphs').textContent = paragraphs;
+            document.getElementById('readTime').textContent = readTime;
+            document.getElementById('charsBar').style.width = Math.min(chars / 500 * 100, 100) + '%';
+        }
+        count();
+    </script>
+</body>
+</html>
