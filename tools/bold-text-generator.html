@@ -1,2 +1,112 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Bold Text Generator - ToolGen</title><meta name="description" content="Generate bold Unicode text for Instagram, Twitter, and social media. 𝔅𝔬𝔩𝔡 𝔱𝔢𝔵𝔱 generator."><meta name="keywords" content="bold text generator, bold font, unicode bold, instagram bold text, bold letters"><link rel="canonical" href="https://toolgen.xyz/tools/bold-text-generator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:1.1rem;outline:none;resize:vertical;min-height:100px}textarea:focus{border-color:#667eea}.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}.style-btn{padding:15px;background:#0a0a0a;border:2px solid #333;border-radius:10px;cursor:pointer;text-align:center;transition:border-color 0.2s;font-size:1.2rem}.style-btn:hover{border-color:#667eea}.style-btn .label{font-size:0.8rem;color:#888;margin-top:5px}.result{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:12px;padding:25px;text-align:center;font-size:2rem;margin:20px 0;word-break:break-all;min-height:60px}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>𝐁𝐨𝐥𝐝 Text Generator</h1><p class="subtitle">Generate bold Unicode text for Instagram, Twitter, and social media.</p><div class="card"><textarea id="input" placeholder="Type your text..." oninput="generate()"></textarea><div class="styles"><div class="style-btn" onclick="setStyle('bold')"><div>𝐁𝐨𝐥𝐝</div><div class="label">Bold</div></div><div class="style-btn" onclick="setStyle('italic')"><div>𝐼𝑡𝑎𝑙𝑖𝑐</div><div class="label">Italic</div></div><div class="style-btn" onclick="setStyle('boldItalic')"><div>𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄</div><div class="label">Bold Italic</div></div></div><div class="result" id="result">Your bold text...</div><button class="btn" onclick="copy()">📋 Copy</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const bold={'a':'𝐚','b':'𝐛','c':'𝐜','d':'𝐝','e':'𝐞','f':'𝐟','g':'𝐠','h':'𝐡','i':'𝐢','j':'𝐣','k':'𝐤','l':'𝐥','m':'𝐦','n':'𝐧','o':'𝐨','p':'𝐩','q':'𝐪','r':'𝐫','s':'𝐬','t':'𝐭','u':'𝐮','v':'𝐯','w':'𝐰','x':'𝐱','y':'𝐲','z':'𝐳','A':'𝐀','B':'𝐁','C':'𝐂','D':'𝐃','E':'𝐄','F':'𝐅','G':'𝐆','H':'𝐇','I':'𝐈','J':'𝐉','K':'𝐊','L':'𝐋','M':'𝐌','N':'𝐍','O':'𝐎','P':'𝐏','Q':'𝐐','R':'𝐑','S':'𝐒','T':'𝐓','U':'𝐔','V':'𝐕','W':'𝐖','X':'𝐗','Y':'𝐘','Z':'𝐙','0':'𝟎','1':'𝟏','2':'𝟐','3':'𝟑','4':'𝟒','5':'𝟓','6':'𝟔','7':'𝟕','8':'𝟖','9':'𝟗'};const italic={'a':'𝑎','b':'𝑏','c':'𝑐','d':'𝑑','e':'𝑒','f':'𝑓','g':'𝑔','h':'ℎ','i':'𝑖','j':'𝑗','k':'𝑘','l':'𝑙','m':'𝑚','n':'𝑛','o':'𝑜','p':'𝑝','q':'𝑞','r':'𝑟','s':'𝑠','t':'𝑡','u':'𝑢','v':'𝑣','w':'𝑤','x':'𝑥','y':'𝑦','z':'𝑧','A':'𝐴','B':'𝐵','C':'𝐶','D':'𝐷','E':'𝐸','F':'𝐹','G':'𝐺','H':'𝐻','I':'𝐼','J':'𝐽','K':'𝐾','L':'𝐿','M':'𝑀','N':'𝑁','O':'𝑂','P':'𝑃','Q':'𝑄','R':'𝑅','S':'𝑆','T':'𝑇','U':'𝑈','V':'𝑉','W':'𝑊','X':'𝑋','Y':'𝑌','Z':'𝑍'};const boldItalic={'a':'𝒂','b':'𝒃','c':'𝒄','d':'𝒅','e':'𝒆','f':'𝒇','g':'𝒈','h':'𝒉','i':'𝒊','j':'𝒋','k':'𝒌','l':'𝒍','m':'𝒎','n':'𝒏','o':'𝒐','p':'𝒑','q':'𝒒','r':'𝒓','s':'𝒔','t':'𝒕','u':'𝒖','v':'𝒗','w':'𝒘','x':'𝒙','y':'𝒚','z':'𝒛','A':'𝑨','B':'𝑩','C':'𝑪','D':'𝑫','E':'𝑬','F':'𝑭','G':'𝑮','H':'𝑯','I':'𝑰','J':'𝑱','K':'𝑲','L':'𝑳','M':'𝑴','N':'𝑵','O':'𝑶','P':'𝑷','Q':'𝑸','R':'𝑹','S':'𝑺','T':'𝑻','U':'𝑼','V':'𝑽','W':'𝑾','X':'𝑿','Y':'𝒀','Z':'𝒁'};let currentStyle='bold';function setStyle(s){currentStyle=s;generate();}function generate(){const t=document.getElementById('input').value;const map={bold,italic,boldItalic}[currentStyle];document.getElementById('result').textContent=Array.from(t).map(c=>map[c]||c).join('')||'Your bold text...';}function copy(){navigator.clipboard.writeText(document.getElementById('result').textContent);}</script></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Bold Text Generator - ToolGen</title>
+    <meta name="description" content="Generate bold text using Unicode. Transform any text to bold 𝐁𝐨𝐥𝐝 letters for social media bio and posts. Free online bold text generator.">
+    <meta name="keywords" content="bold text generator, bold text, unicode bold, bold letters, text generator, 𝐁𝐨𝐥𝐝, 𝗯𝗼𝗹𝗱, social media text">
+    <link rel="canonical" href="https://toolgen.xyz/tools/bold-text-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-size: 1.1rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 120px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .output-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; font-size: 1.4rem; color: #22c55e; min-height: 80px; word-break: break-all; }
+        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-top: 8px; }
+        .style-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .style-btn { padding: 8px 16px; background: #0a0a0a; border: 2px solid #333; border-radius: 20px; color: #888; cursor: pointer; font-size: 0.85rem; }
+        .style-btn:hover { border-color: #667eea; color: #fff; }
+        .style-btn.active { border-color: #667eea; color: #fff; background: rgba(102,126,234,0.1); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>𝐁𝐨𝐥𝐝 Bold Text Generator</h1>
+        <p class="subtitle">Transform any text into bold Unicode letters. Perfect for Instagram, Twitter, TikTok bios.</p>
+
+        <div class="card">
+            <label>Type your text:</label>
+            <textarea id="input" placeholder="Type something here..." oninput="generate()"></textarea>
+
+            <div class="style-btns">
+                <button class="style-btn active" onclick="setStyle('bold')">𝐁 Bold</button>
+                <button class="style-btn" onclick="setStyle('italic')">𝐼 Italic</button>
+                <button class="style-btn" onclick="setStyle('bolditalic')">𝑩 Bold Italic</button>
+                <button class="style-btn" onclick="setStyle('monospace')">𝙼𝚖𝚘𝚗𝚘</button>
+                <button class="style-btn" onclick="setStyle('sans')">𝗦𝗮𝗻𝘀</button>
+                <button class="style-btn" onclick="setStyle('serif')">𝑺𝒆𝒓𝒊𝒇</button>
+            </div>
+
+            <div style="margin-top:15px;">
+                <button class="btn" onclick="copy()">📋 Copy</button>
+                <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+            </div>
+
+            <div class="output-box" id="output">Your styled text will appear here...</div>
+            <p class="copy-msg" id="copyMsg"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/bold-text-generator.html">Bold Text Generator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        let currentStyle = 'bold';
+
+        const styles = {
+            bold: { chars: '𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙', base: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' },
+            italic: { chars: '𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡', base: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' },
+            bolditalic: { chars: '𝑎𝑏𝑐𝑑𝑒𝑓𝑔𝘩𝑖𝑗𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙', base: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' },
+            monospace: { chars: '𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉', base: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' },
+            sans: { chars: '𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭', base: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' },
+            serif: { chars: '𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁', base: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' }
+        };
+
+        function setStyle(style) {
+            currentStyle = style;
+            document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            generate();
+        }
+
+        function generate() {
+            const text = document.getElementById('input').value;
+            if (!text) {
+                document.getElementById('output').textContent = 'Your styled text will appear here...';
+                return;
+            }
+            const s = styles[currentStyle];
+            const map = {};
+            for (let i = 0; i < s.base.length; i++) map[s.base[i]] = s.chars[i];
+            document.getElementById('output').textContent = text.split('').map(c => map[c] || c).join('');
+        }
+
+        function copy() {
+            const text = document.getElementById('output').textContent;
+            if (text && text !== 'Your styled text will appear here...') {
+                navigator.clipboard.writeText(text);
+                document.getElementById('copyMsg').textContent = '✓ Copied!';
+                setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
+            }
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('output').textContent = 'Your styled text will appear here...';
+        }
+    </script>
+</body>
+</html>

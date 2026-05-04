@@ -1,2 +1,122 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Hashtag Generator - ToolGen</title><meta name="description" content="Generate trending hashtags for Instagram, Twitter, and TikTok. Free hashtag generator."><meta name="keywords" content="hashtag generator, instagram hashtags, twitter hashtags, tiktok hashtags, social media hashtags"><link rel="canonical" href="https://toolgen.xyz/tools/hashtag-generator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.95rem;outline:none;resize:vertical;min-height:150px}textarea:focus{border-color:#667eea}.hashtags{background:#0a0a0a;border-radius:8px;padding:15px;margin-top:15px;min-height:80px;font-size:1.1rem;line-height:2}.hashtags span{color:#667eea;cursor:pointer;margin-right:8px;transition:color 0.2s}.hashtags span:hover{color:#4ade80}.stats{display:flex;gap:15px;margin-top:15px;flex-wrap:wrap}.stat{background:#0a0a0a;border-radius:8px;padding:12px 20px}.stat .num{font-size:1.5rem;font-weight:700;color:#667eea}.stat .label{color:#888;font-size:0.85rem}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>#️⃣ Hashtag Generator</h1><p class="subtitle">Generate trending hashtags for Instagram, Twitter, and TikTok.</p><div class="card"><textarea id="input" placeholder="Enter your post content or keywords (e.g. travel photography sunset beach)..."></textarea><button class="btn" onclick="generate()">⚡ Generate Hashtags</button><button class="btn" onclick="copy()">📋 Copy All</button><button class="btn" onclick="clear()">🗑️ Clear</button><div class="hashtags" id="hashtags" onclick="copySingle(event)">Click generate to create hashtags...</div><div class="stats"><div class="stat"><div class="num" id="count">0</div><div class="label">Hashtags</div></div></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const templates=['#','trending','viral','fyp','explore','instagood','photooftheday','love','beautiful','happy','fashion','followme','likeforlikes','photography','art','travel','nature','food','fitness','music','style','motivation','success','lifestyle','inspiration','quotes','motivationalquotes','business','entrepreneur','startup'];const modifiers=['daily','official','2026','best','top','real','world','global','hot','new','fresh','epic','lit','dope','cool','amazing','awesome','incredible','ultimate','mustsee'];function generate(){const text=document.getElementById('input').value.toLowerCase().trim();const words=text.match(/\b[a-z]{3,}\b/g)||[];const keywords=[...new Set(words)];const hashtags=keywords.map(w=>'#'+w);const trending=keywords.slice(0,5).map(w=>'#'+w+ modifiers[Math.floor(Math.random()*modifiers.length)]);const randomHashtags=[];while(randomHashtags.length<10){const t=templates[Math.floor(Math.random()*templates.length)];if(!randomHashtags.includes('#'+t))randomHashtags.push('#'+t);}const all=[...hashtags,...trending,...randomHashtags].slice(0,30);document.getElementById('hashtags').innerHTML=all.map(h=>`<span>${h}</span>`).join('');document.getElementById('count').textContent=all.length;}function copySingle(e){if(e.target.tagName==='SPAN'){navigator.clipboard.writeText(e.target.textContent);e.target.style.color='#4ade80';setTimeout(()=>e.target.style.color='#667eea',500);}}function copy(){navigator.clipboard.writeText(document.getElementById('hashtags').textContent);}function clear(){document.getElementById('input').value='';document.getElementById('hashtags').innerHTML='Click generate to create hashtags...';document.getElementById('count').textContent='0';}</script></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Hashtag Generator - ToolGen</title>
+    <meta name="description" content="Generate trending hashtags for Instagram, TikTok, Twitter. Boost your posts with viral hashtags. Free online hashtag generator.">
+    <meta name="keywords" content="hashtag generator, instagram hashtags, tiktok hashtags, twitter hashtags, social media hashtags, trending hashtags, hashtag search">
+    <link rel="canonical" href="https://toolgen.xyz/tools/hashtag-generator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-size: 1rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 120px; }
+        textarea:focus { border-color: #667eea; }
+        input[type="number"] { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input[type="number"]:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .hashtags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tag { display: inline-block; padding: 8px 16px; background: rgba(102,126,234,0.15); border: 1px solid #667eea; border-radius: 20px; color: #667eea; font-size: 0.9rem; cursor: pointer; }
+        .tag:hover { background: #667eea; color: #fff; }
+        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-top: 12px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>#️⃣ Hashtag Generator</h1>
+        <p class="subtitle">Generate trending hashtags for Instagram, TikTok, Twitter. Boost your post visibility.</p>
+
+        <div class="card">
+            <label>Enter your post topic or keywords:</label>
+            <textarea id="input" placeholder="e.g. photography, sunset, nature, travel..." oninput="generate()"></textarea>
+
+            <label>Number of hashtags:</label>
+            <input type="number" id="count" value="15" min="5" max="30" oninput="generate()">
+
+            <button class="btn" onclick="generate()">Generate Hashtags</button>
+            <button class="btn" style="background:#333;" onclick="copyAll()">📋 Copy All</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="hashtags" id="hashtags">
+                <p style="color:#888; font-size:0.9rem;">Enter keywords to generate hashtags...</p>
+            </div>
+            <p class="copy-msg" id="copyMsg"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/hashtag-generator.html">Hashtag Generator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const hashtagDB = {
+            photography: ['#photography', '#photooftheday', '#instagood', '#photographer', '#portrait', '#landscape', '#naturephotography', '#streetphotography', '#canon', '#nikon', '#sony', '#lightroom', '#photoshoot', '#portraitphotography'],
+            sunset: ['#sunset', '#sunsets', '#sunsetlovers', '#sunset_pics', '#nature', '#beautiful', '#sky', '#photography', '#sunsetphotography', '#goldenhour', '#sunsetlover', '#naturelover'],
+            travel: ['#travel', '#travelgram', '#travelphotography', '#travelblogger', '#wanderlust', '#traveling', '#instatravel', '#traveladdict', '#traveler', '#travelholic', '#traveltheworld', '#travelling'],
+            food: ['#food', '#foodporn', '#instafood', '#foodie', '#foodphotography', '#foodlover', '#foodstagram', '#delicious', '#homemade', '#foodies', '#tasty', '#yummy', '#foodblogger', '#cooking'],
+            fitness: ['#fitness', '#fitnessmotivation', '#gym', '#workout', '#fitnessjourney', '#fit', '#health', '#fitnessgirl', '#fitnessmodel', '#bodybuilding', '#gymlife', '#fitnessaddict', '#fitfam', '#training'],
+            fashion: ['#fashion', '#fashionblogger', '#style', '#ootd', '#fashionista', '#streetstyle', '#fashionstyle', '#fashionable', '#outfitoftheday', '#fashionweek', '#luxury', '#stylish', '#instafashion'],
+            art: ['#art', '#artist', '#artwork', '#drawing', '#painting', '#sketch', '#artists', '#artistic', '#illustrator', '#digitalart', '#artoftheday', '#contemporaryart', '#instaart'],
+            music: ['#music', '#musician', '#song', '#singer', '#musiclife', '#rap', '#hiphop', '#producer', '#newmusic', '#musicproducer', '#dj', '#beat', '#studio', '#recording'],
+            tech: ['#tech', '#technology', '#coding', '#programming', '#developer', '#software', '#ai', '#gadget', '#startup', '#programming', '#webdev', '#javascript', '#python', '#programminglife'],
+            business: ['#business', '#entrepreneur', '#success', '#money', '#marketing', '#investment', '#startup', '#businessowner', '#hustle', '#motivation', '#leadership', '#ceo', '#brand'],
+            beauty: ['#beauty', '#makeup', '#skincare', '#beautytips', '#cosmetics', '#beautyblogger', '#hair', '#mua', '#makeupartist', '#beauty guru', '#skincareroutine', '#glowup'],
+            gaming: ['#gaming', '#gamer', '#videogames', '#pcgaming', '#ps5', '#xbox', '#nintendo', '#twitch', '#esports', '#gamingcommunity', '#gamerlife', '#steam', '#gameon'],
+            crypto: ['#crypto', '#bitcoin', '#ethereum', '#blockchain', '#cryptocurrency', '#trading', '#investing', '#defi', '#nft', '#binance', '#web3', '#altcoin', '#cryptonews'],
+            lifestyle: ['#lifestyle', '#lifestyleblogger', '#life', '#happy', '#love', '#motivation', '#inspiration', '#selfcare', '#mindfulness', '#goals', '#daily', '#liveauthentic', '#lovelife'],
+            default: ['#trending', '#viral', '#explore', '#explorepage', '#reels', '#fyp', '#foryou', '#viralpost', '#viraltiktok', '#trendingnow', '#instagood', '#photooftheday', '#follow', '#like']
+        };
+
+        function generate() {
+            const input = document.getElementById('input').value.trim().toLowerCase();
+            const count = parseInt(document.getElementById('count').value) || 15;
+
+            const keywords = input ? input.split(/[\s,]+/).filter(w => w.length > 0) : [];
+            let pool = [];
+
+            if (keywords.length > 0) {
+                keywords.forEach(k => {
+                    if (hashtagDB[k]) pool.push(...hashtagDB[k]);
+                });
+            }
+
+            if (pool.length === 0) pool = [...hashtagDB.default];
+
+            // Shuffle and pick
+            pool = pool.sort(() => Math.random() - 0.5).slice(0, Math.min(count, pool.length));
+
+            document.getElementById('hashtags').innerHTML = pool.map(tag =>
+                `<span class="tag" onclick="copyTag('${tag}')">${tag}</span>`
+            ).join('');
+        }
+
+        function copyTag(tag) {
+            navigator.clipboard.writeText(tag);
+            document.getElementById('copyMsg').textContent = `✓ Copied ${tag}`;
+            setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
+        }
+
+        function copyAll() {
+            const tags = Array.from(document.querySelectorAll('.tag')).map(el => el.textContent).join(' ');
+            navigator.clipboard.writeText(tags);
+            document.getElementById('copyMsg').textContent = '✓ All hashtags copied!';
+            setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('hashtags').innerHTML = '<p style="color:#888; font-size:0.9rem;">Enter keywords to generate hashtags...</p>';
+        }
+    </script>
+</body>
+</html>
