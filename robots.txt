@@ -4,5 +4,15 @@ Allow: /
 # SEO
 Sitemap: https://toolgen.xyz/sitemap.xml
 
-# Crawl-delay (be nice to server)
+# Crawl-delay
 Crawl-delay: 1
+
+# Block AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

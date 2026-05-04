@@ -1,0 +1,43 @@
+# ToolGen - 150+ Free Online Tools
+
+**Subreddit:** r/webtools or r/webdev or r/programming
+
+---
+
+**Title:** Built 155 free online tools — no signup, no ads, just open and use
+
+Hey everyone,
+
+I built [ToolGen](https://toolgen.xyz) — a collection of 155 free online utilities covering:
+
+- **AI Tools**: Agent Cost Calculator, Prompt Templates, LLM Router, ReAct Pattern Builder, etc.
+- **Image Tools**: Background Remover, Photo Grid Maker, Image Compressor, Crop/Resize/Rotate
+- **Developer Tools**: JSON Formatter, Regex Tester, SQL Formatter, Cron Generator, JWT Decoder
+- **Utility**: Hashtag Generator, Bold Text, Grammar Checker, Plagiarism Checker, Unit Converter
+
+**Why I built it:**
+I was tired of paywalled tools. Every time I needed a quick QR code or wanted to format some JSON, I'd hit "create account" walls. So I built the tool site I wished existed.
+
+**What's different:**
+- Zero registration required
+- No ads interrupting your workflow
+- All tools work client-side (your data stays local)
+- Built-in SEO (sitemap, Open Graph, Twitter cards)
+
+**Newest additions:**
+Just added 4 high-SEO-demand tools:
+- 🔍 Plagiarism Checker
+- ✏️ Grammar Checker  
+- 🔄 Paraphrasing Tool
+- 🖼️ Photo Grid Maker
+
+**Tech stack:**
+Static HTML/CSS/JS deployed via GitHub Pages. Each tool is a single self-contained HTML file with embedded styles and scripts. No build step, no framework overhead.
+
+Would love feedback on what tools you'd actually use. Thanks!
+
+**Link:** https://toolgen.xyz
+
+---
+
+*AMA — happy to answer questions about the build process, SEO strategy, or tool selection criteria.*
