@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Decoder - ToolGen</title>
-    <meta name="description" content="Decode QR codes from images instantly. Read any QR code online for free.">
+    <title>Free QR Code Decoder - ToolGen</title>
+    <meta name="description" content="Decode QR codes from images. Read and extract data from QR code images. Free online QR decoder.">
+    <meta name="keywords" content="qr code decoder, read qr code, decode qr code, scan qr code, qr code reader, extract qr data">
     <link rel="canonical" href="https://toolgen.xyz/tools/qr-decoder.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
         .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; text-align: center; }
-        .drop-zone { border: 2px dashed #667eea; border-radius: 16px; padding: 60px 20px; cursor: pointer; transition: all 0.3s; }
-        .drop-zone:hover { background: rgba(102,126,234,0.1); }
+        .drop-zone { border: 2px dashed #333; border-radius: 12px; padding: 40px; cursor: pointer; transition: all 0.3s; }
+        .drop-zone:hover { border-color: #667eea; background: rgba(102,126,234,0.05); }
+        .drop-zone.dragover { border-color: #667eea; background: rgba(102,126,234,0.1); }
+        .preview { max-width: 200px; max-height: 200px; margin: 20px auto; display: none; }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 20px; margin-top: 20px; text-align: left; }
+        .result-box .label { color: #888; font-size: 0.85rem; margin-bottom: 8px; }
+        .result-box .value { color: #22c55e; font-size: 1.1rem; word-break: break-all; }
         input[type="file"] { display: none; }
-        .result-box { background: #0a0a0a; border: 2px solid #4ade80; border-radius: 12px; padding: 20px; margin-top: 20px; word-break: break-all; text-align: left; color: #4ade80; font-family: monospace; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-top: 15px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -25,51 +31,74 @@
 <body>
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
-        <h1>📷 QR Code Decoder</h1>
-        <p class="subtitle">Decode QR codes from images instantly. Upload or drag & drop.</p>
+        <h1>📱 QR Code Decoder</h1>
+        <p class="subtitle">Upload a QR code image to read its content.</p>
+
         <div class="card">
-            <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
-                <div style="font-size: 3rem;">📷</div>
-                <p style="color: #888; margin-top: 15px;">Click or drag QR code image here</p>
+            <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                <p style="color:#888; font-size:0.9rem;">📷 Click or drag & drop a QR code image here</p>
+                <input type="file" id="fileInput" accept="image/*" onchange="handleFile(this.files[0])">
             </div>
-            <input type="file" id="fileInput" accept="image/*" onchange="decodeQR(this.files[0])">
-            <div class="result-box" id="result" style="display: none;"></div>
+
+            <img class="preview" id="preview" alt="QR Code preview">
+
+            <div class="result-box" id="resultBox" style="display:none;">
+                <div class="label">Decoded Content:</div>
+                <div class="value" id="resultValue"></div>
+                <button class="btn" onclick="copyResult()">📋 Copy</button>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+
     <footer>
-        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/qr-decoder.html">QR Decoder</a> - 150+ Free Tools</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
     <script>
-        function decodeQR(file) {
-            if (!file) return;
+        const dropZone = document.getElementById('dropZone');
+
+        dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', e => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) return;
+
             const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.onload = function() {
-                    const canvas = document.getElementById('canvas') || document.createElement('canvas');
+            reader.onload = e => {
+                const img = document.getElementById('preview');
+                img.src = e.target.result;
+                img.style.display = 'block';
+
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                img.onload = () => {
                     canvas.width = img.width;
                     canvas.height = img.height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
+                    ctx.drawImage(img, 0, 0, img.width, img.height);
                     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                     const code = jsQR(imageData.data, canvas.width, canvas.height);
-                    const result = document.getElementById('result');
                     if (code) {
-                        result.style.display = 'block';
-                        result.textContent = code.data;
+                        document.getElementById('resultValue').textContent = code.data;
+                        document.getElementById('resultBox').style.display = 'block';
                     } else {
-                        result.style.display = 'block';
-                        result.style.borderColor = '#ef4444';
-                        result.style.color = '#ef4444';
-                        result.textContent = '❌ No QR code found in this image';
+                        document.getElementById('resultValue').textContent = 'Could not decode QR code. Try a clearer image.';
+                        document.getElementById('resultBox').style.display = 'block';
                     }
                 };
-                img.src = e.target.result;
             };
             reader.readAsDataURL(file);
         }
+
+        function copyResult() {
+            const text = document.getElementById('resultValue').textContent;
+            if (text) navigator.clipboard.writeText(text);
+        }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>
