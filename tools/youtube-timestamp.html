@@ -1,3 +1,107 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free YouTube Timestamp Link Generator - ToolGen</title><meta name="description" content="Generate YouTube links that start at a specific timestamp. Create shareable video links."><meta name="keywords" content="youtube timestamp, youtube link generator, youtube timestamp link, start video at timestamp"><link rel="canonical" href="https://toolgen.xyz/tools/youtube-timestamp.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}input{width:100%;padding:12px;border-radius:8px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:1rem;outline:none;margin-bottom:12px}input:focus{border-color:#667eea}.preview{background:#0a0a0a;border-radius:8px;padding:15px;margin-top:15px;border:2px solid #333}.preview iframe{width:100%;height:300px;border:none;border-radius:8px}.time-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:15px}.time-inputs input{text-align:center}.link-box{background:#0a0a0a;border-radius:8px;padding:15px;margin-top:15px;font-family:monospace;font-size:0.9rem;color:#667eea;word-break:break-all;border:2px solid #667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>▶️ YouTube Timestamp Link</h1><p class="subtitle">Generate YouTube links that start at a specific timestamp.</p><div class="card"><label>YouTube URL</label><input type="text" id="url" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" oninput="update()"><label>Start Time</label><div class="time-inputs"><input type="number" id="h" value="0" min="0" max="23" placeholder="H" oninput="update()"><input type="number" id="m" value="0" min="0" max="59" placeholder="M" oninput="update()"><input type="number" id="s" value="0" min="0" max="59" placeholder="S" oninput="update()"></div><div class="link-box" id="link">Paste a YouTube URL above...</div><button class="btn" onclick="copyLink()">📋 Copy Link</button><button class="btn" onclick="copyEmbed()">📋 Copy Embed</button><div class="preview" id="preview"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function update(){const url=document.getElementById('url').value;const h=parseInt(document.getElementById('h').value)||0;const m=parseInt(document.getElementById('m').value)||0;const s=parseInt(document.getElementById('s').value)||0;const secs=h*3600+m*60+s;let videoId='';const match=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);if(match){videoId=match[1];const link=`https://www.youtube.com/watch?v=${videoId}&t=${secs}`;document.getElementById('link').textContent=link;document.getElementById('preview').innerHTML=`<iframe src="https://www.youtube.com/embed/${videoId}?start=${secs}" allowfullscreen></iframe>`;}else{document.getElementById('link').textContent='Paste a valid YouTube URL above...';document.getElementById('preview').innerHTML='';}}function copyLink(){navigator.clipboard.writeText(document.getElementById('link').textContent);}function copyEmbed(){const url=document.getElementById('url').value;const match=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);if(match){const h=parseInt(document.getElementById('h').value)||0;const m=parseInt(document.getElementById('m').value)||0;const s=parseInt(document.getElementById('s').value)||0;const secs=h*3600+m*60+s;const embed=`<iframe width="560" height="315" src="https://www.youtube.com/embed/${match[1]}?start=${secs}" frameborder="0" allowfullscreen></iframe>`;navigator.clipboard.writeText(embed);}}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free YouTube Timestamp Link Generator - ToolGen</title>
+    <meta name="description" content="Generate YouTube video links with specific timestamps. Create links that start at any point. Free YouTube timestamp link generator.">
+    <meta name="keywords" content="youtube timestamp, youtube link start at, youtube timestamp generator, youtube deep link, youtube link specific time">
+    <link rel="canonical" href="https://toolgen.xyz/tools/youtube-timestamp.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .time-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        input[type="number"] { padding: 12px; font-size: 1rem; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 10px; padding: 15px; margin-top: 15px; font-family: monospace; }
+        .result-box a { color: #667eea; word-break: break-all; }
+        .presets { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+        .preset-btn { padding: 6px 12px; background: #0a0a0a; border: 1px solid #333; border-radius: 15px; color: #888; cursor: pointer; font-size: 0.8rem; }
+        .preset-btn:hover { border-color: #667eea; color: #fff; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>⏱️ YouTube Timestamp Link</h1>
+        <p class="subtitle">Create YouTube links that start at a specific timestamp.</p>
+
+        <div class="card">
+            <label>YouTube Video URL:</label>
+            <input type="text" id="videoUrl" placeholder="https://youtube.com/watch?v=XXXXXXXXXXX">
+
+            <label>Start at:</label>
+            <div class="time-inputs">
+                <input type="number" id="hours" placeholder="0" min="0" max="23" value="0">
+                <input type="number" id="minutes" placeholder="0" min="0" max="59" value="0">
+                <input type="number" id="seconds" placeholder="0" min="0" max="59" value="0">
+            </div>
+
+            <div class="presets">
+                <button class="preset-btn" onclick="setTime(0,1,0)">1:00</button>
+                <button class="preset-btn" onclick="setTime(0,5,0)">5:00</button>
+                <button class="preset-btn" onclick="setTime(0,10,0)">10:00</button>
+                <button class="preset-btn" onclick="setTime(0,30,0)">30:00</button>
+                <button class="preset-btn" onclick="setTime(1,0,0)">1:00:00</button>
+            </div>
+
+            <button class="btn" onclick="generate()">Generate Link</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
+
+            <div class="result-box" id="result" style="display:none;">
+                <a id="resultLink" href="#" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/youtube-timestamp.html">YouTube Timestamp</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function setTime(h, m, s) {
+            document.getElementById('hours').value = h;
+            document.getElementById('minutes').value = m;
+            document.getElementById('seconds').value = s;
+        }
+
+        function getVideoId(url) {
+            const m = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/) || url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+            return m ? m[1] : null;
+        }
+
+        function generate() {
+            const url = document.getElementById('videoUrl').value.trim();
+            const videoId = getVideoId(url);
+            if (!videoId) { alert('Please enter a valid YouTube URL'); return; }
+
+            const h = parseInt(document.getElementById('hours').value) || 0;
+            const m = parseInt(document.getElementById('minutes').value) || 0;
+            const s = parseInt(document.getElementById('seconds').value) || 0;
+            const t = h * 3600 + m * 60 + s;
+
+            const link = `https://www.youtube.com/watch?v=${videoId}&t=${t}`;
+            const linkEl = document.getElementById('resultLink');
+            linkEl.href = link;
+            linkEl.textContent = link;
+            document.getElementById('result').style.display = 'block';
+        }
+
+        function copy() {
+            const link = document.getElementById('resultLink').textContent;
+            if (link) navigator.clipboard.writeText(link);
+        }
+    </script>
+</body>
+</html>
