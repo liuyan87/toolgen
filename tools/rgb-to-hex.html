@@ -1,3 +1,152 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free RGB to HEX Color Converter - ToolGen</title><meta name="description" content="Convert RGB color values to HEX color codes instantly."><meta name="keywords" content="rgb to hex, hex to rgb, rgb color, hex color, color converter"><link rel="canonical" href="https://toolgen.xyz/tools/rgb-to-hex.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:600px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px;text-align:center}.preview{width:100%;height:120px;border-radius:12px;margin:20px 0;border:2px solid #333}.sliders{display:grid;gap:15px;margin:20px 0}.slider{display:flex;align-items:center;gap:15px}.slider label{min-width:30px;font-weight:700;color:#ef4444;font-size:1.1rem}.slider input[type="range"]{flex:1;-webkit-appearance:none;height:8px;border-radius:4px;background:#333;outline:none}.slider input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;cursor:pointer}.slider span{min-width:50px;text-align:right;color:#888}.result{background:#0a0a0a;border-radius:8px;padding:15px;font-family:monospace;font-size:1.2rem;margin:15px 0;color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🎨 RGB to HEX</h1><p class="subtitle">Convert RGB color values to HEX color codes.</p><div class="card"><div class="preview" id="preview"></div><div class="sliders"><div class="slider"><label>R</label><input type="range" id="r" min="0" max="255" value="102" oninput="update()"><span id="rVal">102</span></div><div class="slider"><label>G</label><input type="range" id="g" min="0" max="255" value="126" oninput="update()"><span id="gVal">126</span></div><div class="slider"><label>B</label><input type="range" id="b" min="0" max="255" value="234" oninput="update()"><span id="bVal">234</span></div></div><div class="result" id="hex">#667EEA</div><button class="btn" onclick="copy()">📋 Copy HEX</button><button class="btn" onclick="copyRGB()">📋 Copy RGB</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function update(){const r=document.getElementById('r').value;const g=document.getElementById('g').value;const b=document.getElementById('b').value;document.getElementById('rVal').textContent=r;document.getElementById('gVal').textContent=g;document.getElementById('bVal').textContent=b;const hex='#'+[r,g,b].map(v=>parseInt(v).toString(16).padStart(2,'0')).join('');document.getElementById('hex').textContent=hex;document.getElementById('preview').style.background=hex;document.getElementById('preview').textContent=hex.toUpperCase();}function copy(){navigator.clipboard.writeText(document.getElementById('hex').textContent);}function copyRGB(){const r=document.getElementById('r').value;const g=document.getElementById('g').value;const b=document.getElementById('b').value;navigator.clipboard.writeText(`rgb(${r}, ${g}, ${b})`);}update();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free RGB/Hex Color Converter - ToolGen</title>
+    <meta name="description" content="Convert between RGB and HEX color values instantly. Free online RGB to Hex and Hex to RGB color converter.">
+    <meta name="keywords" content="rgb to hex, hex to rgb, color converter, rgb hex converter, hex color, rgb color">
+    <link rel="canonical" href="https://toolgen.xyz/tools/rgb-to-hex.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .color-preview { width: 100%; height: 100px; border-radius: 12px; border: 2px solid #333; margin-bottom: 20px; }
+        .input-group { display: grid; grid-template-columns: 1fr 1fr 1fr 80px; gap: 10px; margin-bottom: 15px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input[type="number"] { padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; width: 100%; }
+        input[type="number"]:focus { border-color: #667eea; }
+        input[type="color"] { width: 80px; height: 50px; border: none; background: none; cursor: pointer; }
+        .result-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #333; font-size: 1.1rem; }
+        .result-row:last-child { border-bottom: none; }
+        .result-row .label { color: #888; }
+        .result-row .value { color: #22c55e; font-family: monospace; cursor: pointer; }
+        .result-row .value:hover { color: #fff; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🎨 RGB / Hex Converter</h1>
+        <p class="subtitle">Convert between RGB and HEX color values instantly.</p>
+
+        <div class="card">
+            <label>HEX Color:</label>
+            <input type="color" id="hexPicker" value="#667eea" onchange="fromHex()">
+
+            <label>Or enter HEX:</label>
+            <input type="text" id="hexInput" placeholder="#667eea" maxlength="7" oninput="fromHex()">
+
+            <div style="margin-top:20px;">
+                <label>R (0-255):</label>
+                <div class="input-group">
+                    <input type="number" id="r" min="0" max="255" value="102" oninput="fromRgb()">
+                    <input type="number" id="g" min="0" max="255" value="126" oninput="fromRgb()">
+                    <input type="number" id="b" min="0" max="255" value="234" oninput="fromRgb()">
+                    <input type="color" id="rgbPicker" value="#667eea" onchange="fromPicker()">
+                </div>
+            </div>
+
+            <div class="color-preview" id="preview"></div>
+
+            <div class="result-row">
+                <span class="label">HEX:</span>
+                <span class="value" id="hexVal" onclick="copy('hexVal')">#667EEA</span>
+            </div>
+            <div class="result-row">
+                <span class="label">RGB:</span>
+                <span class="value" id="rgbVal" onclick="copy('rgbVal')">rgb(102, 126, 234)</span>
+            </div>
+            <div class="result-row">
+                <span class="label">HSL:</span>
+                <span class="value" id="hslVal" onclick="copy('hslVal')">hsl(229, 76%, 66%)</span>
+            </div>
+
+            <button class="btn" style="margin-top:15px;" onclick="swap()">⇄ Swap RGB ↔ HEX</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/rgb-to-hex.html">RGB/Hex Converter</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function fromHex() {
+            const hex = document.getElementById('hexInput').value;
+            if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) return;
+
+            const r = parseInt(hex.substr(1,2), 16);
+            const g = parseInt(hex.substr(3,2), 16);
+            const b = parseInt(hex.substr(5,2), 16);
+
+            document.getElementById('r').value = r;
+            document.getElementById('g').value = g;
+            document.getElementById('b').value = b;
+            document.getElementById('rgbPicker').value = hex;
+            document.getElementById('hexPicker').value = hex;
+            updateDisplay(hex, r, g, b);
+        }
+
+        function fromRgb() {
+            const r = Math.min(255, Math.max(0, parseInt(document.getElementById('r').value) || 0));
+            const g = Math.min(255, Math.max(0, parseInt(document.getElementById('g').value) || 0));
+            const b = Math.min(255, Math.max(0, parseInt(document.getElementById('b').value) || 0));
+
+            const hex = '#' + [r,g,b].map(x => x.toString(16).padStart(2,'0')).join('').toUpperCase();
+            document.getElementById('hexInput').value = hex;
+            document.getElementById('hexPicker').value = hex;
+            document.getElementById('rgbPicker').value = hex;
+            updateDisplay(hex, r, g, b);
+        }
+
+        function fromPicker() {
+            const hex = document.getElementById('rgbPicker').value;
+            document.getElementById('hexInput').value = hex;
+            document.getElementById('hexPicker').value = hex;
+            fromHex();
+        }
+
+        function updateDisplay(hex, r, g, b) {
+            document.getElementById('preview').style.background = hex;
+            document.getElementById('hexVal').textContent = hex;
+            document.getElementById('rgbVal').textContent = `rgb(${r}, ${g}, ${b})`;
+
+            const rN = r/255, gN = g/255, bN = b/255;
+            const max = Math.max(rN,gN,bN), min = Math.min(rN,gN,bN);
+            const l = (max+min)/2;
+            let h=0, s=0;
+            if (max !== min) {
+                const d = max - min;
+                s = l > 0.5 ? d / (2-max-min) : d / (max+min);
+                const rr=rN,gg=gN,bb=bN;
+                if (max===rr) h = ((gg-bb)/d + (gg<bb?6:0))/6;
+                else if (max===gg) h = ((bb-rr)/d + 2)/6;
+                else h = ((rr-gg)/d + 4)/6;
+            }
+            document.getElementById('hslVal').textContent = `hsl(${Math.round(h*360)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`;
+        }
+
+        function copy(id) {
+            navigator.clipboard.writeText(document.getElementById(id).textContent);
+        }
+
+        function swap() {
+            const hex = document.getElementById('hexInput').value;
+            if (hex.startsWith('#')) {
+                fromHex();
+            } else {
+                fromRgb();
+            }
+        }
+
+        fromHex();
+    </script>
+</body>
+</html>
