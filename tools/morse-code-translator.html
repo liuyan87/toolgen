@@ -1,3 +1,83 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Morse Code Translator - ToolGen</title><meta name="description" content="Translate text to Morse code and vice versa. Free Morse code encoder and decoder."><meta name="keywords" content="morse code, morse code translator, morse code encoder, morse code decoder, morse"><link rel="canonical" href="https://toolgen.xyz/tools/morse-code-translator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:1rem;outline:none;resize:vertical;min-height:100px}textarea:focus{border-color:#667eea}.result{background:#0a0a0a;border-radius:8px;padding:15px;font-family:monospace;font-size:1rem;color:#667eea;min-height:60px;margin-top:15px;border:2px solid #667eea;word-break:break-all}.arrow{text-align:center;font-size:2rem;color:#667eea;margin:10px 0}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📡 Morse Code Translator</h1><p class="subtitle">Translate between text and Morse code instantly.</p><div class="card"><textarea id="input" placeholder="Type text or Morse code (use . and -)..."></textarea><button class="btn" onclick="toMorse()">📡 Text → Morse</button><button class="btn" onclick="fromMorse()">📝 Morse → Text</button><button class="btn" onclick="copy()">📋 Copy</button><div class="result" id="output"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const morseToText={'.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f','--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l','--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r','...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x','-.--':'y','--..':'z','-----':'0','.----':'1','..---':'2','...--':'3','....-':'4','.....':'5','-....':'6','--...':'7','---..':'8','----.':'9',' ':' '};const textToMorse=Object.fromEntries(Object.entries(morseToText).map(([k,v])=>[v,k]));function toMorse(){const t=document.getElementById('input').value.toLowerCase();document.getElementById('output').textContent=t.split('').map(c=>textToMorse[c]||c).join(' ');}function fromMorse(){const t=document.getElementById('input').value.trim();document.getElementById('output').textContent=t.split('   ').map(word=>word.split(' ').map(c=>morseToText[c]||c).join('')).join(' ');}function copy(){navigator.clipboard.writeText(document.getElementById('output').textContent);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Morse Code Translator - ToolGen</title>
+    <meta name="description" content="Convert text to Morse code and vice versa. Free online Morse code translator. Encode and decode Morse code instantly.">
+    <meta name="keywords" content="morse code translator, morse code converter, morse code encoder, morse code decoder, text to morse, morse to text">
+    <link rel="canonical" href="https://toolgen.xyz/tools/morse-code-translator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 1rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 120px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📡 Morse Code Translator</h1>
+        <p class="subtitle">Convert text to Morse code and decode Morse code to text.</p>
+
+        <div class="card">
+            <label>Text to Morse:</label>
+            <textarea id="textInput" placeholder="Type text to convert to Morse code..." oninput="textToMorse()"></textarea>
+
+            <label>Morse to Text:</label>
+            <textarea id="morseInput" placeholder=".... . .-.. .--.   .- -- --- .-. ... . (type Morse with spaces)..." oninput="morseToText()"></textarea>
+
+            <button class="btn" onclick="swap()">⇄ Swap</button>
+            <button class="btn" style="background:#333;" onclick="clearAll()">Clear</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/morse-code-translator.html">Morse Code</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const morseMap = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..',
+            '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+            ' ': '/', '.': '.-.-.-', ',': '--..--', '?': '..--..', "'": '.----.', '!': '-.-.--', '/': '-..-.', '(': '-.--.', ')': '-.--.-', '&': '.-...', ':': '---...', ';': '-.-.-.', '=': '-...-', '+': '.-.-.', '-': '-....-', '_': '..--.-', '"': '.-..-.', '$': '...-..-', '@': '.--.-.'
+        };
+        const reverseMap = Object.fromEntries(Object.entries(morseMap).map(([k,v]) => [v,k]));
+
+        function textToMorse() {
+            const text = document.getElementById('textInput').value.toUpperCase();
+            const morse = text.split('').map(c => morseMap[c] || '').join(' ');
+            document.getElementById('morseInput').value = morse;
+        }
+
+        function morseToText() {
+            const morse = document.getElementById('morseInput').value.trim();
+            const text = morse.split('   ').map(word => word.split(' ').map(c => reverseMap[c] || '').join('')).join(' ');
+            document.getElementById('textInput').value = text;
+        }
+
+        function swap() {
+            const text = document.getElementById('textInput').value;
+            const morse = document.getElementById('morseInput').value;
+            document.getElementById('textInput').value = morse;
+            document.getElementById('morseInput').value = text;
+            morseToText();
+        }
+
+        function clearAll() {
+            document.getElementById('textInput').value = '';
+            document.getElementById('morseInput').value = '';
+        }
+    </script>
+</body>
+</html>
