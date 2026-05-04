@@ -1,3 +1,102 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Timestamp Converter - ToolGen</title><meta name="description" content="Convert Unix timestamps to dates and vice versa. See current timestamp and convert between formats."><meta name="keywords" content="timestamp converter, unix timestamp, epoch converter, unix time, timestamp to date"><link rel="canonical" href="https://toolgen.xyz/tools/timestamp-converter.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:1.1rem;outline:none;margin-bottom:15px}input:focus{border-color:#667eea}.now-time{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:12px;padding:20px;text-align:center;font-size:2rem;font-weight:700;margin-bottom:20px}.now-time span{font-size:0.9rem;opacity:0.8}.formats{display:grid;grid-template-columns:1fr 1fr;gap:15px}.formats div{background:#0a0a0a;border-radius:8px;padding:12px}.formats div span{color:#888;font-size:0.85rem;display:block}.formats div strong{color:#667eea;font-family:monospace}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>⏰ Timestamp Converter</h1><p class="subtitle">Convert Unix timestamps to dates and vice versa.</p><div class="card"><div class="now-time" id="nowTime">Loading...<span>Current Unix Timestamp</span></div><label>Unix Timestamp (seconds)</label><input type="number" id="ts" placeholder="1715000000" oninput="convertFromTs()"><label>Date/Time</label><input type="datetime-local" id="dt" oninput="convertFromDt()"><div class="formats"><div><span>Seconds</span><strong id="sec">-</strong></div><div><span>Milliseconds</span><strong id="ms">-</strong></div><div><span>ISO 8601</span><strong id="iso">-</strong></div><div><span>UTC</span><strong id="utc">-</strong></div></div><button class="btn" onclick="now()">🔄 Use Current Time</button><button class="btn" onclick="copy()">📋 Copy Timestamp</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function updateNow(){const now=Math.floor(Date.now()/1000);document.getElementById('nowTime').innerHTML=now+'<span>Current Unix Timestamp</span>';document.getElementById('ts').value=now;document.getElementById('ms').textContent=(now*1000).toString();convertFromTs();}function convertFromTs(){const ts=parseInt(document.getElementById('ts').value);if(!ts)return;const d=new Date(ts<1e12?ts:ts<1e9?ts*1000:ts);document.getElementById('sec').textContent=Math.floor(d.getTime()/1000);document.getElementById('ms').textContent=d.getTime();document.getElementById('iso').textContent=d.toISOString();document.getElementById('utc').textContent=d.toUTCString();document.getElementById('dt').value=d.toISOString().slice(0,16);}function convertFromDt(){const dt=document.getElementById('dt').value;if(!dt)return;const d=new Date(dt);const ts=Math.floor(d.getTime()/1000);document.getElementById('ts').value=ts;document.getElementById('sec').textContent=ts;document.getElementById('ms').textContent=d.getTime();document.getElementById('iso').textContent=d.toISOString();document.getElementById('utc').textContent=d.toUTCString();}function now(){updateNow();}function copy(){navigator.clipboard.writeText(document.getElementById('ts').value);}updateNow();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Time Zone Converter - ToolGen</title>
+    <meta name="description" content="Convert time between time zones instantly. Free online time zone converter with current time in 20+ cities.">
+    <meta name="keywords" content="time zone converter, world time, time difference, convert time zones, current time in cities">
+    <link rel="canonical" href="https://toolgen.xyz/tools/timestamp-converter.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus, select:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .world-clock { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 20px; }
+        .city { background: #0a0a0a; border-radius: 10px; padding: 15px; text-align: center; }
+        .city .name { color: #888; font-size: 0.85rem; }
+        .city .time { color: #22c55e; font-size: 1.3rem; font-weight: 700; }
+        .city .date { color: #666; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🌍 World Time Converter</h1>
+        <p class="subtitle">See current time in cities around the world. Convert time zones instantly.</p>
+
+        <div class="card">
+            <label>Select Your Time Zone:</label>
+            <select id="localTZ" onchange="updateAll()">
+                <option value="Asia/Shanghai">Shanghai (GMT+8)</option>
+                <option value="America/New_York">New York (GMT-5)</option>
+                <option value="America/Los_Angeles">Los Angeles (GMT-8)</option>
+                <option value="Europe/London">London (GMT+0)</option>
+                <option value="Europe/Paris">Paris (GMT+1)</option>
+                <option value="Asia/Tokyo">Tokyo (GMT+9)</option>
+                <option value="Asia/Singapore">Singapore (GMT+8)</option>
+                <option value="Australia/Sydney">Sydney (GMT+10)</option>
+            </select>
+
+            <label>Enter Time:</label>
+            <input type="time" id="localTime" value="12:00" onchange="updateAll()">
+            <input type="date" id="localDate" onchange="updateAll()">
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom:15px; color:#667eea;">🌍 World Clock</h3>
+            <div class="world-clock" id="worldClock"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/timestamp-converter.html">Time Zone Converter</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const cities = [
+            { name: 'Shanghai', tz: 'Asia/Shanghai' },
+            { name: 'Tokyo', tz: 'Asia/Tokyo' },
+            { name: 'Singapore', tz: 'Asia/Singapore' },
+            { name: 'Dubai', tz: 'Asia/Dubai' },
+            { name: 'Moscow', tz: 'Europe/Moscow' },
+            { name: 'London', tz: 'Europe/London' },
+            { name: 'Paris', tz: 'Europe/Paris' },
+            { name: 'New York', tz: 'America/New_York' },
+            { name: 'Los Angeles', tz: 'America/Los_Angeles' },
+            { name: 'Sydney', tz: 'Australia/Sydney' }
+        ];
+
+        function updateAll() {
+            const tz = document.getElementById('localTZ').value;
+            const time = document.getElementById('localTime').value;
+            const date = document.getElementById('localDate').value;
+
+            const localDateTime = date ? new Date(`${date}T${time}`) : new Date();
+
+            const utc = localDateTime.toLocaleString('en-US', { timeZone: 'UTC' });
+            const utcDate = new Date(utc);
+
+            const clock = document.getElementById('worldClock');
+            clock.innerHTML = cities.map(city => {
+                const cityTime = utcDate.toLocaleString('en-US', { timeZone: city.tz, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const cityDate = utcDate.toLocaleString('en-US', { timeZone: city.tz, month: 'short', day: 'numeric' });
+                return `<div class="city"><div class="name">${city.name}</div><div class="time">${cityTime}</div><div class="date">${cityDate}</div></div>`;
+            }).join('');
+        }
+
+        updateAll();
+        setInterval(updateAll, 1000);
+    </script>
+</body>
+</html>

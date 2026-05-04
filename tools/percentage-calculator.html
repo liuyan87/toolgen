@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Percentage Calculator - ToolGen</title>
-    <meta name="description" content="Calculate percentages instantly. Find percentage of a number, percentage change, and more.">
-    <meta name="keywords" content="percentage calculator, percent calculator, percentage of a number">
+    <meta name="description" content="Calculate percentages instantly. Find percentage increase, decrease, and discount. Free online percentage calculator.">
+    <meta name="keywords" content="percentage calculator, percent increase, percent decrease, discount calculator, calculate percentage, what is x percent of y">
     <link rel="canonical" href="https://toolgen.xyz/tools/percentage-calculator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
         .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
-        .calc { background: #0a0a0a; border-radius: 12px; padding: 25px; margin: 15px 0; }
-        .calc h3 { color: #667eea; margin-bottom: 15px; font-size: 1.1rem; }
-        .calc-row { display: flex; gap: 10px; margin: 10px 0; align-items: center; }
-        .calc-row input { flex: 1; padding: 12px; border-radius: 8px; border: 2px solid #333; background: #1a1a1a; color: #fff; font-size: 1rem; }
-        .calc-row input:focus { border-color: #667eea; outline: none; }
-        .calc-row span { color: #888; font-size: 1.2rem; }
-        .result { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 10px; padding: 15px; text-align: center; font-size: 1.5rem; font-weight: 700; margin-top: 15px; }
-        .btn { display: inline-block; padding: 10px 24px; background: #667eea; color: #fff; border: none; border-radius: 20px; cursor: pointer; margin-top: 10px; }
+        .calc-type { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .calc-btn { flex: 1; min-width: 120px; padding: 12px; background: #0a0a0a; border: 2px solid #333; border-radius: 10px; color: #888; cursor: pointer; font-size: 0.85rem; text-align: center; }
+        .calc-btn:hover { border-color: #667eea; color: #fff; }
+        .calc-btn.active { border-color: #667eea; color: #fff; background: rgba(102,126,234,0.15); }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 12px; padding: 25px; text-align: center; margin-top: 20px; }
+        .result-num { font-size: 2.5rem; font-weight: 800; color: #22c55e; }
+        .result-label { color: #888; margin-top: 5px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -30,52 +34,93 @@
 <body>
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
-        <h1>📊 Percentage Calculator</h1>
-        <p class="subtitle">Calculate percentages instantly. 100% free.</p>
-        
+        <h1>% Percentage Calculator</h1>
+        <p class="subtitle">Calculate percentages instantly. Find discounts, increases, and more.</p>
+
         <div class="card">
-            <div class="calc">
-                <h3>What is X% of Y?</h3>
-                <div class="calc-row"><input type="number" id="p1" placeholder="15"><span>% of</span><input type="number" id="n1" placeholder="200"><span>=</span></div>
-                <div class="result" id="r1">= 30</div>
-                <button class="btn" onclick="calc1()">Calculate</button>
+            <div class="calc-type">
+                <button class="calc-btn active" onclick="setType('basic')">Basic %</button>
+                <button class="calc-btn" onclick="setType('increase')">% Increase</button>
+                <button class="calc-btn" onclick="setType('decrease')">% Decrease</button>
+                <button class="calc-btn" onclick="setType('discount')">Discount</button>
             </div>
-            
-            <div class="calc">
-                <h3>X is what % of Y?</h3>
-                <div class="calc-row"><input type="number" id="a2" placeholder="50"><span>is</span><input type="number" id="b2" placeholder="200"><span>% of</span></div>
-                <div class="result" id="r2">= 25%</div>
-                <button class="btn" onclick="calc2()">Calculate</button>
+
+            <div id="inputs-basic">
+                <label>What is</label>
+                <input type="number" id="pct1" placeholder="20">
+                <label>% of</label>
+                <input type="number" id="num1" placeholder="150">
             </div>
-            
-            <div class="calc">
-                <h3>Percentage change (X → Y)</h3>
-                <div class="calc-row"><span>From</span><input type="number" id="from" placeholder="100"><span>to</span><input type="number" id="to" placeholder="150"></div>
-                <div class="result" id="r3">= +50%</div>
-                <button class="btn" onclick="calc3()">Calculate</button>
+
+            <div id="inputs-change" style="display:none;">
+                <label>From</label>
+                <input type="number" id="fromNum" placeholder="100">
+                <label>To</label>
+                <input type="number" id="toNum" placeholder="150">
+            </div>
+
+            <div id="inputs-discount" style="display:none;">
+                <label>Original Price ($)</label>
+                <input type="number" id="origPrice" placeholder="100">
+                <label>Discount %</label>
+                <input type="number" id="discountPct" placeholder="25">
+            </div>
+
+            <button class="btn" onclick="calculate()">Calculate</button>
+
+            <div class="result-box" id="result" style="display:none;">
+                <div class="result-num" id="resultNum">0</div>
+                <div class="result-label" id="resultLabel"></div>
             </div>
         </div>
     </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/percentage-calculator.html">Percentage Calculator</a> - 150+ Free Tools</p>
+    </footer>
+
     <script>
-        function calc1() {
-            const p = parseFloat(document.getElementById('p1').value) || 0;
-            const n = parseFloat(document.getElementById('n1').value) || 0;
-            document.getElementById('r1').textContent = `= ${(p * n / 100).toFixed(2)}`;
+        let currentType = 'basic';
+
+        function setType(type) {
+            currentType = type;
+            document.querySelectorAll('.calc-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('inputs-basic').style.display = type === 'basic' ? 'block' : 'none';
+            document.getElementById('inputs-change').style.display = type === 'increase' || type === 'decrease' ? 'block' : 'none';
+            document.getElementById('inputs-discount').style.display = type === 'discount' ? 'block' : 'none';
+            document.getElementById('result').style.display = 'none';
         }
-        function calc2() {
-            const a = parseFloat(document.getElementById('a2').value) || 0;
-            const b = parseFloat(document.getElementById('b2').value) || 0;
-            document.getElementById('r2').textContent = b ? `= ${(a * 100 / b).toFixed(2)}%` : '= N/A';
-        }
-        function calc3() {
-            const from = parseFloat(document.getElementById('from').value) || 0;
-            const to = parseFloat(document.getElementById('to').value) || 0;
-            const change = from ? ((to - from) * 100 / from).toFixed(2) : 0;
-            const sign = change >= 0 ? '+' : '';
-            document.getElementById('r3').textContent = `= ${sign}${change}%`;
+
+        function calculate() {
+            let result, label;
+
+            if (currentType === 'basic') {
+                const pct = parseFloat(document.getElementById('pct1').value) || 0;
+                const num = parseFloat(document.getElementById('num1').value) || 0;
+                result = (pct / 100) * num;
+                label = `${pct}% of $${num} = $${result.toFixed(2)}`;
+            } else if (currentType === 'increase' || currentType === 'decrease') {
+                const from = parseFloat(document.getElementById('fromNum').value) || 0;
+                const to = parseFloat(document.getElementById('toNum').value) || 0;
+                const change = ((to - from) / from) * 100;
+                result = change;
+                label = change >= 0 ? `Increase: +${change.toFixed(2)}%` : `Decrease: ${change.toFixed(2)}%`;
+            } else if (currentType === 'discount') {
+                const orig = parseFloat(document.getElementById('origPrice').value) || 0;
+                const disc = parseFloat(document.getElementById('discountPct').value) || 0;
+                const savings = (disc / 100) * orig;
+                const final = orig - savings;
+                document.getElementById('resultNum').textContent = `$${final.toFixed(2)}`;
+                document.getElementById('resultLabel').textContent = `You save $${savings.toFixed(2)} (${disc}% off)`;
+                document.getElementById('result').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('resultNum').textContent = typeof result === 'number' ? (Number.isInteger(result) ? result : result.toFixed(2)) : result;
+            document.getElementById('resultLabel').textContent = label;
+            document.getElementById('result').style.display = 'block';
         }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>

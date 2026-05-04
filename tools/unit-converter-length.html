@@ -1,3 +1,98 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Length Unit Converter - ToolGen</title><meta name="description" content="Convert between length units: meters, feet, inches, kilometers, miles, yards, centimeters."><meta name="keywords" content="length converter, meters to feet, feet to meters, inches to cm, unit converter"><link rel="canonical" href="https://toolgen.xyz/tools/unit-converter-length.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:600px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px;text-align:center}input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-size:1.2rem;text-align:center;margin-bottom:15px}input:focus{border-color:#667eea;outline:none}.units{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.unit-btn{padding:12px;background:#0a0a0a;border:2px solid #333;border-radius:8px;color:#fff;cursor:pointer;font-size:0.9rem}.unit-btn:hover,.unit-btn.active{border-color:#667eea;background:rgba(102,126,234,0.1)}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📏 Length Unit Converter</h1><p class="subtitle">Convert between meters, feet, inches, kilometers, miles, and more.</p><div class="card"><input type="number" id="input" value="1" oninput="convert()"><div id="result" style="font-size:1.5rem;color:#667eea;font-weight:700;margin:20px 0;min-height:40px"></div><div class="units" id="units"><button class="unit-btn active" onclick="setUnit('m')">meters</button><button class="unit-btn" onclick="setUnit('km')">km</button><button class="unit-btn" onclick="setUnit('cm')">cm</button><button class="unit-btn" onclick="setUnit('mm')">mm</button><button class="unit-btn" onclick="setUnit('mi')">miles</button><button class="unit-btn" onclick="setUnit('yd')">yards</button><button class="unit-btn" onclick="setUnit('ft')">feet</button><button class="unit-btn" onclick="setUnit('in')">inches</button><button class="unit-btn" onclick="setUnit('nm')">nautical mi</button></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>const factors={m:1,km:1000,cm:0.01,mm:0.001,mi:1609.344,yd:0.9144,ft:0.3048,in:0.0254,nm:1852};let currentUnit='m';function setUnit(u){currentUnit=u;document.querySelectorAll('.unit-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');convert();}function convert(){const val=parseFloat(document.getElementById('input').value)||0;const base=val*factors[currentUnit];const results=Object.entries(factors).map(([u,f])=>`${u}: ${(base/f).toFixed(6).replace(/\.?0+$/,'')}`).join('\n');document.getElementById('result').innerHTML=results.split('\n').map(r=>`<div style="margin:5px 0">${r}</div>`).join('');}convert();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Length Converter - ToolGen</title>
+    <meta name="description" content="Convert length units instantly. Meters, feet, inches, kilometers, miles, yards. Free online length unit converter.">
+    <meta name="keywords" content="length converter, unit converter, meters to feet, inches to cm, km to miles, convert length units">
+    <link rel="canonical" href="https://toolgen.xyz/tools/unit-converter-length.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        .input-group { display: grid; grid-template-columns: 2fr 1fr; gap: 15px; margin-bottom: 15px; }
+        input, select { padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; }
+        input:focus, select:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .results { background: #0a0a0a; border-radius: 12px; padding: 20px; margin-top: 20px; display: grid; gap: 10px; }
+        .result-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222; }
+        .result-row:last-child { border-bottom: none; }
+        .result-row .unit { color: #888; }
+        .result-row .value { color: #22c55e; font-weight: 700; font-family: monospace; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📏 Length Converter</h1>
+        <p class="subtitle">Convert between all major length units instantly.</p>
+
+        <div class="card">
+            <div class="input-group">
+                <div>
+                    <label>Value</label>
+                    <input type="number" id="value" placeholder="1" value="1" oninput="convert()">
+                </div>
+                <div>
+                    <label>From</label>
+                    <select id="fromUnit" onchange="convert()">
+                        <option value="m">Meter (m)</option>
+                        <option value="km">Kilometer (km)</option>
+                        <option value="cm">Centimeter (cm)</option>
+                        <option value="mm">Millimeter (mm)</option>
+                        <option value="mi">Mile (mi)</option>
+                        <option value="yd">Yard (yd)</option>
+                        <option value="ft">Foot (ft)</option>
+                        <option value="in">Inch (in)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn" onclick="convert()">Convert</button>
+
+            <div class="results" id="results">
+                <div class="result-row"><span class="unit">Kilometer (km)</span><span class="value" id="km">-</span></div>
+                <div class="result-row"><span class="unit">Centimeter (cm)</span><span class="value" id="cm">-</span></div>
+                <div class="result-row"><span class="unit">Millimeter (mm)</span><span class="value" id="mm">-</span></div>
+                <div class="result-row"><span class="unit">Mile (mi)</span><span class="value" id="mi">-</span></div>
+                <div class="result-row"><span class="unit">Yard (yd)</span><span class="value" id="yd">-</span></div>
+                <div class="result-row"><span class="unit">Foot (ft)</span><span class="value" id="ft">-</span></div>
+                <div class="result-row"><span class="unit">Inch (in)</span><span class="value" id="inUnit">-</span></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/unit-converter-length.html">Length Converter</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        const toMeter = { m:1, km:1000, cm:0.01, mm:0.001, mi:1609.344, yd:0.9144, ft:0.3048, in:0.0254 };
+
+        function convert() {
+            const val = parseFloat(document.getElementById('value').value) || 0;
+            const from = document.getElementById('fromUnit').value;
+            const meters = val * toMeter[from];
+
+            document.getElementById('km').textContent = (meters / 1000).toFixed(6);
+            document.getElementById('cm').textContent = (meters / 0.01).toFixed(4);
+            document.getElementById('mm').textContent = (meters / 0.001).toFixed(2);
+            document.getElementById('mi').textContent = (meters / 1609.344).toFixed(6);
+            document.getElementById('yd').textContent = (meters / 0.9144).toFixed(4);
+            document.getElementById('ft').textContent = (meters / 0.3048).toFixed(6);
+            document.getElementById('inUnit').textContent = (meters / 0.0254).toFixed(4);
+        }
+
+        convert();
+    </script>
+</body>
+</html>
