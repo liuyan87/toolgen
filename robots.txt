@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# SEO
 Sitemap: https://toolgen.xyz/sitemap.xml
+
+# Crawl-delay (be nice to server)
+Crawl-delay: 1
