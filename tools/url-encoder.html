@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free URL Encoder/Decoder - ToolGen</title>
-    <meta name="description" content="Encode or decode URL strings instantly. Convert special characters to URL-safe format.">
-    <meta name="keywords" content="url encoder, url decoder, encode url, decode url, percent encoding">
+    <meta name="description" content="Encode and decode URLs instantly. Free online URL encoder and decoder. Convert special characters for web URLs.">
+    <meta name="keywords" content="url encoder, url decoder, encode url, decode url, percent encode, urlencode, urldecode">
     <link rel="canonical" href="https://toolgen.xyz/tools/url-encoder.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
-        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.95rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 120px; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 120px; }
         textarea:focus { border-color: #667eea; }
         .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
-        .arrow { text-align: center; font-size: 2rem; color: #667eea; margin: 10px 0; }
+        .btn:hover { transform: translateY(-2px); }
+        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-top: 8px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -28,30 +29,64 @@
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>🔗 URL Encoder/Decoder</h1>
-        <p class="subtitle">Encode or decode URL strings instantly. Free & secure.</p>
+        <p class="subtitle">Encode or decode URLs. Convert special characters for safe web URLs.</p>
+
         <div class="card">
-            <label>Enter URL or text</label>
-            <textarea id="input" placeholder="https://example.com?name=John Doe&city=New York"></textarea>
-            <div class="arrow">↓</div>
-            <label>Encoded/Decoded output</label>
-            <textarea id="output" readonly></textarea>
-            <button class="btn" onclick="encode()">🔒 Encode</button>
-            <button class="btn" onclick="decode()">🔓 Decode</button>
-            <button class="btn" onclick="copy()">📋 Copy</button>
+            <label>Enter URL or text:</label>
+            <textarea id="input" placeholder="https://example.com?name=John Doe&city=New York" oninput="process()"></textarea>
+
+            <button class="btn" onclick="encode()">Encode</button>
+            <button class="btn" onclick="decode()">Decode</button>
+            <button class="btn" style="background:#333;" onclick="swap()">⇄ Swap</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <textarea id="output" placeholder="Result will appear here..." readonly></textarea>
+            <button class="btn" onclick="copy()">📋 Copy Result</button>
+            <p class="copy-msg" id="copyMsg"></p>
         </div>
     </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/url-encoder.html">URL Encoder</a> - 150+ Free Tools</p>
+    </footer>
+
     <script>
+        function process() {}
+
         function encode() {
-            document.getElementById('output').value = encodeURIComponent(document.getElementById('input').value);
+            const input = document.getElementById('input').value;
+            document.getElementById('output').value = input ? encodeURIComponent(input) : '';
         }
+
         function decode() {
+            const input = document.getElementById('input').value;
             try {
-                document.getElementById('output').value = decodeURIComponent(document.getElementById('input').value);
-            } catch(e) { alert('Invalid encoded URL'); }
+                document.getElementById('output').value = input ? decodeURIComponent(input) : '';
+            } catch(e) {
+                document.getElementById('output').value = 'Error: Invalid encoded URL';
+            }
         }
-        function copy() { navigator.clipboard.writeText(document.getElementById('output').value); alert('Copied!'); }
+
+        function swap() {
+            const input = document.getElementById('input').value;
+            const output = document.getElementById('output').value;
+            document.getElementById('input').value = output;
+            document.getElementById('output').value = input;
+        }
+
+        function copy() {
+            const text = document.getElementById('output').value;
+            if (text) {
+                navigator.clipboard.writeText(text);
+                document.getElementById('copyMsg').textContent = '✓ Copied!';
+                setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
+            }
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('output').value = '';
+        }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>
