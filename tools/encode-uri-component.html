@@ -1,3 +1,86 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Encode URI Component - ToolGen</title><meta name="description" content="Encode URI components. Convert special characters to URL-safe format."><meta name="keywords" content="encode uri, uri encode, url encode component, encodeuricomponent"><link rel="canonical" href="https://toolgen.xyz/tools/encode-uri-component.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea,input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:1rem;outline:none;margin-bottom:15px}textarea:focus,input:focus{border-color:#667eea}.result-box{background:#0a0a0a;border-radius:8px;padding:15px;font-family:monospace;font-size:0.9rem;color:#667eea;word-break:break-all;min-height:60px;border:2px solid #667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin-right:10px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔗 Encode URI Component</h1><p class="subtitle">Encode special characters for URL query strings.</p><div class="card"><textarea id="input" placeholder="Enter text to encode..." oninput="encode()"></textarea><label>Encoded Output</label><div class="result-box" id="output"></div><button class="btn" onclick="encode()">⚡ Encode</button><button class="btn" onclick="decode()">🔓 Decode</button><button class="btn" onclick="copy()">📋 Copy</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function encode(){document.getElementById('output').textContent=encodeURIComponent(document.getElementById('input').value);}function decode(){try{document.getElementById('output').textContent=decodeURIComponent(document.getElementById('input').value);}catch(e){document.getElementById('output').textContent='Invalid encoded string';}}function copy(){navigator.clipboard.writeText(document.getElementById('output').textContent);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free HTML Escape/Unescape - ToolGen</title>
+    <meta name="description" content="Escape or unescape HTML entities instantly. Convert special characters to HTML entities. Free online HTML escape tool.">
+    <meta name="keywords" content="html escape, unescape html, html entities, escape special characters, html encoder, decode html entities">
+    <link rel="canonical" href="https://toolgen.xyz/tools/html-escape.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 150px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🏷️ HTML Escape/Unescape</h1>
+        <p class="subtitle">Escape or unescape HTML special characters.</p>
+
+        <div class="card">
+            <label>Input text:</label>
+            <textarea id="input" placeholder="<div>Hello & World</div>" oninput="escape()"></textarea>
+
+            <button class="btn" onclick="escape()">Escape HTML</button>
+            <button class="btn" onclick="unescape()">Unescape HTML</button>
+            <button class="btn" style="background:#333;" onclick="swap()">⇄ Swap</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <textarea id="output" placeholder="Result will appear here..." readonly></textarea>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/html-escape.html">HTML Escape</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function escape() {
+            const text = document.getElementById('input').value;
+            const escaped = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+            document.getElementById('output').value = escaped;
+        }
+
+        function unescape() {
+            const text = document.getElementById('input').value;
+            const unescaped = text
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&quot;/g, '"')
+                .replace(/&#39;/g, "'")
+                .replace(/&amp;/g, '&');
+            document.getElementById('output').value = unescaped;
+        }
+
+        function swap() {
+            const input = document.getElementById('input').value;
+            const output = document.getElementById('output').value;
+            document.getElementById('input').value = output;
+            document.getElementById('output').value = input;
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('output').value = '';
+        }
+    </script>
+</body>
+</html>
