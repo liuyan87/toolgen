@@ -192,4 +192,7 @@
   <url><loc>https://toolgen.xyz/tools/markdown-preview.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolgen.xyz/tools/cron-generator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolgen.xyz/tools/duplicate-line-remover.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolgen.xyz/tools/line-break-remover.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolgen.xyz/tools/email-validator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolgen.xyz/tools/text-diff.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

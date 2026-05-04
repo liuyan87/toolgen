@@ -1,3 +1,105 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Text Diff Checker - ToolGen</title><meta name="description" content="Compare two texts and see the differences highlighted. Free text diff tool."><meta name="keywords" content="text diff, compare text, text difference, diff checker"><link rel="canonical" href="https://toolgen.xyz/tools/text-diff.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.9rem;outline:none;resize:vertical;min-height:200px}textarea:focus{border-color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin-right:10px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📝 Text Diff Checker</h1><p class="subtitle">Compare two texts and see the differences highlighted.</p><div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:15px"><div><label>Original Text</label><textarea id="old" placeholder="Original text..."></textarea></div><div><label>New Text</label><textarea id="new" placeholder="New text..."></textarea></div></div><div class="card"><button class="btn" onclick="compare()">⚡ Compare Texts</button><button class="btn" onclick="clear()">🗑️ Clear</button><div id="result" style="margin-top:15px;white-space:pre-wrap;font-family:monospace;background:#0a0a0a;border-radius:8px;padding:15px;max-height:400px;overflow:auto"></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function compare(){const oldText=document.getElementById('old').value;const newText=document.getElementById('new').value;const oldLines=oldText.split('\n');const newLines=newText.split('\n');let html='';const maxLen=Math.max(oldLines.length,newLines.length);for(let i=0;i<maxLen;i++){const o=oldLines[i]||'';const n=newLines[i]||'';if(o===n){html+=`<span style="color:#888">  ${escapeHtml(o)}</span>\n`;}else{if(o)html+=`<span style="background:rgba(239,68,68,0.3);color:#ef4444">- ${escapeHtml(o)}</span>\n`;if(n)html+=`<span style="background:rgba(74,222,128,0.3);color:#4ade80">+ ${escapeHtml(n)}</span>\n`;}}document.getElementById('result').innerHTML=html||'<span style="color:#888">No differences found or empty input</span>';}function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}function clear(){document.getElementById('old').value='';document.getElementById('new').value='';document.getElementById('result').innerHTML='';}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Text Diff Checker - ToolGen</title>
+    <meta name="description" content="Compare two texts and find differences. Highlight additions, deletions, and changes. Free online text diff checker and comparer.">
+    <meta name="keywords" content="text diff, compare text, text compare, diff checker, find differences, text comparison, text differ">
+    <link rel="canonical" href="https://toolgen.xyz/tools/text-diff.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .diff-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.85rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 250px; }
+        textarea:focus { border-color: #667eea; }
+        .result-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 20px; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; line-height: 1.8; max-height: 500px; overflow-y: auto; }
+        .add { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .remove { background: rgba(239,68,68,0.15); color: #ef4444; text-decoration: line-through; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📝 Text Diff Checker</h1>
+        <p class="subtitle">Compare two texts and highlight the differences instantly.</p>
+
+        <div class="card">
+            <div class="diff-wrap">
+                <div>
+                    <label>Original Text:</label>
+                    <textarea id="text1" placeholder="Paste original text..."></textarea>
+                </div>
+                <div>
+                    <label>Changed Text:</label>
+                    <textarea id="text2" placeholder="Paste changed text..."></textarea>
+                </div>
+            </div>
+
+            <button class="btn" onclick="compare()">Compare Texts</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="result-box" id="result">
+                <p style="color:#888;">Differences will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/text-diff.html">Text Diff</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function compare() {
+            const text1 = document.getElementById('text1').value;
+            const text2 = document.getElementById('text2').value;
+
+            if (!text1 || !text2) {
+                document.getElementById('result').innerHTML = '<p style="color:#f59e0b;">Please enter both texts</p>';
+                return;
+            }
+
+            const lines1 = text1.split('\n');
+            const lines2 = text2.split('\n');
+            const maxLen = Math.max(lines1.length, lines2.length);
+            let result = [];
+
+            for (let i = 0; i < maxLen; i++) {
+                const l1 = lines1[i] || '';
+                const l2 = lines2[i] || '';
+                if (l1 === l2) {
+                    result.push({ type: 'same', text: l1 });
+                } else {
+                    if (l1) result.push({ type: 'remove', text: l1 });
+                    if (l2) result.push({ type: 'add', text: l2 });
+                }
+            }
+
+            document.getElementById('result').innerHTML = result.map(line => {
+                const cls = line.type === 'add' ? 'add' : line.type === 'remove' ? 'remove' : '';
+                return `<div class="${cls}">${escapeHtml(line.text) || ' '}</div>`;
+            }).join('');
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function clearText() {
+            document.getElementById('text1').value = '';
+            document.getElementById('text2').value = '';
+            document.getElementById('result').innerHTML = '<p style="color:#888;">Differences will appear here...</p>';
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,96 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Email Validator - ToolGen</title><meta name="description" content="Validate email addresses. Check email format and MX records."><meta name="keywords" content="email validator, validate email, email checker, email format validation"><link rel="canonical" href="https://toolgen.xyz/tools/email-validator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:500px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px;text-align:center}input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-size:1.1rem;outline:none;margin-bottom:15px}input:focus{border-color:#667eea}.result{font-size:1.5rem;font-weight:700;padding:20px;border-radius:12px;margin:15px 0}.valid{background:rgba(74,222,128,0.2);color:#4ade80;border:2px solid #4ade80}.invalid{background:rgba(239,68,68,0.2);color:#ef4444;border:2px solid #ef4444}.parts{text-align:left;background:#0a0a0a;border-radius:8px;padding:15px;margin-top:15px}.parts div{padding:5px 0;border-bottom:1px solid #333;font-size:0.9rem}.parts div:last-child{border-bottom:none}.parts .label{color:#888;display:inline-block;min-width:80px}.parts .val{color:#667eea;font-family:monospace}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📧 Email Validator</h1><p class="subtitle">Validate email address format and check MX records.</p><div class="card"><input type="email" id="email" placeholder="you@example.com" oninput="validate()"><div id="result"></div><div class="parts" id="parts" style="display:none"><div><span class="label">Local</span><span class="val" id="pLocal"></span></div><div><span class="label">Domain</span><span class="val" id="pDomain"></span></div><div><span class="label">TLD</span><span class="val" id="pTLD"></span></div></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function validate(){const email=document.getElementById('email').value.trim();const result=document.getElementById('result');const parts=document.getElementById('parts');if(!email){result.textContent='';result.className='';parts.style.display='none';return;}const re=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;const valid=re.test(email);result.textContent=valid?'✅ Valid email format':'❌ Invalid email format';result.className='result '+(valid?'valid':'invalid');parts.style.display='block';const m=email.match(/^(.+)@(.+)\.([^.]+)$/);if(m){document.getElementById('pLocal').textContent=m[1];document.getElementById('pDomain').textContent=m[2];document.getElementById('pTLD').textContent=m[3];}else if(email.includes('@')){const [local,domain]=email.split('@');document.getElementById('pLocal').textContent=local;document.getElementById('pDomain').textContent=domain||'-';document.getElementById('pTLD').textContent='-';}}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Email Validator - ToolGen</title>
+    <meta name="description" content="Validate email addresses instantly. Check email format and syntax. Free online email validator tool.">
+    <meta name="keywords" content="email validator, validate email, email checker, email syntax validator, verify email, email format checker">
+    <link rel="canonical" href="https://toolgen.xyz/tools/email-validator.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        .input-row { display: flex; gap: 10px; }
+        input { flex: 1; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus { border-color: #667eea; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 150px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-item { display: flex; align-items: center; gap: 10px; padding: 10px; border-bottom: 1px solid #222; }
+        .result-item:last-child { border-bottom: none; }
+        .icon { font-size: 1.2rem; }
+        .email { color: #fff; flex: 1; }
+        .email.valid { color: #22c55e; }
+        .email.invalid { color: #ef4444; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📧 Email Validator</h1>
+        <p class="subtitle">Validate email addresses and check their format.</p>
+
+        <div class="card">
+            <label>Single email:</label>
+            <div class="input-row">
+                <input type="email" id="singleEmail" placeholder="test@example.com">
+                <button class="btn" onclick="validateSingle()">Check</button>
+            </div>
+
+            <label>Bulk validate (one per line):</label>
+            <textarea id="bulkEmails" placeholder="test1@example.com&#10;test2@example.com&#10;invalid-email"></textarea>
+
+            <button class="btn" onclick="validateBulk()">Validate All</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/email-validator.html">Email Validator</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validateSingle() {
+            const email = document.getElementById('singleEmail').value.trim();
+            const valid = validateEmail(email);
+            document.getElementById('results').innerHTML = `<div class="result-item">
+                <span class="icon">${valid ? '✓' : '✗'}</span>
+                <span class="email ${valid ? 'valid' : 'invalid'}">${email} — ${valid ? 'Valid' : 'Invalid'}</span>
+            </div>`;
+        }
+
+        function validateBulk() {
+            const emails = document.getElementById('bulkEmails').value.split('\n').filter(e => e.trim());
+            document.getElementById('results').innerHTML = emails.map(email => {
+                const valid = validateEmail(email.trim());
+                return `<div class="result-item">
+                    <span class="icon">${valid ? '✓' : '✗'}</span>
+                    <span class="email ${valid ? 'valid' : 'invalid'}">${email.trim()}</span>
+                </div>`;
+            }).join('');
+        }
+
+        function clearText() {
+            document.getElementById('singleEmail').value = '';
+            document.getElementById('bulkEmails').value = '';
+            document.getElementById('results').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
