@@ -1,3 +1,88 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free JSON to TSV Converter - ToolGen</title><meta name="description" content="Convert JSON data to TSV (Tab Separated Values) format instantly."><meta name="keywords" content="json to tsv, json tsv converter, tab separated values"><link rel="canonical" href="https://toolgen.xyz/tools/json-to-tsv.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:800px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.9rem;outline:none;resize:vertical;min-height:200px}textarea:focus{border-color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📊 JSON to TSV Converter</h1><p class="subtitle">Convert JSON data to TSV (Tab Separated Values) format.</p><div class="card"><textarea id="input" placeholder='[{"name":"John","age":30},{"name":"Jane","age":25}]'></textarea><button class="btn" onclick="convert()">⚡ Convert</button><button class="btn" onclick="copy()">📋 Copy TSV</button><textarea id="output" readonly style="margin-top:15px"></textarea></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function convert(){try{const json=JSON.parse(document.getElementById('input').value);if(!Array.isArray(json)||!json.length)throw new Error('JSON must be an array');const keys=Object.keys(json[0]);const tsv=[keys.join('\t')];json.forEach(row=>{tsv.push(keys.map(k=>String(row[k]??'')).join('\t'));});document.getElementById('output').value=tsv.join('\n');}catch(e){alert('Error: '+e.message);}}function copy(){navigator.clipboard.writeText(document.getElementById('output').value);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free JSON to CSV Converter - ToolGen</title>
+    <meta name="description" content="Convert JSON to CSV instantly. Transform JSON arrays to comma-separated values. Free online JSON to CSV converter.">
+    <meta name="keywords" content="json to csv, convert json to csv, json csv converter, export csv from json, json to spreadsheet">
+    <link rel="canonical" href="https://toolgen.xyz/tools/json-to-csv.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.85rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 250px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📊 JSON to CSV Converter</h1>
+        <p class="subtitle">Convert JSON arrays to CSV format.</p>
+
+        <div class="card">
+            <label>Paste JSON (array of objects):</label>
+            <textarea id="jsonInput" placeholder='[{"name":"John","age":30},{"name":"Jane","age":25}]'></textarea>
+
+            <button class="btn" onclick="convert()">Convert to CSV</button>
+            <button class="btn" style="background:#333;" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <textarea id="csvOutput" placeholder="CSV output will appear here..." readonly></textarea>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/json-to-csv.html">JSON to CSV</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function convert() {
+            const json = document.getElementById('jsonInput').value;
+            if (!json) return;
+
+            try {
+                const data = JSON.parse(json);
+                if (!Array.isArray(data) || data.length === 0) {
+                    alert('Please enter a JSON array of objects');
+                    return;
+                }
+
+                const headers = Object.keys(data[0]);
+                const csv = [
+                    headers.join(','),
+                    ...data.map(row => headers.map(h => {
+                        const val = row[h];
+                        const str = val === null || val === undefined ? '' : String(val);
+                        return str.includes(',') ? `"${str}"` : str;
+                    }).join(','))
+                ].join('\n');
+
+                document.getElementById('csvOutput').value = csv;
+            } catch(e) {
+                alert('Invalid JSON: ' + e.message);
+            }
+        }
+
+        function copy() {
+            const text = document.getElementById('csvOutput').value;
+            if (text) navigator.clipboard.writeText(text);
+        }
+
+        function clearText() {
+            document.getElementById('jsonInput').value = '';
+            document.getElementById('csvOutput').value = '';
+        }
+    </script>
+</body>
+</html>

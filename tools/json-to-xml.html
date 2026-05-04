@@ -1,3 +1,97 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free JSON to XML Converter - ToolGen</title><meta name="description" content="Convert JSON data to XML format instantly. Free JSON to XML converter."><meta name="keywords" content="json to xml, convert json xml, json xml converter"><link rel="canonical" href="https://toolgen.xyz/tools/json-to-xml.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:800px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.9rem;outline:none;resize:vertical;min-height:200px}textarea:focus{border-color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📋 JSON to XML Converter</h1><p class="subtitle">Convert JSON data to XML format instantly.</p><div class="card"><textarea id="input" placeholder='{"name":"John","age":30}'></textarea><button class="btn" onclick="convert()">⚡ Convert JSON to XML</button><button class="btn" onclick="copy()">📋 Copy</button><textarea id="output" readonly style="margin-top:15px"></textarea></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function toXml(obj,name='root'){let xml='';if(Array.isArray(obj)){obj.forEach((item,i)=>{xml+=toXml(item,name.replace(/s$/,'')+(name.endsWith('s')?i:''));});}else if(typeof obj==='object'&&obj!==null){Object.keys(obj).forEach(key=>{xml+=toXml(obj[key],key);});}else{xml+=`<${name}>${obj}</${name}>\n`;}return xml;}function convert(){try{const json=JSON.parse(document.getElementById('input').value);document.getElementById('output').value=toXml(json).trim();}catch(e){alert('Invalid JSON: '+e.message);}}function copy(){navigator.clipboard.writeText(document.getElementById('output').value);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free JSON to XML Converter - ToolGen</title>
+    <meta name="description" content="Convert JSON to XML instantly. Transform JSON objects to XML format. Free online JSON to XML converter.">
+    <meta name="keywords" content="json to xml, convert json to xml, json xml converter, json xml transformer">
+    <link rel="canonical" href="https://toolgen.xyz/tools/json-to-xml.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.85rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 250px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📋 JSON to XML Converter</h1>
+        <p class="subtitle">Convert JSON objects to XML format.</p>
+
+        <div class="card">
+            <label>Paste JSON:</label>
+            <textarea id="jsonInput" placeholder='{"name":"John","age":30}'></textarea>
+
+            <button class="btn" onclick="convert()">Convert to XML</button>
+            <button class="btn" style="background:#333;" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <textarea id="xmlOutput" placeholder="XML output will appear here..." readonly></textarea>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/json-to-xml.html">JSON to XML</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function jsonToXml(obj, rootName = 'root') {
+            let xml = '';
+            if (Array.isArray(obj)) {
+                xml += '<' + rootName + '>\n';
+                obj.forEach((item, i) => xml += jsonToXml(item, 'item'));
+                xml += '</' + rootName + '>\n';
+            } else if (typeof obj === 'object' && obj !== null) {
+                for (const [key, val] of Object.entries(obj)) {
+                    const safeName = isNaN(key) ? key : 'item_' + key;
+                    if (typeof val === 'object' && val !== null) {
+                        xml += '<' + safeName + '>\n' + jsonToXml(val, safeName) + '</' + safeName + '>\n';
+                    } else {
+                        xml += '<' + safeName + '>' + (val === null ? '' : escapeXml(String(val))) + '</' + safeName + '>\n';
+                    }
+                }
+            }
+            return xml;
+        }
+
+        function escapeXml(str) {
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+        }
+
+        function convert() {
+            const json = document.getElementById('jsonInput').value;
+            if (!json) return;
+
+            try {
+                const obj = JSON.parse(json);
+                const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' + jsonToXml(obj);
+                document.getElementById('xmlOutput').value = xml;
+            } catch(e) {
+                alert('Invalid JSON: ' + e.message);
+            }
+        }
+
+        function copy() {
+            const text = document.getElementById('xmlOutput').value;
+            if (text) navigator.clipboard.writeText(text);
+        }
+
+        function clearText() {
+            document.getElementById('jsonInput').value = '';
+            document.getElementById('xmlOutput').value = '';
+        }
+    </script>
+</body>
+</html>
