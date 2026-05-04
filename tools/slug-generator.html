@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Slug Generator - ToolGen</title>
-    <meta name="description" content="Convert text to URL-friendly slugs. Generate SEO-friendly URLs for blog posts and pages. Free online slug generator.">
-    <meta name="keywords" content="slug generator, url slug, seo url, friendly url, blog post slug, generate slug">
+    <meta name="description" content="Generate URL slugs from any text. Create SEO-friendly URL slugs. Free online slug generator.">
+    <meta name="keywords" content="slug generator, url slug, seo friendly url, create slug, blog slug">
     <link rel="canonical" href="https://toolgen.xyz/tools/slug-generator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,10 +18,9 @@
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
         textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-size: 1.1rem; font-family: monospace; outline: none; margin-bottom: 15px; resize: vertical; min-height: 100px; }
         textarea:focus { border-color: #667eea; }
+        .output-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; font-size: 1.3rem; color: #22c55e; font-family: monospace; min-height: 60px; }
         .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
         .btn:hover { transform: translateY(-2px); }
-        .output-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; font-size: 1.3rem; color: #22c55e; font-family: monospace; min-height: 60px; word-break: break-all; }
-        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-top: 8px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -30,17 +29,16 @@
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>🔗 Slug Generator</h1>
-        <p class="subtitle">Convert any text into SEO-friendly URL slugs.</p>
+        <p class="subtitle">Generate URL-friendly slugs for SEO and blog posts.</p>
 
         <div class="card">
-            <label>Enter your title or text:</label>
-            <textarea id="input" placeholder="Type your blog post title, product name, or any text..." oninput="generate()"></textarea>
+            <label>Enter your title:</label>
+            <textarea id="input" placeholder="My Amazing Blog Post Title!" oninput="generate()"></textarea>
 
-            <button class="btn" onclick="copy()">📋 Copy Slug</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
             <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
 
             <div class="output-box" id="output">Your slug will appear here...</div>
-            <p class="copy-msg" id="copyMsg"></p>
         </div>
     </div>
 
@@ -68,8 +66,6 @@
             const text = document.getElementById('output').textContent;
             if (text && text !== 'Your slug will appear here...') {
                 navigator.clipboard.writeText(text);
-                document.getElementById('copyMsg').textContent = '✓ Copied!';
-                setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
             }
         }
 
