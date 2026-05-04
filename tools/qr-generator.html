@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free QR Code Generator - ToolGen</title>
-    <meta name="description" content="Generate QR codes instantly for free. No registration required. Create QR codes for URLs, text, WiFi, contacts and more.">
-    <meta name="keywords" content="qr code generator, free qr code, qr code creator, online qr generator">
+    <meta name="description" content="Generate QR codes instantly. Create QR codes for URLs, text, WiFi, contacts. Free online QR code generator no registration.">
+    <meta name="keywords" content="qr code generator, generate qr code, make qr code, free qr generator, wifi qr code, qr code maker">
     <link rel="canonical" href="https://toolgen.xyz/tools/qr-generator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        .back { color: #667eea; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; }
-        .back:hover { text-decoration: underline; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; }
-        input, select, textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 20px; }
-        input:focus, textarea:focus, select:focus { border-color: #667eea; }
-        .btn { display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        .result { text-align: center; padding: 30px; display: none; }
-        .result.show { display: block; }
-        .qr-box { background: #fff; padding: 20px; border-radius: 16px; display: inline-block; margin: 20px 0; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        .type-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .type-tab { padding: 8px 16px; background: #0a0a0a; border: 2px solid #333; border-radius: 20px; color: #888; cursor: pointer; font-size: 0.85rem; }
+        .type-tab:hover { border-color: #667eea; color: #fff; }
+        .type-tab.active { border-color: #667eea; color: #fff; background: rgba(102,126,234,0.15); }
+        textarea, input, select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        textarea:focus, input:focus, select:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .qr-preview { background: #fff; border-radius: 12px; padding: 20px; display: flex; justify-content: center; margin-top: 20px; }
+        .qr-preview canvas { max-width: 200px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
     </style>
@@ -32,114 +34,90 @@
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>📱 QR Code Generator</h1>
-        <p class="subtitle">Generate QR codes instantly for any URL, text, or data. Free & no registration.</p>
+        <p class="subtitle">Generate QR codes for URLs, text, WiFi, and more. Free and instant.</p>
+
         <div class="card">
-            <label for="qrType">QR Code Type</label>
-            <select id="qrType">
-                <option value="text">Plain Text</option>
-                <option value="url">Website URL</option>
-                <option value="wifi">WiFi Network</option>
-                <option value="email">Email Address</option>
-                <option value="phone">Phone Number</option>
-            </select>
-            <label for="qrContent">Content</label>
-            <textarea id="qrContent" rows="3" placeholder="Enter your text or URL here..."></textarea>
-            <label for="qrSize">Size</label>
-            <select id="qrSize">
-                <option value="150">Small (150x150)</option>
-                <option value="250" selected>Medium (250x250)</option>
-                <option value="350">Large (350x350)</option>
-                <option value="500">Extra Large (500x500)</option>
-            </select>
-            <button class="btn" onclick="generateQR()">Generate QR Code</button>
-        </div>
-        <div class="card result" id="result">
-            <h3>Your QR Code</h3>
-            <div class="qr-box">
-                <div id="qrcode"></div>
+            <div class="type-tabs">
+                <button class="type-tab active" onclick="setType('text')">Text / URL</button>
+                <button class="type-tab" onclick="setType('wifi')">WiFi</button>
+                <button class="type-tab" onclick="setType('email')">Email</button>
+                <button class="type-tab" onclick="setType('sms')">SMS</button>
             </div>
-            <br>
-            <button class="btn" onclick="downloadQR()">⬇️ Download PNG</button>
+
+            <div id="input-text">
+                <textarea id="urlText" placeholder="Enter URL or text..." rows="3"></textarea>
+            </div>
+
+            <div id="input-wifi" style="display:none;">
+                <input type="text" id="wifiName" placeholder="Network Name (SSID)">
+                <select id="wifiType">
+                    <option value="WPA">WPA/WPA2</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">No Password</option>
+                </select>
+                <input type="password" id="wifiPass" placeholder="Password">
+            </div>
+
+            <div id="input-email" style="display:none;">
+                <input type="email" id="emailAddr" placeholder="Email address">
+                <input type="text" id="emailSubject" placeholder="Subject">
+            </div>
+
+            <div id="input-sms" style="display:none;">
+                <input type="tel" id="smsNum" placeholder="Phone number">
+                <textarea id="smsBody" placeholder="Message" rows="2"></textarea>
+            </div>
+
+            <button class="btn" onclick="generateQR()">Generate QR Code</button>
+
+            <div class="qr-preview" id="qrPreview">
+                <canvas id="qrCanvas"></canvas>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-    <script>
-        let currentQR = null;
-        async function generateQR() {
-            const type = document.getElementById('qrType').value;
-            const content = document.getElementById('qrContent').value.trim();
-            const size = parseInt(document.getElementById('qrSize').value);
-            if (!content) { alert('Please enter content for the QR code'); return; }
-            let data = content;
-            if (type === 'wifi') {
-                const ssid = prompt('WiFi SSID:');
-                const password = prompt('WiFi Password:');
-                const hidden = prompt('Hidden Network? (yes/no):');
-                data = `WIFI:T:WPA;S:${ssid};P:${password};H:${hidden === 'yes' ? 'true' : 'false'};;`;
-            }
-            const qrContainer = document.getElementById('qrcode');
-            qrContainer.innerHTML = '';
-            try {
-                const canvas = document.createElement('canvas');
-                await QRCode.toCanvas(canvas, data, { width: size, margin: 2, color: { dark: '#000000', light: '#ffffff' } });
-                qrContainer.appendChild(canvas);
-                currentQR = canvas;
-                document.getElementById('result').classList.add('show');
-            } catch (err) { alert('Error generating QR code: ' + err.message); }
-        }
-        function downloadQR() {
-            if (!currentQR) return;
-            const link = document.createElement('a');
-            link.download = 'qrcode-toolgen.png';
-            link.href = currentQR.toDataURL('image/png');
-            link.click();
-        }
-    </script>
-    <footer>
-        <p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
-    </footer>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body>
-</html>
-    <style>
-        .faq { margin-top: 30px; }
-        .faq h3 { color: #667eea; margin-bottom: 15px; }
-        .faq-item { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; margin-bottom: 12px; }
-        .faq-item h4 { color: #fff; margin-bottom: 8px; font-size: 1rem; }
-        .faq-item p { color: #888; font-size: 0.9rem; line-height: 1.5; }
-        .related { margin-top: 30px; padding: 20px; background: #1a1a1a; border-radius: 12px; }
-        .related h4 { color: #667eea; margin-bottom: 12px; }
-        .related-links { display: flex; gap: 10px; flex-wrap: wrap; }
-        .related-links a { padding: 8px 16px; background: #0a0a0a; border: 1px solid #333; border-radius: 20px; color: #888; text-decoration: none; font-size: 0.85rem; }
-        .related-links a:hover { border-color: #667eea; color: #fff; }
-    </style>
-    <div class="faq">
-        <h3>❓ Frequently Asked Questions</h3>
-        <div class="faq-item">
-            <h4>How to scan a QR code?</h4>
-            <p>Use your smartphone camera (most modern phones support QR scanning natively). Open your camera app and point it at the QR code. On iPhone, a notification will appear. On Android, Google Lens will automatically detect it.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Is QR code free to use?</h4>
-            <p>Yes! QR codes generated here are completely free. There are no watermarks, no registration required, and you can use them for commercial purposes.</p>
-        </div>
-        <div class="faq-item">
-            <h4>What types of QR codes are supported?</h4>
-            <p>Plain Text, Website URLs, WiFi networks, Email addresses, and Phone numbers. More types coming soon.</p>
-        </div>
-        <div class="faq-item">
-            <h4>How long do QR codes last?</h4>
-            <p>QR codes don't expire unless the underlying data changes. They will work indefinitely.</p>
-        </div>
-    </div>
-    <div class="related">
-        <h4>🔗 Related Tools</h4>
-        <div class="related-links">
-            <a href="https://toolgen.xyz/tools/qr-decoder.html">QR Decoder</a>
-            <a href="https://toolgen.xyz/tools/password-generator.html">Password Generator</a>
+
     <footer>
         <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/qr-generator.html">QR Code Generator</a> - 150+ Free Tools</p>
     </footer>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        let currentType = 'text';
+
+        function setType(type) {
+            currentType = type;
+            document.querySelectorAll('.type-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            ['text','wifi','email','sms'].forEach(t => {
+                document.getElementById('input-' + t).style.display = t === type ? 'block' : 'none';
+            });
+        }
+
+        function generateQR() {
+            let data = '';
+            if (currentType === 'text') {
+                data = document.getElementById('urlText').value.trim();
+            } else if (currentType === 'wifi') {
+                const name = document.getElementById('wifiName').value;
+                const type = document.getElementById('wifiType').value;
+                const pass = document.getElementById('wifiPass').value;
+                data = `WIFI:T:${type};S:${name};P:${pass};;`;
+            } else if (currentType === 'email') {
+                const email = document.getElementById('emailAddr').value;
+                const sub = document.getElementById('emailSubject').value;
+                data = `mailto:${email}?subject=${encodeURIComponent(sub)}`;
+            } else if (currentType === 'sms') {
+                const num = document.getElementById('smsNum').value;
+                const body = document.getElementById('smsBody').value;
+                data = `sms:${num}${body ? '?body=' + encodeURIComponent(body) : ''}`;
+            }
+
+            if (!data) { alert('Please enter data'); return; }
+
+            const canvas = document.getElementById('qrCanvas');
+            canvas.width = 200; canvas.height = 200;
+            QRCode.toCanvas(canvas, data, { width: 200, margin: 2 });
+        }
+    </script>
 </body>
 </html>
