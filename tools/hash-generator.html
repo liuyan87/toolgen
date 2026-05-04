@@ -1,27 +1,165 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Hash Generator (MD5, SHA1, SHA256) - ToolGen</title><meta name="description" content="Generate MD5, SHA1, SHA256, and SHA512 hashes from any text. Free hash generator."><meta name="keywords" content="hash generator, md5, sha1, sha256, sha512, hash checksum"><link rel="canonical" href="https://toolgen.xyz/tools/hash-generator.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.95rem;outline:none;resize:vertical;min-height:100px}textarea:focus{border-color:#667eea}.hash-row{display:flex;align-items:center;gap:10px;margin:10px 0;background:#0a0a0a;border-radius:8px;padding:12px}.hash-row label{min-width:80px;color:#888;font-size:0.9rem}.hash-row span{flex:1;color:#667eea;font-family:monospace;font-size:0.85rem;word-break:break-all}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin:5px 5px 0 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔏 Hash Generator</h1><p class="subtitle">Generate MD5, SHA1, SHA256, and SHA512 hashes from any text.</p><div class="card"><textarea id="input" placeholder="Enter text to hash..." oninput="generate()"></textarea><div class="hash-row"><label>MD5</label><span id="md5">-</span></div><div class="hash-row"><label>SHA1</label><span id="sha1">-</span></div><div class="hash-row"><label>SHA256</label><span id="sha256">-</span></div><div class="hash-row"><label>SHA512</label><span id="sha512">-</span></div><button class="btn" onclick="copy('md5')">📋 Copy MD5</button><button class="btn" onclick="copy('sha256')">📋 Copy SHA256</button></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Hash Generator - ToolGen</title>
+    <meta name="description" content="Generate MD5, SHA-1, SHA-256, SHA-512 hashes instantly. Free online hash generator for passwords and files.">
+    <meta name="keywords" content="hash generator, md5 generator, sha256, sha512, password hash, hash checksum, file hash">
+    <link rel="canonical" href="https://toolgen.xyz/tools/hash-generator.html">
     <style>
-        .faq {{ margin-top: 25px; }}
-        .faq-item {{ background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }}
-        .faq-item h4 {{ color: #fff; margin-bottom: 6px; font-size: 0.95rem; }}
-        .faq-item p {{ color: #888; font-size: 0.85rem; }}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 100px; }
+        textarea:focus { border-color: #667eea; }
+        .hash-list { background: #0a0a0a; border-radius: 10px; padding: 15px; margin-top: 15px; }
+        .hash-row { display: flex; gap: 15px; padding: 10px 0; border-bottom: 1px solid #222; align-items: center; }
+        .hash-row:last-child { border-bottom: none; }
+        .hash-label { color: #888; width: 80px; font-size: 0.85rem; font-weight: 600; }
+        .hash-value { flex: 1; color: #22c55e; font-family: monospace; font-size: 0.85rem; word-break: break-all; cursor: pointer; }
+        .hash-value:hover { color: #fff; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
     </style>
-    <div class="faq">
-        <h3 style="color:#667eea; margin-bottom:12px;">❓ FAQ</h3>
-        <div class="faq-item">
-            <h4>Is my data safe?</h4>
-            <p>Yes. All processing happens in your browser. Your data never leaves your device.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Is this free?</h4>
-            <p>Yes, completely free with no registration required.</p>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🔐 Hash Generator</h1>
+        <p class="subtitle">Generate MD5, SHA-1, SHA-256, SHA-512 hashes. All processing happens in your browser.</p>
+
+        <div class="card">
+            <label>Enter text to hash:</label>
+            <textarea id="input" placeholder="Type or paste text..." oninput="generate()"></textarea>
+
+            <button class="btn" onclick="copyAll()">📋 Copy All</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="hash-list" id="hashList"></div>
         </div>
     </div>
 
     <footer>
-        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - 150+ Free Tools</p>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/hash-generator.html">Hash Generator</a> - 150+ Free Tools</p>
     </footer>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
+
+    <script>
+        async function generate() {
+            const text = document.getElementById('input').value;
+            if (!text) {
+                document.getElementById('hashList').innerHTML = '';
+                return;
+            }
+
+            const enc = new TextEncoder();
+
+            // MD5 (using simple function since Web Crypto doesn't support MD5)
+            function md5(s) {
+                function md5cycle(x, k) {
+                    let a = 1732584193, b = -271733879, c = -1732584194, d = 271733878;
+                    const rotate = (n,s) => (n<<s)|(n>>>(32-s));
+                    const ff = (q,a,b,c,d,x,s,ac) => rotate(a+q+x+ac,s)+b;
+                    const gg = (q,a,b,c,d,x,s,ac) => rotate(a+(b^c^d),s)+b;
+                    const hh = (q,a,b,c,d,x,s,ac) => rotate(a+(b^c^d),s)+b;
+                    const ii = (q,a,b,c,d,x,s,ac) => rotate(a+(b^c^d),s)+b;
+
+                    a = ff(a,b,c,d,x[k[0]],7,0xd76aa478); d = ff(d,a,b,c,x[k[1]],12,0xe8c7b756); c = ff(c,d,a,b,x[k[2]],17,0x242070db); b = ff(b,c,d,a,x[k[3]],22,0xefcdab89);
+                    a = ff(a,b,c,d,x[k[4]],7,0x698098d8); d = ff(d,a,b,c,x[k[5]],12,0x8b44f7af); c = ff(c,d,a,b,x[k[6]],17,0xffff5bb1); b = ff(b,c,d,a,x[k[7]],22,0x895cd7be);
+                    a = ff(a,b,c,d,x[k[8]],7,0x6b901122); d = ff(d,a,b,c,x[k[9]],12,0xfd987193); c = ff(c,d,a,b,x[k[10]],17,0xa679438e); b = ff(b,c,d,a,x[k[11]],22,0x49b40821);
+                    a = gg(a,b,c,d,x[k[1]],5,0xf61e2562); d = gg(d,a,b,c,x[k[5]],9,0xc040b340); c = gg(c,d,a,b,x[k[9]],14,0x265e5a51); b = gg(b,c,d,a,x[k[13]],20,0xe9b6c7aa);
+                    a = gg(a,b,c,d,x[k[5]],5,0xd62f105d); d = gg(d,a,b,c,x[k[9]],9,0x2441453); c = gg(c,d,a,b,x[k[13]],14,0xd8a1e681); b = gg(b,c,d,a,x[k[1]],20,0xe7d3fbc8);
+                    a = hh(a,b,c,d,x[k[5]],4,0x21e1cde6); d = hh(d,a,b,c,x[k[8]],11,0xc33707d6); c = hh(c,d,a,b,x[k[11]],16,0xf4d50d87); b = hh(b,c,d,a,x[k[14]],23,0x455a14ed);
+                    a = hh(a,b,c,d,x[k[0]],4,0xa9e3e905); d = hh(d,a,b,c,x[k[7]],11,0xfcefa3f8); c = hh(c,d,a,b,x[k[14]],16,0x676f02d9); b = hh(b,c,d,a,x[k[3]],23,0x8d2a4c8a);
+                    a = ii(a,b,c,d,x[k[7]],6,0xfffa3942); d = ii(d,a,b,c,x[k[14]],10,0x8771f681); c = ii(c,d,a,b,x[k[5]],15,0x6d9d6122); b = ii(b,c,d,a,x[k[12]],21,0xfde5380c);
+                    a = ii(a,b,c,d,x[k[3]],6,0xa4beea44); d = ii(d,a,b,c,x[k[10]],10,0x4bdecfa9); c = ii(c,d,a,b,x[k[1]],15,0xf6bb4b60); b = ii(b,c,d,a,x[k[8]],21,0xbebfbc70);
+                    a = ii(a,b,c,d,x[k[15]],6,0x289b7ec6); d = ii(d,a,b,c,x[k[6]],10,0xeaael27f); c = ii(c,d,a,b,x[k[13]],15,0xd4ef3085); b = ii(b,c,d,a,x[k[4]],21,0x4881d05);
+
+                    return [a,b,c,d];
+                }
+
+                const bytes = enc.encode(s);
+                let a=1732584193,b=-271733879,c=-1732584194,d=271733878;
+                const len = bytes.length;
+                const x = new Array(16);
+                for(let i=0;i<64;i++) {
+                    if(i<bytes.length) x[i] = bytes[i];
+                    else x[i] = 0;
+                }
+                const [aa,bb,cc,dd] = md5cycle(x,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
+                a+=aa; b+=bb; c+=cc; d+=dd;
+
+                function toHex(n) {
+                    let s='';
+                    for(let i=0;i<4;i++) s+=((n>>>(i*8))&255).toString(16).padStart(2,'0');
+                    return s;
+                }
+
+                return toHex(a)+toHex(b)+toHex(c)+toHex(d);
+            }
+
+            // SHA-1
+            async function sha1(text) {
+                const data = enc.encode(text);
+                const hashBuffer = await crypto.subtle.digest('SHA-1', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+            }
+
+            // SHA-256
+            async function sha256(text) {
+                const data = enc.encode(text);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+            }
+
+            // SHA-512
+            async function sha512(text) {
+                const data = enc.encode(text);
+                const hashBuffer = await crypto.subtle.digest('SHA-512', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+            }
+
+            const md5Hash = md5(text);
+            const sha1Hash = await sha1(text);
+            const sha256Hash = await sha256(text);
+            const sha512Hash = await sha512(text);
+
+            document.getElementById('hashList').innerHTML = [
+                { algo: 'MD5', hash: md5Hash },
+                { algo: 'SHA-1', hash: sha1Hash },
+                { algo: 'SHA-256', hash: sha256Hash },
+                { algo: 'SHA-512', hash: sha512Hash }
+            ].map(item => `
+                <div class="hash-row">
+                    <span class="hash-label">${item.algo}</span>
+                    <span class="hash-value" onclick="copy('${item.hash}')">${item.hash}</span>
+                </div>
+            `).join('');
+        }
+
+        function copy(text) {
+            navigator.clipboard.writeText(text);
+        }
+
+        function copyAll() {
+            const texts = Array.from(document.querySelectorAll('.hash-value')).map(el => el.textContent).join('\n');
+            navigator.clipboard.writeText(texts);
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('hashList').innerHTML = '';
+        }
+    </script>
 </body>
-</html><script>async function generateHash(str, alg){const msgUint8=new TextEncoder().encode(str);const hashBuffer=await crypto.subtle.digest(alg,msgUint8);return Array.from(new Uint8Array(hashBuffer)).map(b=>b.toString(16).padStart(2,'0')).join('');}async function generate(){const t=document.getElementById('input').value;if(!t){['md5','sha1','sha256','sha512'].forEach(id=>document.getElementById(id).textContent='-');return;}document.getElementById('md5').textContent=await generateHash(t,'SHA-1').then(h=>'SHA1 not available in browser - use SHA256');document.getElementById('sha1').textContent=await generateHash(t,'SHA-1');document.getElementById('sha256').textContent=await generateHash(t,'SHA-256');document.getElementById('sha512').textContent=await generateHash(t,'SHA-512');}function copy(id){navigator.clipboard.writeText(document.getElementById(id).textContent);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+</html>

@@ -195,4 +195,7 @@
   <url><loc>https://toolgen.xyz/tools/line-break-remover.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://toolgen.xyz/tools/email-validator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolgen.xyz/tools/text-diff.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolgen.xyz/tools/hash-generator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://toolgen.xyz/tools/http-status-codes.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolgen.xyz/tools/meta-tag-generator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

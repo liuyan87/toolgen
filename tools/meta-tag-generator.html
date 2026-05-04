@@ -4,80 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Meta Tag Generator - ToolGen</title>
-    <meta name="description" content="Generate SEO meta tags for your website. Include title, description, Open Graph, Twitter cards and more.">
-    <meta name="keywords" content="meta tag generator, seo meta tags, open graph generator, twitter card generator">
+    <meta name="description" content="Generate SEO meta tags for any website. Title, description, keywords, Open Graph tags. Free online meta tag generator.">
+    <meta name="keywords" content="meta tag generator, seo meta tags, open graph tags, meta description, meta keywords, og tags generator">
     <link rel="canonical" href="https://toolgen.xyz/tools/meta-tag-generator.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         .subtitle { color: #888; margin-bottom: 30px; }
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .form-group { display: flex; flex-direction: column; gap: 5px; }
-        .form-group.full { grid-column: 1 / -1; }
-        .form-group label { font-size: 0.85rem; color: #888; }
-        .form-group input, .form-group textarea, .form-group select { padding: 12px; border-radius: 8px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 0.95rem; }
-        .form-group textarea { resize: vertical; min-height: 80px; font-family: monospace; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #667eea; outline: none; }
-        .code-box { background: #0a0a0a; border: 2px solid #333; border-radius: 10px; padding: 15px; font-family: monospace; font-size: 0.85rem; color: #667eea; white-space: pre-wrap; word-break: break-all; max-height: 300px; overflow: auto; }
-        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; cursor: pointer; font-size: 0.95rem; font-weight: 600; margin: 5px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        input, textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; margin-bottom: 15px; }
+        input:focus, textarea:focus { border-color: #667eea; }
+        textarea { resize: vertical; min-height: 100px; font-family: monospace; font-size: 0.85rem; color: #22c55e; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .copy-msg { color: #f59e0b; font-size: 0.85rem; margin-top: 8px; }
         footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
         footer a { color: #667eea; text-decoration: none; }
-        @media(max-width:600px){ .form-grid{grid-template-columns:1fr;} }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
         <h1>🏷️ Meta Tag Generator</h1>
-        <p class="subtitle">Generate SEO meta tags for your website. Includes Open Graph and Twitter cards.</p>
+        <p class="subtitle">Generate SEO meta tags including Open Graph and Twitter Cards.</p>
+
         <div class="card">
-            <div class="form-grid">
-                <div class="form-group full"><label>Page Title</label><input type="text" id="title" placeholder="My Amazing Website"></div>
-                <div class="form-group full"><label>Page Description</label><textarea id="desc" placeholder="A brief description of your website..."></textarea></div>
-                <div class="form-group"><label>Page URL</label><input type="url" id="url" placeholder="https://example.com"></div>
-                <div class="form-group"><label>Image URL</label><input type="url" id="image" placeholder="https://example.com/og-image.jpg"></div>
-                <div class="form-group"><label>Twitter Handle</label><input type="text" id="twitter" placeholder="@yourhandle"></div>
-                <div class="form-group"><label>Locale</label><input type="text" id="locale" value="en_US"></div>
-            </div>
-            <button class="btn" onclick="generate()">⚡ Generate Meta Tags</button>
-            <button class="btn" onclick="copy()">📋 Copy All</button>
-            <div class="code-box" id="output"></div>
+            <label>Page Title (50-60 characters):</label>
+            <input type="text" id="title" placeholder="My Amazing Website" maxlength="60">
+
+            <label>Meta Description (150-160 characters):</label>
+            <textarea id="description" placeholder="A brief description of your page for search engines..." maxlength="160"></textarea>
+
+            <label>Canonical URL:</label>
+            <input type="url" id="canonical" placeholder="https://example.com/page">
+
+            <label>Open Graph Image URL (optional):</label>
+            <input type="url" id="ogImage" placeholder="https://example.com/image.jpg">
+
+            <label>Twitter Handle (optional):</label>
+            <input type="text" id="twitter" placeholder="@username">
+
+            <button class="btn" onclick="generate()">Generate Meta Tags</button>
+            <button class="btn" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <textarea id="output" placeholder="Generated meta tags will appear here..." readonly></textarea>
+            <p class="copy-msg" id="copyMsg"></p>
         </div>
     </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/meta-tag-generator.html">Meta Tag Generator</a> - 150+ Free Tools</p>
+    </footer>
+
     <script>
         function generate() {
-            const title = document.getElementById('title').value;
-            const desc = document.getElementById('desc').value;
-            const url = document.getElementById('url').value;
-            const image = document.getElementById('image').value;
-            const twitter = document.getElementById('twitter').value;
-            const locale = document.getElementById('locale').value || 'en_US';
-            const output = `<title>${title}</title>
-<meta name="description" content="${desc}">
+            const title = document.getElementById('title').value.trim();
+            const desc = document.getElementById('description').value.trim();
+            const canonical = document.getElementById('canonical').value.trim();
+            const ogImage = document.getElementById('ogImage').value.trim();
+            const twitter = document.getElementById('twitter').value.trim();
 
-<!-- Open Graph -->
-<meta property="og:title" content="${title}">
-<meta property="og:description" content="${desc}">
-<meta property="og:url" content="${url}">
+            if (!title || !desc) {
+                alert('Please enter at least a title and description');
+                return;
+            }
+
+            const descTruncated = desc.length > 160 ? desc.substring(0, 157) + '...' : desc;
+            const twitterHandle = twitter.startsWith('@') ? twitter : '@' + twitter;
+
+            let html = `<!-- Primary Meta Tags -->
+<title>${title}</title>
+<meta name="title" content="${title}">
+<meta name="description" content="${descTruncated}">
+<link rel="canonical" href="${canonical || 'https://yourwebsite.com'}">`;
+
+            if (ogImage) {
+                html += `
+
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:locale" content="${locale}">${image ? `
-<meta property="og:image" content="${image}">` : ''}
+<meta property="og:url" content="${canonical || 'https://yourwebsite.com'}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${descTruncated}">
+<meta property="og:image" content="${ogImage}">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">${twitter ? `
-<meta name="twitter:site" content="${twitter}">` : ''}
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
-<meta name="twitter:description" content="${desc}">${image ? `
-<meta name="twitter:image" content="${image}">` : ''}`;
-            document.getElementById('output').textContent = output.trim();
+<meta name="twitter:description" content="${descTruncated}">
+<meta name="twitter:image" content="${ogImage}">`;
+                if (twitter) {
+                    html += `
+<meta name="twitter:site" content="${twitterHandle}">`;
+                }
+            }
+
+            document.getElementById('output').value = html;
         }
-        function copy() { navigator.clipboard.writeText(document.getElementById('output').textContent); alert('Copied!'); }
+
+        function copy() {
+            const text = document.getElementById('output').value;
+            if (text) {
+                navigator.clipboard.writeText(text);
+                document.getElementById('copyMsg').textContent = '✓ Copied to clipboard!';
+                setTimeout(() => document.getElementById('copyMsg').textContent = '', 2000);
+            }
+        }
+
+        function clearText() {
+            ['title','description','canonical','ogImage','twitter'].forEach(id => document.getElementById(id).value = '');
+            document.getElementById('output').value = '';
+        }
     </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
 </html>
