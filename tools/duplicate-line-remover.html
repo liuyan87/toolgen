@@ -1,3 +1,106 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Duplicate Line Remover - ToolGen</title><meta name="description" content="Remove duplicate lines from text instantly. Sort and deduplicate your text."><meta name="keywords" content="remove duplicate lines, deduplicate, remove duplicates, unique lines"><link rel="canonical" href="https://toolgen.xyz/tools/duplicate-line-remover.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:600;color:#aaa}textarea{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.95rem;outline:none;resize:vertical;min-height:150px}textarea:focus{border-color:#667eea}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600;margin-right:10px}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🧹 Duplicate Line Remover</h1><p class="subtitle">Remove duplicate lines from text. Sort and deduplicate instantly.</p><div class="card"><textarea id="input" placeholder="Paste text with duplicate lines..."></textarea><button class="btn" onclick="removeDups()">⚡ Remove Duplicates</button><button class="btn" onclick="sortLines()">🔢 Sort Lines</button><button class="btn" onclick="count()">📊 Count Lines</button><button class="btn" onclick="copy()">📋 Copy</button><textarea id="output" readonly style="margin-top:15px"></textarea></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function removeDups(){const lines=document.getElementById('input').value.split('\n').filter(l=>l.trim());const unique=[...new Set(lines)];document.getElementById('output').value=unique.join('\n');}function sortLines(){const lines=document.getElementById('input').value.split('\n').filter(l=>l.trim());lines.sort((a,b)=>a.localeCompare(b));document.getElementById('output').value=lines.join('\n');}function count(){const lines=document.getElementById('input').value.split('\n');document.getElementById('output').value=`Total lines: ${lines.length}\nUnique lines: ${[...new Set(lines)].length}`;}function copy(){navigator.clipboard.writeText(document.getElementById('output').value);}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Duplicate Line Remover - ToolGen</title>
+    <meta name="description" content="Remove duplicate lines from text instantly. Sort and deduplicate text lines. Free online duplicate line remover and sorter.">
+    <meta name="keywords" content="remove duplicate lines, deduplicate text, duplicate line remover, sort lines, remove duplicates, text dedup">
+    <link rel="canonical" href="https://toolgen.xyz/tools/duplicate-line-remover.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #22c55e; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .options { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px; }
+        .option-btn { padding: 8px 16px; background: #0a0a0a; border: 2px solid #333; border-radius: 20px; color: #888; cursor: pointer; font-size: 0.85rem; }
+        .option-btn:hover { border-color: #667eea; color: #fff; }
+        .option-btn.active { border-color: #667eea; color: #fff; background: rgba(102,126,234,0.15); }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .stats { margin-top: 15px; color: #888; font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>🧹 Duplicate Line Remover</h1>
+        <p class="subtitle">Remove duplicate lines and sort your text. Clean up lists instantly.</p>
+
+        <div class="card">
+            <label>Paste your text (one item per line):</label>
+            <textarea id="input" placeholder="Paste your text here...&#10;Each line will be checked for duplicates." oninput="process()"></textarea>
+
+            <div class="options">
+                <button class="option-btn active" onclick="setMode('unique')">Keep Unique</button>
+                <button class="option-btn" onclick="setMode('sort')">Sort</button>
+                <button class="option-btn" onclick="setMode('both')">Sort + Unique</button>
+            </div>
+
+            <button class="btn" onclick="process()">Remove Duplicates</button>
+            <button class="btn" style="background:#333;" onclick="copy()">📋 Copy</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="stats" id="stats"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/duplicate-line-remover.html">Duplicate Line Remover</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        let mode = 'unique';
+
+        function setMode(m) {
+            mode = m;
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            process();
+        }
+
+        function process() {
+            const text = document.getElementById('input').value;
+            if (!text.trim()) {
+                document.getElementById('stats').textContent = '';
+                return;
+            }
+
+            let lines = text.split('\n').filter(l => l.trim() !== '');
+            const originalCount = lines.length;
+
+            if (mode === 'sort' || mode === 'both') {
+                lines.sort();
+            }
+
+            if (mode === 'unique' || mode === 'both') {
+                lines = [...new Set(lines)];
+            }
+
+            document.getElementById('input').value = lines.join('\n');
+            const removed = originalCount - lines.length;
+            document.getElementById('stats').textContent = removed > 0
+                ? `✓ Removed ${removed} duplicate(s). ${lines.length} unique line(s) remaining.`
+                : `✓ ${lines.length} lines (no duplicates found).`;
+        }
+
+        function copy() {
+            const text = document.getElementById('input').value;
+            if (text) navigator.clipboard.writeText(text);
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('stats').textContent = '';
+        }
+    </script>
+</body>
+</html>

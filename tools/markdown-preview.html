@@ -1,3 +1,90 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free Markdown Preview - ToolGen</title><meta name="description" content="Preview Markdown in real-time. Write Markdown and see rendered HTML instantly."><meta name="keywords" content="markdown preview, markdown editor, markdown to html, md preview"><link rel="canonical" href="https://toolgen.xyz/tools/markdown-preview.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:1100px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}.split .panel{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:20px}.split .panel h3{color:#888;font-size:0.9rem;margin-bottom:10px}.editor{width:100%;min-height:500px;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#667eea;font-family:monospace;font-size:0.95rem;outline:none;resize:vertical}.editor:focus{border-color:#667eea}.preview{min-height:500px;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;overflow:auto;color:#fff}.preview h1,.preview h2,.preview h3{color:#fff;margin:15px 0 10px}.preview p{color:#ccc;margin:10px 0}.preview code{background:#333;padding:2px 6px;border-radius:4px;font-family:monospace;color:#667eea}.preview pre{background:#333;padding:15px;border-radius:8px;overflow:auto}.preview blockquote{border-left:3px solid #667eea;padding-left:15px;color:#888;font-style:italic}.preview a{color:#667eea}.preview ul,.preview ol{padding-left:20px;color:#ccc}.preview li{margin:5px 0}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>📝 Markdown Preview</h1><p class="subtitle">Write Markdown and see rendered HTML instantly.</p><div class="split"><div class="panel"><h3>Markdown</h3><textarea class="editor" id="md" placeholder="# Hello World&#10;&#10;Write your **Markdown** here..." oninput="render()"></textarea></div><div class="panel"><h3>Preview</h3><div class="preview" id="preview"></div></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>function renderMD(md){let html=md.replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^# (.+)$/gm,'<h1>$1</h1>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\n/g,'\n');return html;}function render(){document.getElementById('preview').innerHTML=renderMD(document.getElementById('md').value);}render();</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Markdown Preview - ToolGen</title>
+    <meta name="description" content="Preview Markdown in real-time. Write Markdown and see live preview. Free online Markdown editor and previewer.">
+    <meta name="keywords" content="markdown preview, markdown editor, markdown previewer, online markdown, md preview, github markdown, markdown live preview">
+    <link rel="canonical" href="https://toolgen.xyz/tools/markdown-preview.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .editor-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 500px; }
+        .pane { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; }
+        .pane-header { color: #888; font-size: 0.85rem; margin-bottom: 10px; font-weight: 600; }
+        textarea { flex: 1; width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.9rem; outline: none; resize: none; }
+        textarea:focus { border-color: #667eea; }
+        .preview { flex: 1; overflow-y: auto; color: #aaa; }
+        .preview h1, .preview h2, .preview h3 { color: #fff; margin: 15px 0 10px; }
+        .preview h1 { font-size: 1.8rem; }
+        .preview h2 { font-size: 1.4rem; }
+        .preview p { margin-bottom: 10px; }
+        .preview code { background: #0a0a0a; padding: 2px 6px; border-radius: 4px; font-family: monospace; color: #22c55e; }
+        .preview pre { background: #0a0a0a; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
+        .preview pre code { background: none; padding: 0; }
+        .preview blockquote { border-left: 3px solid #667eea; padding-left: 15px; color: #888; margin: 10px 0; }
+        .preview a { color: #667eea; }
+        .preview ul, .preview ol { padding-left: 20px; margin: 10px 0; }
+        .preview li { margin: 5px 0; }
+        .btn { display: inline-block; padding: 10px 24px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.9rem; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📝 Markdown Preview</h1>
+        <p class="subtitle">Write Markdown and see live preview. Perfect for GitHub README and documentation.</p>
+
+        <div class="editor-wrap">
+            <div class="pane">
+                <div class="pane-header">📝 MARKDOWN</div>
+                <textarea id="markdownInput" placeholder="# Welcome to Markdown&#10;&#10;Write your markdown here...&#10;&#10;## Examples&#10;&#10;- **Bold text**&#10;- *Italic text*&#10;- `inline code`&#10;&#10;```javascript&#10;console.log('code block');&#10;```" oninput="updatePreview()"></textarea>
+            </div>
+            <div class="pane">
+                <div class="pane-header">👁 PREVIEW</div>
+                <div class="preview" id="preview"></div>
+            </div>
+        </div>
+
+        <button class="btn" onclick="clearText()">Clear</button>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/markdown-preview.html">Markdown Preview</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function updatePreview() {
+            const md = document.getElementById('markdownInput').value;
+            let html = md
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+                .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+                .replace(/^\- (.*$)/gim, '<li>$1</li>')
+                .replace(/^\d+\. (.*$)/gim, '<li>$1</li>')
+                .replace(/\n/g, '<br>');
+            document.getElementById('preview').innerHTML = html;
+        }
+
+        function clearText() {
+            document.getElementById('markdownInput').value = '';
+            document.getElementById('preview').innerHTML = '';
+        }
+
+        updatePreview();
+    </script>
+</body>
+</html>
