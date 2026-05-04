@@ -1,3 +1,90 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Free WHOIS Lookup - ToolGen</title><meta name="description" content="Look up domain name registration information. Free WHOIS lookup tool."><meta name="keywords" content="whois lookup, domain lookup, domain whois, domain registration"><link rel="canonical" href="https://toolgen.xyz/tools/whois-lookup.html"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6}.container{max-width:700px;margin:0 auto;padding:40px 20px}.back{color:#667eea;text-decoration:none;margin-bottom:30px;display:inline-block}h1{font-size:2rem;margin-bottom:10px}.subtitle{color:#888;margin-bottom:30px}.card{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:30px;margin-bottom:20px}input{width:100%;padding:14px;border-radius:10px;border:2px solid #333;background:#0a0a0a;color:#fff;font-size:1.1rem;outline:none;margin-bottom:15px}input:focus{border-color:#667eea}.info{background:#0a0a0a;border-radius:8px;padding:15px;margin-top:15px}.info-row{display:flex;padding:8px 0;border-bottom:1px solid #333}.info-row:last-child{border-bottom:none}.info-row .label{min-width:150px;color:#888}.info-row .value{color:#667eea;font-family:monospace}.btn{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:25px;cursor:pointer;font-size:0.95rem;font-weight:600}footer{text-align:center;padding:40px 0;color:#666;font-size:0.9rem;border-top:1px solid #333;margin-top:40px}footer a{color:#667eea;text-decoration:none}</style></head><body><div class="container"><a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a><h1>🔍 WHOIS Lookup</h1><p class="subtitle">Look up domain registration information.</p><div class="card"><input type="text" id="domain" placeholder="example.com" onkeydown="if(event.key==='Enter')lookup()"><button class="btn" onclick="lookup()">🔎 Lookup</button><div id="result" style="display:none"><div class="info"><div class="info-row"><span class="label">Domain</span><span class="value" id="rDomain"></span></div><div class="info-row"><span class="label">Status</span><span class="value" id="rStatus"></span></div><div class="info-row"><span class="label">Created</span><span class="value" id="rCreated"></span></div><div class="info-row"><span class="label">Expires</span><span class="value" id="rExpires"></span></div><div class="info-row"><span class="label">Registrar</span><span class="value" id="rRegistrar"></span></div></div></div></div></div><footer><p>© 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer><script>async function lookup(){const domain=document.getElementById('domain').value.trim();if(!domain)return;try{const r=await fetch(`https://api.api-ninjas.com/v1/whois?domain=${domain}`,{headers:{'X-Api-Key':'demo'}});const d=await r.json();if(d.error){document.getElementById('rDomain').textContent=domain;document.getElementById('rStatus').textContent='Not found or error';['rCreated','rExpires','rRegistrar'].forEach(id=>document.getElementById(id).textContent='-');}else{document.getElementById('rDomain').textContent=d.domain||domain;document.getElementById('rStatus').textContent=(d.is_available?'Available':'Registered');document.getElementById('rCreated').textContent=d.creation_date||'-';document.getElementById('rExpires').textContent=d.expiration_date||'-';document.getElementById('rRegistrar').textContent=d.registrar||'-';}document.getElementById('result').style.display='block';}catch(e){document.getElementById('rDomain').textContent=domain;document.getElementById('rStatus').textContent='Error: '+e.message;}}</script><script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free WHOIS Lookup - ToolGen</title>
+    <meta name="description" content="WHOIS lookup for any domain name. Find domain registration details, expiry, owner. Free online WHOIS lookup tool.">
+    <meta name="keywords" content="whois lookup, domain whois, domain registration, domain checker, whois domain, domain owner lookup">
+    <link rel="canonical" href="https://toolgen.xyz/tools/whois-lookup.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        .input-row { display: flex; gap: 10px; }
+        input { flex: 1; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 1rem; outline: none; }
+        input:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 20px; font-size: 0.9rem; }
+        .result-row { display: flex; gap: 15px; padding: 10px 0; border-bottom: 1px solid #222; }
+        .result-row:last-child { border-bottom: none; }
+        .result-row .label { color: #888; width: 150px; flex-shrink: 0; }
+        .result-row .value { color: #22c55e; word-break: break-all; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📋 WHOIS Lookup</h1>
+        <p class="subtitle">Find domain registration details and expiry information.</p>
+
+        <div class="card">
+            <div class="input-row">
+                <input type="text" id="domain" placeholder="example.com" value="toolgen.xyz">
+                <button class="btn" onclick="lookup()">Lookup</button>
+            </div>
+
+            <div class="result-box" id="results">
+                <p style="color:#888;">Enter a domain to look up...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/whois-lookup.html">WHOIS Lookup</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        async function lookup() {
+            const domain = document.getElementById('domain').value.trim();
+            if (!domain) return;
+
+            document.getElementById('results').innerHTML = '<p style="color:#888;">Loading...</p>';
+
+            try {
+                // Using a WHOIS API endpoint
+                const res = await fetch(`https://whois.freeaiapi.com/api/whois?domain=${domain}`);
+                const data = await res.json();
+
+                if (data.error) {
+                    document.getElementById('results').innerHTML = `<p style="color:#ef4444;">${data.error}</p>`;
+                    return;
+                }
+
+                const fields = [
+                    ['Domain Name', data.domain],
+                    ['Registrar', data.registrar],
+                    ['Created Date', data.createdDate],
+                    ['Expiry Date', data.expiryDate],
+                    ['Updated Date', data.updatedDate],
+                    ['Status', Array.isArray(data.status) ? data.status.join(', ') : data.status],
+                    ['Name Servers', Array.isArray(data.nameServers) ? data.nameServers.join(', ') : data.nameServers],
+                ].filter(([_, v]) => v && v !== 'undefined');
+
+                document.getElementById('results').innerHTML = fields.map(([label, value]) =>
+                    `<div class="result-row"><span class="label">${label}</span><span class="value">${value}</span></div>`
+                ).join('') || '<p style="color:#888;">No data found</p>';
+            } catch(e) {
+                document.getElementById('results').innerHTML = '<p style="color:#ef4444;">Could not fetch WHOIS data. Try again later.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
