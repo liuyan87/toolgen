@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Lines to Words Converter - ToolGen</title>
+    <meta name="description" content="Convert lines of text to individual words. Extract words from text lines. Free online word extraction tool.">
+    <meta name="keywords" content="lines to words, extract words, text to words, word extractor, text converter">
+    <link rel="canonical" href="https://toolgen.xyz/tools/lines-to-words.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; min-height: 100px; color: #22c55e; font-family: monospace; white-space: pre-wrap; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+        .faq { margin-top: 25px; }
+        .faq-item { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }
+        .faq-item h4 { color: #fff; margin-bottom: 6px; font-size: 0.95rem; }
+        .faq-item p { color: #888; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📝 Lines to Words Converter</h1>
+        <p class="subtitle">Extract words from multiple lines of text. Perfect for word processing tasks.</p>
+
+        <div class="card">
+            <label>Input text (one item per line):</label>
+            <textarea id="input" placeholder="Enter text here, one item per line..."></textarea>
+            <button class="btn" onclick="convert()">Convert to Words</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+        </div>
+
+        <div class="result-box" id="result">Results will appear here...</div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/lines-to-words.html">Lines to Words</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function convert() {
+            const input = document.getElementById('input').value.trim();
+            if (!input) { alert('Please enter some text.'); return; }
+
+            const lines = input.split('\n');
+            let wordCount = 0;
+            let result = [];
+
+            lines.forEach((line, idx) => {
+                const words = line.trim().split(/\s+/).filter(w => w.length > 0);
+                wordCount += words.length;
+                if (words.length > 0) {
+                    result.push(...words);
+                }
+            });
+
+            document.getElementById('result').innerHTML =
+                `<strong style="color:#667eea">${wordCount} words extracted:</strong>\n\n` +
+                result.join(', ');
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('result').textContent = 'Results will appear here...';
+        }
+    </script>
+
+    <style>
+        .faq { margin-top: 25px; }
+        .faq-item { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }
+        .faq-item h4 { color: #fff; margin-bottom: 6px; font-size: 0.95rem; }
+        .faq-item p { color: #888; font-size: 0.85rem; }
+    </style>
+    <div class="faq">
+        <h3 style="color:#667eea; margin-bottom:12px;">❓ FAQ</h3>
+        <div class="faq-item">
+            <h4>What does this tool do?</h4>
+            <p>It extracts individual words from text where each line contains one item. Useful for processing lists or converting line-based data to comma-separated words.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Is my data safe?</h4>
+            <p>Yes. All processing happens in your browser. Your data never leaves your device.</p>
+        </div>
+    </div>
+</body>
+</html>

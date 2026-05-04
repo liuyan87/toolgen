@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Sentence Counter - ToolGen</title>
+    <meta name="description" content="Count sentences, words, and paragraphs in any text. Free online sentence counter tool with detailed statistics.">
+    <meta name="keywords" content="sentence counter, count sentences, word counter, paragraph counter, character count">
+    <link rel="canonical" href="https://toolgen.xyz/tools/sentence-counter.html">
+    <style>
+        * { margin: 0; padding: 0; box-style: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
+        textarea:focus { border-color: #667eea; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin-top: 20px; }
+        .stat-box { background: #0a0a0a; border-radius: 12px; padding: 20px; text-align: center; }
+        .stat-box .num { font-size: 2rem; font-weight: 800; color: #667eea; }
+        .stat-box .label { font-size: 0.8rem; color: #888; margin-top: 5px; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📊 Sentence Counter</h1>
+        <p class="subtitle">Count sentences, words, paragraphs, and characters. Get detailed statistics instantly.</p>
+
+        <div class="card">
+            <label>Enter your text:</label>
+            <textarea id="input" placeholder="Paste or type your text here..." oninput="count()"></textarea>
+            <button class="btn" onclick="count()">Count</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+        </div>
+
+        <div class="stats-grid" id="stats">
+            <div class="stat-box"><div class="num" id="sentences">0</div><div class="label">Sentences</div></div>
+            <div class="stat-box"><div class="num" id="words">0</div><div class="label">Words</div></div>
+            <div class="stat-box"><div class="num" id="paragraphs">0</div><div class="label">Paragraphs</div></div>
+            <div class="stat-box"><div class="num" id="characters">0</div><div class="label">Characters</div></div>
+            <div class="stat-box"><div class="num" id="chars_nospace">0</div><div class="label">Chars (no spaces)</div></div>
+            <div class="stat-box"><div class="num" id="avgwords">0</div><div class="label">Avg Words/Sentence</div></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/sentence-counter.html">Sentence Counter</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function count() {
+            const text = document.getElementById('input').value;
+            if (!text) {
+                document.getElementById('sentences').textContent = '0';
+                document.getElementById('words').textContent = '0';
+                document.getElementById('paragraphs').textContent = '0';
+                document.getElementById('characters').textContent = '0';
+                document.getElementById('chars_nospace').textContent = '0';
+                document.getElementById('avgwords').textContent = '0';
+                return;
+            }
+
+            const chars = text.length;
+            const charsNoSpace = text.replace(/\s/g, '').length;
+            const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+            const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 0).length;
+            const avgWords = sentences > 0 ? (words / sentences).toFixed(1) : 0;
+
+            document.getElementById('sentences').textContent = sentences;
+            document.getElementById('words').textContent = words;
+            document.getElementById('paragraphs').textContent = paragraphs;
+            document.getElementById('characters').textContent = chars;
+            document.getElementById('chars_nospace').textContent = charsNoSpace;
+            document.getElementById('avgwords').textContent = avgWords;
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            count();
+        }
+    </script>
+</body>
+</html>

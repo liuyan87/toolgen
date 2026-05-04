@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Text to List Converter - ToolGen</title>
+    <meta name="description" content="Convert comma-separated text to a list. Split text into individual items. Free online text to list converter.">
+    <meta name="keywords" content="text to list, comma separated, split text, list generator, text converter">
+    <link rel="canonical" href="https://toolgen.xyz/tools/text-to-list.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
+        textarea, input { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-family: monospace; font-size: 0.9rem; outline: none; margin-bottom: 15px; }
+        input:focus, textarea:focus { border-color: #667eea; }
+        select { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #fff; font-size: 0.9rem; outline: none; margin-bottom: 15px; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn:hover { transform: translateY(-2px); }
+        .result-box { background: #0a0a0a; border-radius: 10px; padding: 20px; margin-top: 15px; min-height: 100px; }
+        .result-box li { color: #22c55e; margin: 5px 0; font-family: monospace; }
+        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
+        footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
+        <h1>📋 Text to List Converter</h1>
+        <p class="subtitle">Convert text with separators into a clean numbered list.</p>
+
+        <div class="card">
+            <label>Input text:</label>
+            <textarea id="input" placeholder="Enter text with separators (commas, newlines, etc.)..."></textarea>
+
+            <label>Separator:</label>
+            <select id="separator">
+                <option value="comma">Comma (,)</option>
+                <option value="newline">New Line</option>
+                <option value="semicolon">Semicolon (;)</option>
+                <option value="space">Space</option>
+                <option value="tab">Tab</option>
+            </select>
+
+            <button class="btn" onclick="convert()">Convert to List</button>
+            <button class="btn" style="background:#333;" onclick="clearText()">Clear</button>
+
+            <div class="result-box">
+                <ol id="result" style="padding-left:25px;"></ol>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/text-to-list.html">Text to List</a> - 150+ Free Tools</p>
+    </footer>
+
+    <script>
+        function convert() {
+            const input = document.getElementById('input').value.trim();
+            if (!input) { alert('Please enter some text.'); return; }
+
+            const sep = document.getElementById('separator').value;
+            let items;
+
+            switch(sep) {
+                case 'comma': items = input.split(','); break;
+                case 'newline': items = input.split('\n'); break;
+                case 'semicolon': items = input.split(';'); break;
+                case 'space': items = input.split(/\s+/); break;
+                case 'tab': items = input.split('\t'); break;
+            }
+
+            items = items.map(s => s.trim()).filter(s => s.length > 0);
+
+            const result = document.getElementById('result');
+            result.innerHTML = items.map(item =>
+                `<li style="color:#22c55e;">${item.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</li>`
+            ).join('');
+        }
+
+        function clearText() {
+            document.getElementById('input').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
