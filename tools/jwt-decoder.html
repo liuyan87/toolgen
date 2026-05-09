@@ -17,7 +17,7 @@
         .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
         textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-family: monospace; font-size: 0.95rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 80px; }
         textarea:focus { border-color: #667eea; }
-        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border: none; border-radius: 25px; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-right: 10px; }
         .section { background: #0a0a0a; border: 2px solid #333; border-radius: 10px; padding: 15px; margin: 15px 0; }
         .section h3 { color: #667eea; margin-bottom: 10px; font-size: 1rem; }
         .section pre { color: #ccc; font-size: 0.9rem; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
@@ -40,10 +40,10 @@
     </div>
     <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p>
     <style>
-        .faq {{ margin-top: 25px; }}
-        .faq-item {{ background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }}
-        .faq-item h4 {{ color: #fff; margin-bottom: 6px; font-size: 0.95rem; }}
-        .faq-item p {{ color: #888; font-size: 0.85rem; }}
+        .faq { margin-top: 25px; }
+        .faq-item { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 18px; margin-bottom: 10px; }
+        .faq-item h4 { color: #fff; margin-bottom: 6px; font-size: 0.95rem; }
+        .faq-item p { color: #888; font-size: 0.85rem; }
     </style>
     <div class="faq">
         <h3 style="color:#667eea; margin-bottom:12px;">❓ FAQ</h3>
@@ -56,42 +56,83 @@
             <p>Yes, completely free with no registration required.</p>
         </div>
     </div>
-
-    <footer>
-        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - 150+ Free Tools</p>
-    </footer>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
 </body>
-</html>
-    <script>
-        function decode() {
-            const jwt = document.getElementById('jwtInput').value.trim();
-            const result = document.getElementById('result');
-            if (!jwt) { result.innerHTML = ''; return; }
-            try {
-                const parts = jwt.split('.');
-                if (parts.length !== 3) throw new Error('Invalid JWT format');
-                
-                const header = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')));
-                const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
-                
-                // Format expiry
-                let expiry = '';
-                if (payload.exp) {
-                    const d = new Date(payload.exp * 1000);
-                    expiry = d.toString();
-                }
-                
-                result.innerHTML = `
-                    <div class="section"><h3>Header</h3><pre>${JSON.stringify(header, null, 2)}</pre></div>
-                    <div class="section"><h3>Payload</h3><pre>${JSON.stringify(payload, null, 2)}</pre>${expiry ? `<p class="${new Date()>new Date(expiry)?'invalid':'valid'}" style="margin-top:10px;">⏰ Expires: ${expiry}</p>` : ''}</div>
-                    <div class="section"><h3>Signature</h3><pre style="color:#888;">${parts[2]}</pre><p style="color:#888;font-size:0.85rem;margin-top:5px;">⚠️ Signature verification requires the secret key</p></div>
-                `;
-            } catch(e) {
-                result.innerHTML = `<p class="invalid">❌ Invalid JWT: ${e.message}</p>`;
+<script>
+    function decode() {
+        const jwt = document.getElementById('jwtInput').value.trim();
+        const result = document.getElementById('result');
+        if (!jwt) { result.innerHTML = ''; return; }
+        try {
+            const parts = jwt.split('.');
+            if (parts.length !== 3) throw new Error('Invalid JWT format');
+            
+            const header = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')));
+            const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+            
+            // Format expiry
+            let expiry = '';
+            if (payload.exp) {
+                const d = new Date(payload.exp * 1000);
+                expiry = d.toString();
             }
+            
+            // Safe rendering: use textContent for user data, only use innerHTML for static structure
+            const isExpired = payload.exp && new Date() > new Date(payload.exp * 1000);
+            const expiryClass = isExpired ? 'invalid' : 'valid';
+            const expiryHtml = expiry ? `<p class="${expiryClass}" style="margin-top:10px;">⏰ Expires: ${expiry}</p>` : '';
+            
+            result.innerHTML = '<div class="section"><h3>Header</h3></div>';
+            result.innerHTML += '<div class="section"><h3>Payload</h3></div>';
+            result.innerHTML += `<div class="section"><h3>Signature</h3><pre style="color:#888;">${parts[2]}</pre><p style="color:#888;font-size:0.85rem;margin-top:5px;">⚠️ Signature verification requires the secret key</p></div>`;
+            
+            // Build sections safely
+            result.innerHTML = '';
+            const sectionHeader = document.createElement('div');
+            sectionHeader.className = 'section';
+            const h3h = document.createElement('h3');
+            h3h.textContent = 'Header';
+            sectionHeader.appendChild(h3h);
+            const preH = document.createElement('pre');
+            preH.textContent = JSON.stringify(header, null, 2);
+            sectionHeader.appendChild(preH);
+            result.appendChild(sectionHeader);
+
+            const sectionPayload = document.createElement('div');
+            sectionPayload.className = 'section';
+            const h3p = document.createElement('h3');
+            h3p.textContent = 'Payload';
+            sectionPayload.appendChild(h3p);
+            const preP = document.createElement('pre');
+            preP.textContent = JSON.stringify(payload, null, 2);
+            sectionPayload.appendChild(preP);
+            if (expiry) {
+                const pExp = document.createElement('p');
+                pExp.className = expiryClass;
+                pExp.style.marginTop = '10px';
+                pExp.textContent = '⏰ Expires: ' + expiry;
+                sectionPayload.appendChild(pExp);
+            }
+            result.appendChild(sectionPayload);
+
+            const sectionSig = document.createElement('div');
+            sectionSig.className = 'section';
+            const h3s = document.createElement('h3');
+            h3s.textContent = 'Signature';
+            sectionSig.appendChild(h3s);
+            const preS = document.createElement('pre');
+            preS.style.color = '#888';
+            preS.textContent = parts[2];
+            sectionSig.appendChild(preS);
+            const pSig = document.createElement('p');
+            pSig.style.color = '#888';
+            pSig.style.fontSize = '0.85rem';
+            pSig.style.marginTop = '5px';
+            pSig.textContent = '⚠️ Signature verification requires the secret key';
+            sectionSig.appendChild(pSig);
+            result.appendChild(sectionSig);
+        } catch(e) {
+            result.innerHTML = `<p class="invalid">❌ Invalid JWT: ${e.message}</p>`;
         }
-    </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body>
+    }
+</script>
 </html>
