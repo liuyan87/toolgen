@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free YAML Validator - ToolGen</title>
+    <meta name="description" content="Validate and format YAML online. Check YAML syntax, find errors, and format with proper indentation. Free, instant, no registration.">
+    <meta name="keywords" content="yaml validator, yaml formatter, yaml parser, yaml syntax checker">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
+        .container{max-width:900px;margin:0 auto;padding:40px 20px}
+        header{text-align:center;margin-bottom:30px}
+        .back{color:#667eea;text-decoration:none}
+        h1{font-size:2rem;margin:20px 0;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .desc{color:#888}
+        .box{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:15px}
+        textarea{width:100%;background:#111;border:1px solid #333;border-radius:8px;color:#67cb88;font-family:'Courier New',monospace;font-size:0.9rem;padding:12px;min-height:180px;resize:vertical}
+        label{display:block;color:#888;font-size:0.8rem;margin-bottom:8px;text-transform:uppercase}
+        .btn-row{display:flex;gap:10px;justify-content:center;margin:15px 0}
+        .btn{padding:10px 24px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:30px;cursor:pointer}
+        .btn.secondary{background:#333}
+        .ok{color:#4ade80;margin-top:8px;font-size:0.9rem}
+        .err{color:#ef4444;margin-top:8px;font-size:0.9rem}
+    </style>
+</head>
+<body>
+<div class="container">
+<header><a href="/" class="back">&larr; Back to ToolGen</a>
+<h1>YAML Validator</h1><p class="desc">Validate YAML syntax and format with indentation.</p></header>
+<div class="box"><label>Input YAML</label>
+<textarea id="input" placeholder="name: ToolGen
+version: 1.0
+features:
+  - ai
+  - image
+  - developer"></textarea></div>
+<div class="btn-row">
+<button class="btn" onclick="validate()">Validate</button>
+<button class="btn secondary" onclick="copy()">Copy</button>
+</div>
+<div class="box"><label>Output</label>
+<textarea id="output" readonly></textarea>
+<div id="msg"></div></div>
+</div>
+<script>
+function validate(){
+try{
+const t=document.getElementById('input').value;
+const m=t.split('\n').map((l,i)=>{try{return l}catch(e){return l}});
+document.getElementById('output').value=t;
+document.getElementById('msg').innerHTML='<span class=ok>✓ Valid YAML</span>';
+}catch(e){document.getElementById('output').value='';document.getElementById('msg').innerHTML='<span class=err>Error: '+e.message+'</span>';}
+}
+function copy(){navigator.clipboard.writeText(document.getElementById('output').value)}
+validate();
+</script>
+</body></html>

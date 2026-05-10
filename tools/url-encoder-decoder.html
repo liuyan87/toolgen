@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free URL Encoder/Decoder - ToolGen</title>
+    <meta name="description" content="Encode or decode URL strings instantly. Convert special characters to percent-encoding. Free URL encoder decoder tool.">
+    <meta name="keywords" content="url encoder, url decoder, percent encoding, encodeuri, urlencode">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        header{text-align:center;margin-bottom:30px}
+        .back{color:#667eea;text-decoration:none}
+        h1{font-size:2rem;margin:20px 0;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .desc{color:#888}
+        .box{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:15px}
+        textarea{width:100%;background:#111;border:1px solid #333;border-radius:8px;color:#67cb88;font-family:'Courier New',monospace;font-size:0.9rem;padding:12px;min-height:100px;resize:vertical}
+        label{display:block;color:#888;font-size:0.8rem;margin-bottom:8px;text-transform:uppercase}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:15px 0}
+        .btn{padding:10px 24px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:30px;cursor:pointer}
+        .btn.secondary{background:#333}
+    </style>
+</head>
+<body>
+<div class="container">
+<header><a href="/" class="back">&larr; Back to ToolGen</a>
+<h1>URL Encoder / Decoder</h1><p class="desc">Encode or decode URL strings instantly.</p></header>
+<div class="box"><label>Input</label>
+<textarea id="input" placeholder="Enter URL or text..." oninput="convert()"></textarea></div>
+<div class="btn-row">
+<button class="btn" onclick="encode()">Encode</button>
+<button class="btn" onclick="decode()">Decode</button>
+<button class="btn secondary" onclick="copy()">Copy</button>
+</div>
+<div class="box"><label>Output</label>
+<textarea id="output" readonly></textarea></div>
+</div>
+<script>
+function convert(){document.getElementById('output').value=''}
+function encode(){try{document.getElementById('output').value=encodeURIComponent(document.getElementById('input').value)}catch(e){document.getElementById('output').value='Error'}}'
+function decode(){try{document.getElementById('output').value=decodeURIComponent(document.getElementById('input').value)}catch(e){document.getElementById('output').value='Error: Invalid encoding'}}
+function copy(){navigator.clipboard.writeText(document.getElementById('output').value)}
+</script>
+</body></html>

@@ -4,85 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free UUID Generator - ToolGen</title>
-    <meta name="description" content="Generate random UUIDs (v1, v4, v7) instantly. Free online UUID generator.">
-    <meta name="keywords" content="uuid generator, random uuid, uuid v4, generate uuid">
-    <link rel="canonical" href="https://toolgen.xyz/tools/uuid-generator.html">
+    <meta name="description" content="Generate UUIDs (v4) instantly. One-click copy. Free UUID generator for developers. No registration required.">
+    <meta name="keywords" content="uuid generator, guid generator, random uuid, unique id generator">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
-        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
-        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
-        h1 { font-size: 2rem; margin-bottom: 10px; }
-        .subtitle { color: #888; margin-bottom: 30px; }
-        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
-        .uuid-list { display: grid; gap: 12px; margin: 20px 0; }
-        .uuid-item { display: flex; align-items: center; gap: 10px; background: #0a0a0a; border-radius: 8px; padding: 12px 16px; }
-        .uuid-item code { flex: 1; color: #667eea; font-family: monospace; font-size: 1rem; word-break: break-all; }
-        .uuid-item span { font-size: 0.8rem; color: #888; min-width: 40px; }
-        .uuid-item button { background: #333; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
-        .uuid-item button:hover { background: #667eea; }
-        .options { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
-        .options label { display: flex; align-items: center; gap: 6px; cursor: pointer; color: #aaa; }
-        .options input[type="number"] { width: 80px; padding: 8px; border-radius: 6px; border: 2px solid #333; background: #0a0a0a; color: #fff; }
-        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; margin-right: 10px; }
-        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
-        footer a { color: #667eea; text-decoration: none; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
+        .container{max-width:700px;margin:0 auto;padding:60px 20px;text-align:center}
+        h1{font-size:2rem;margin:20px 0;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .uuid-box{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:25px;margin:30px 0;font-family:'Courier New',monospace;font-size:1.4rem;color:#4ade80;word-break:break-all}
+        .btn{padding:14px 36px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:30px;cursor:pointer;font-size:1.1rem;margin:10px}
+        .btn:hover{transform:scale(1.05)}
+        .desc{color:#888;max-width:500px;margin:0 auto}
+        .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+        .copied{color:#4ade80;font-size:0.9rem;height:20px;margin-top:5px}
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
-        <h1>🔢 UUID Generator</h1>
-        <p class="subtitle">Generate random UUIDs (v1, v4, v7) instantly. Free & secure.</p>
-        <div class="card">
-            <div class="options">
-                <label>Count: <input type="number" id="count" value="5" min="1" max="100"></label>
-                <label><input type="checkbox" id="v4" checked> UUID v4 (random)</label>
-                <label><input type="checkbox" id="v1"> UUID v1 (time-based)</label>
-            </div>
-            <button class="btn" onclick="generate()">⚡ Generate UUIDs</button>
-            <button class="btn" onclick="copyAll()">📋 Copy All</button>
-            <div class="uuid-list" id="list"></div>
-        </div>
-    </div>
-    <footer><p>&copy; 2026 ToolGen.xyz - <a href="https://toolgen.xyz/">Free Online Tools</a></p></footer>
-    <script>
-        function uuidv4() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-                const r = Math.random() * 16 | 0;
-                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-            });
-        }
-        function uuidv1() {
-            const t = Date.now();
-            const h = 'xxxxxxxx-xxxx-1xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-                const r = (t / Math.pow(16, c === 'x' ? 0 : 1)) % 16 | 0;
-                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-            });
-            return h;
-        }
-        function generate() {
-            const count = parseInt(document.getElementById('count').value) || 5;
-            const useV4 = document.getElementById('v4').checked;
-            const useV1 = document.getElementById('v1').checked;
-            const list = document.getElementById('list');
-            list.innerHTML = '';
-            const uuids = [];
-            for (let i = 0; i < count; i++) {
-                const type = useV1 && (!useV4 || Math.random() > 0.5) ? 'v1' : 'v4';
-                const uuid = type === 'v4' ? uuidv4() : uuidv1();
-                uuids.push(uuid);
-                const div = document.createElement('div');
-                div.className = 'uuid-item';
-                div.innerHTML = `<span>${type}</span><code>${uuid}</code><button onclick="copy('${uuid}')">Copy</button>`;
-                list.appendChild(div);
-            }
-            window._uuids = uuids;
-        }
-        function copy(uuid) { navigator.clipboard.writeText(uuid); }
-        function copyAll() { if (window._uuids) { navigator.clipboard.writeText(window._uuids.join('\n')); alert('Copied!'); } }
-        generate();
-    </script>
-<script src="https://pl29333664.profitablecpmratenetwork.com/14/bd/3e/14bd3e70ee1ef00b369d60928d7e3a03.js"></script>
-</body>
-</html>
+<div class="container">
+<a href="/" style="color:#667eea;text-decoration:none;font-size:0.9rem">&larr; Back to ToolGen</a>
+<h1>UUID Generator</h1>
+<p class="desc">Generate random UUIDs (Version 4) instantly. Click Generate for a new one.</p>
+<div class="uuid-box" id="uuidDisplay">Click Generate to create a UUID</div>
+<div class="copied" id="copied"></div>
+<div class="row">
+<button class="btn" onclick="gen()">Generate</button>
+<button class="btn" style="background:#333" onclick="copy()">Copy</button>
+</div>
+</div>
+<script>
+function gen(){
+const u='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{
+const r=Math.random()*16|0;
+return(c==='x'?r:(r&0x3|0x8)).toString(16)});
+document.getElementById('uuidDisplay').textContent=u;
+document.getElementById('copied').textContent='';
+}
+function copy(){
+const u=document.getElementById('uuidDisplay').textContent;
+if(u.length>30){navigator.clipboard.writeText(u);document.getElementById('copied').textContent='✓ Copied!';setTimeout(()=>document.getElementById('copied').textContent='',2000)}
+}
+gen();
+</script>
+</body></html>

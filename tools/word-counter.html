@@ -4,90 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Word Counter - ToolGen</title>
-    <meta name="description" content="Count words, characters, and sentences in any text. Free online word counter with detailed statistics.">
-    <meta name="keywords" content="word counter, count words, character counter, sentence counter, count characters, text counter, word count tool">
-    <link rel="canonical" href="https://toolgen.xyz/tools/word-counter.html">
+    <meta name="description" content="Count words, characters, sentences, and paragraphs instantly. Paste your text for detailed statistics. Free, no registration.">
+    <meta name="keywords" content="word counter, character counter, sentence counter, paragraph counter">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; }
-        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
-        .back { color: #667eea; text-decoration: none; margin-bottom: 30px; display: inline-block; }
-        h1 { font-size: 2rem; margin-bottom: 10px; }
-        .subtitle { color: #888; margin-bottom: 30px; }
-        .card { background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 30px; margin-bottom: 20px; }
-        textarea { width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #333; background: #0a0a0a; color: #667eea; font-size: 1rem; outline: none; margin-bottom: 15px; resize: vertical; min-height: 200px; }
-        textarea:focus { border-color: #667eea; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
-        .stat-box { background: #0a0a0a; border-radius: 12px; padding: 20px; text-align: center; }
-        .stat-box .num { font-size: 2rem; font-weight: 800; color: #667eea; }
-        .stat-box .label { color: #888; font-size: 0.8rem; margin-top: 5px; }
-        .reading-level { margin-top: 15px; padding: 15px; background: #0a0a0a; border-radius: 10px; }
-        .reading-level .label { color: #888; font-size: 0.85rem; margin-bottom: 8px; }
-        .reading-level .value { color: #22c55e; font-size: 1.1rem; font-weight: 600; }
-        footer { text-align: center; padding: 40px 0; color: #666; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px; }
-        footer a { color: #667eea; text-decoration: none; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
+        .container{max-width:800px;margin:0 auto;padding:40px 20px}
+        header{text-align:center;margin-bottom:30px}
+        .back{color:#667eea;text-decoration:none}
+        h1{font-size:2rem;margin:20px 0;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .desc{color:#888}
+        .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px}
+        .card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:20px;text-align:center}
+        .num{font-size:2rem;font-weight:800;color:#667eea}
+        .lbl{color:#888;font-size:0.85rem;margin-top:5px}
+        textarea{width:100%;background:#111;border:1px solid #333;border-radius:8px;color:#fff;font-size:1rem;padding:12px;min-height:200px;resize:vertical}
+        label{display:block;color:#888;font-size:0.8rem;margin-bottom:8px;text-transform:uppercase}
+        .box{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:20px;margin-top:15px}
+        .extra{color:#888;font-size:0.9rem}
+        @media(max-width:500px){.stats{grid-template-columns:repeat(2,1fr)}}
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://toolgen.xyz/" class="back">← Back to ToolGen</a>
-        <h1>⌨️ Word Counter</h1>
-        <p class="subtitle">Count words, characters, sentences and get reading level estimates.</p>
-
-        <div class="card">
-            <textarea id="input" placeholder="Type or paste your text here..." oninput="count()"></textarea>
-
-            <div class="stats-grid">
-                <div class="stat-box"><div class="num" id="words">0</div><div class="label">Words</div></div>
-                <div class="stat-box"><div class="num" id="chars">0</div><div class="label">Characters</div></div>
-                <div class="stat-box"><div class="num" id="sentences">0</div><div class="label">Sentences</div></div>
-                <div class="stat-box"><div class="num" id="paragraphs">0</div><div class="label">Paragraphs</div></div>
-                <div class="stat-box"><div class="num" id="readTime">0</div><div class="label">Min Read</div></div>
-            </div>
-
-            <div class="reading-level">
-                <div class="label">Estimated Reading Level:</div>
-                <div class="value" id="readingLevel">Start typing...</div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>🔗 <a href="https://toolgen.xyz/">ToolGen</a> - <a href="https://toolgen.xyz/tools/word-counter.html">Word Counter</a> - 150+ Free Tools</p>
-    </footer>
-
-    <script>
-        function count() {
-            const text = document.getElementById('input').value;
-            if (!text) {
-                ['words','chars','sentences','paragraphs','readTime'].forEach(id => document.getElementById(id).textContent = '0');
-                document.getElementById('readingLevel').textContent = 'Start typing...';
-                return;
-            }
-
-            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-            const chars = text.length;
-            const sentences = text.split(/[.!?]+/).filter(s => s.trim()).length;
-            const paragraphs = text.split(/\n\n+/).filter(p => p.trim()).length;
-            const readTime = Math.ceil(words / 200);
-
-            document.getElementById('words').textContent = words;
-            document.getElementById('chars').textContent = chars;
-            document.getElementById('sentences').textContent = sentences;
-            document.getElementById('paragraphs').textContent = paragraphs;
-            document.getElementById('readTime').textContent = readTime;
-
-            // Simple reading level estimate
-            const avgWordsPerSentence = sentences > 0 ? words / sentences : 0;
-            let level = 'Beginner';
-            if (avgWordsPerSentence > 20) level = 'Advanced';
-            else if (avgWordsPerSentence > 15) level = 'Intermediate';
-            else if (avgWordsPerSentence > 8) level = 'Elementary';
-
-            document.getElementById('readingLevel').textContent = level + ` (${avgWordsPerSentence.toFixed(1)} words/sentence avg)`;
-        }
-
-        count();
-    </script>
-</body>
-</html>
+<div class="container">
+<header><a href="/" class="back">&larr; Back to ToolGen</a>
+<h1>Word Counter</h1><p class="desc">Count words, characters, sentences, and paragraphs in real-time.</p></header>
+<div class="stats">
+<div class="card"><div class="num" id="w">0</div><div class="lbl">Words</div></div>
+<div class="card"><div class="num" id="c">0</div><div class="lbl">Characters</div></div>
+<div class="card"><div class="num" id="s">0</div><div class="lbl">Sentences</div></div>
+<div class="card"><div class="num" id="p">0</div><div class="lbl">Paragraphs</div></div>
+</div>
+<div class="box"><label>Your Text</label>
+<textarea id="text" placeholder="Type or paste text here..." oninput="count()"></textarea>
+<div class="extra" id="extra"></div></div>
+</div>
+<script>
+function count(){
+const t=document.getElementById('text').value;
+const words=t.trim()?t.trim().split(/\s+/).length:0;
+const chars=t.length;
+const sentences=t.split(/[.!?。！？]+/).filter(x=>x.trim()).length;
+const paragraphs=t.split(/\n\n+/).filter(x=>x.trim()).length;
+document.getElementById('w').textContent=words;
+document.getElementById('c').textContent=chars;
+document.getElementById('s').textContent=sentences;
+document.getElementById('p').textContent=Math.max(paragraphs,t.trim()?1:0);
+const freq={};
+(t.match(/\b[a-z]{4,}\b/g)||[]).forEach(x=>{freq[x]=(freq[x]||0)+1});
+const top=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+document.getElementById('extra').innerHTML=top.length?'Top keywords: '+top.map(([w,c])=>w+'('+c+')').join(', '):'';
+}
+</script>
+</body></html>
