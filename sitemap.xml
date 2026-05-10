@@ -381,4 +381,20 @@
   <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-workflow-visualizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
   <ns0:url><ns0:loc>https://toolgen.xyz/tools/ashare-backtest-engine.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
   <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-strength.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/free-ai-agent-system-prompt-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-memory-strategy-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/multi-agent-communication-protocol-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-error-handling-&amp;-retry-planner.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agentic-rag-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-output-validator-&amp;-quality-scorer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tool-use-schema-generator-for-ai-agents.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-persona-&amp;-personality-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/chain-of-thought-prompt-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-goal-decomposition-planner.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/few-shot-example-selector-for-ai-prompts.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-rate-limiter-&amp;-budget-controller.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-audit-trail-&amp;-logging-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/handoff-protocol-designer-for-ai-agents.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
+  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-self-correction-loop-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
 </ns0:urlset>
