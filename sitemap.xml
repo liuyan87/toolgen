@@ -1,400 +1,186 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ns0:urlset xmlns:ns0="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <ns0:url><ns0:loc>https://toolgen.xyz/</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>weekly</ns0:changefreq><ns0:priority>1.0</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/qr-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-resizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/background-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/youtube-thumbnail.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/pdf-to-jpg.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/loan-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-compressor.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/bmi-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gradient-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/binary-hex-decimal.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/bold-text-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/compound-interest-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/dns-lookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gpa-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hashtag-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/http-header-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/invisible-character.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/keyword-density-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/meta-tag-preview.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/morse-code-translator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/number-to-words.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/punctuation-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/roman-numeral-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/small-text-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/upside-down-text.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-unscrambler.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/youtube-timestamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/age-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/base64-encode-decode.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/base64-encode.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/binary-to-text.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/character-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/color-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/color-picker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/credit-card-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/cron-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/css-minifier.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/date-difference.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/duplicate-line-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/email-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/encode-uri-component.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fake-data-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/favicon-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gradients-css.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hash-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hex-to-rgb.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/html-entities.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/html-escape.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/html-formatter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/http-status-codes.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-to-base64.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/iplookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-formatter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-csv.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-tsv.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-xml.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/jwt-decoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/line-break-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lorem-ipsum-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lorem-ipsum.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/markdown-preview.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/meta-tag-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/openssl-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-strength.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/png-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/qr-decoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/random-number.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/random-password-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/regex-tester.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/rgb-to-hex.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/robots-txt-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/slug-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/sql-formatter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-case-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-diff.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-to-slug.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/timestamp-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/timestamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tip-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter-length.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter-weight.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/url-encoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/url-parser.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/user-agent-parser.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/uuid-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/whois-lookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/wireguard-config-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/yaml-to-json.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/percentage-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/percentage-change.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-crop.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-adjust.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-rotate-flip.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/photo-grid.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gif-maker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/watermark-image.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-stamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-effects.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-to-pdf.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/pdf-to-images.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-to-ico.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-compress-advanced.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-compare.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-dpi.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-resize-advanced.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/aspect-ratio-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/pdf-merge.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/llm-cost-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/token-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/system-prompt-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-model-comparison.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-templates.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-framework-comparison.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-workflow-visualizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-injection-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-tool-schema-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-terminology.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-playground.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/llm-router.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-chaining.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-evaluator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/context-window-manager.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tool-calling-simulator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-memory-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/react-pattern-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/api-schema-agent.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-cost-optimizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/multi-agent-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fine-tuning-data-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-handover-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/embedding-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fewshot-example-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-version-control.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-task-router.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-benchmark-suite.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-tool-registry.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-orchestration-pipeline.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-monitoring-dashboard.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-decision-tree.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-guardrails-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/chain-of-thought-logger.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-playbook-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/rag-system-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-blueprint-library.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/plagiarism-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/grammar-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/paraphrasing-tool.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/photo-grid-maker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/privacy.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>yearly</ns0:changefreq><ns0:priority>0.3</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/terms.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>yearly</ns0:changefreq><ns0:priority>0.3</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lines-to-words.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/sentence-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-to-list.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/llm-cost-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-frequency-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/uuid-generator-v4.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/upside-down-text.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/bold-text-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/small-text-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hashtag-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gpa-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/compound-interest-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/number-to-words.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/roman-numeral-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/age-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/bmi-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tip-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-strength-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/color-picker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/percentage-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/loan-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter-length.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/timestamp-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/slug-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/random-number.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-unscrambler.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/qr-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/base64-encode-decode.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/url-encoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-case-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/character-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fake-name-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fake-data-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lorem-ipsum-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/markdown-preview.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/cron-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/duplicate-line-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/line-break-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/email-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-diff.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hash-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.9</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/http-status-codes.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/meta-tag-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gradient-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/rgb-to-hex.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/qr-decoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/youtube-thumbnail.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/youtube-timestamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/credit-card-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/iplookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/dns-lookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/whois-lookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/date-difference.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/morse-code-translator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-tsv.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-xml.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/yaml-to-json.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/percentage-change.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/encode-uri-component.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/invisible-character.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.7</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/multi-agent-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gpa-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/number-to-words.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/color-picker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-csv.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/iplookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-tsv.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/html-entities.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-to-base64.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/duplicate-line-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/keyword-density-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gif-maker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/slug-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/api-schema-agent.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/random-number.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/loan-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/youtube-timestamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/uuid-generator-v4.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fine-tuning-data-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/age-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/binary-to-text.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lines-to-words.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-dpi.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/invisible-character.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-handover-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/react-pattern-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/credit-card-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/embedding-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/html-formatter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/dns-lookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/html-escape.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/openssl-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-compress-advanced.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/yaml-to-json.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-unscrambler.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/meta-tag-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/llm-cost-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-to-xml.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fewshot-example-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-version-control.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/cron-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/system-prompt-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-to-list.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/upside-down-text.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/binary-hex-decimal.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/css-minifier.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/pdf-to-images.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/photo-grid.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gradients-css.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ashare-board-rotation.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/http-status-codes.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/favicon-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/background-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-compressor.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/aspect-ratio-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/plagiarism-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-playground.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/bold-text-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/pdf-merge.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-terminology.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter-weight.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-compare.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/watermark-image.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/youtube-thumbnail.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-task-router.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/color-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/gradient-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hex-to-rgb.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/date-difference.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/character-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/qr-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-to-pdf.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/photo-grid-maker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/context-window-manager.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-resizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-rotate-flip.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-benchmark-suite.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-tool-registry.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/grammar-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/pdf-to-jpg.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/random-password-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/yaml-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fake-data-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-evaluator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/rgb-to-hex.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-to-slug.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lorem-ipsum.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/sql-formatter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/bmi-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tip-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-strength-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/roman-numeral-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-orchestration-pipeline.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-framework-comparison.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-crop.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/timestamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-monitoring-dashboard.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/line-break-remover.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-adjust.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/png-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/token-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-diff.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/robots-txt-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hashtag-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/http-header-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/url-encoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/timestamp-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/text-case-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/sentence-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/qr-decoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-decision-tree.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/llm-router.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/url-parser.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/base64-encode-decode.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-memory-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/markdown-preview.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/small-text-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/unit-converter-length.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ashare-microstructure-analysis.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/paraphrasing-tool.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/user-agent-parser.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/whois-lookup.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-to-ico.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-stamp.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/url-encoder-decoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-guardrails-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-tool-schema-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tool-calling-simulator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/chain-of-thought-logger.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/percentage-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-playbook-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/regex-tester.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/jwt-decoder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/uuid-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/wireguard-config-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/encode-uri-component.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-chaining.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/rgb-hex-converter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/rag-system-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/hash-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/lorem-ipsum-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-blueprint-library.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/word-frequency-counter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-model-comparison.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/fake-name-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/meta-tag-preview.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-injection-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/morse-code-translator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/prompt-templates.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-cost-optimizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/percentage-change.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-resize-advanced.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/email-validator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/compound-interest-calculator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/image-effects.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/punctuation-checker.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/json-formatter.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/base64-encode.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agent-workflow-visualizer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ashare-backtest-engine.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/password-strength.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/free-ai-agent-system-prompt-generator.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-memory-strategy-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/multi-agent-communication-protocol-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-error-handling-&amp;-retry-planner.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/agentic-rag-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-output-validator-&amp;-quality-scorer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/tool-use-schema-generator-for-ai-agents.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-persona-&amp;-personality-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/chain-of-thought-prompt-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-goal-decomposition-planner.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/few-shot-example-selector-for-ai-prompts.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-rate-limiter-&amp;-budget-controller.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-audit-trail-&amp;-logging-designer.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/handoff-protocol-designer-for-ai-agents.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-  <ns0:url><ns0:loc>https://toolgen.xyz/tools/ai-agent-self-correction-loop-builder.html</ns0:loc><ns0:lastmod>2026-05-10</ns0:lastmod><ns0:changefreq>monthly</ns0:changefreq><ns0:priority>0.8</ns0:priority></ns0:url>
-</ns0:urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://toolgen.xyz/</loc><lastmod>2026-05-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://toolgen.xyz/tools/age-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-benchmark-suite.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-blueprint-library.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-cost-optimizer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-decision-tree.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-evaluator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-framework-comparison.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-guardrails-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-handover-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-memory-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-monitoring-dashboard.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-orchestration-pipeline.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-playbook-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-task-router.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-tool-registry.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agent-workflow-visualizer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/agentic-rag-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-audit-trail-&-logging-designer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-error-handling-&-retry-planner.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-goal-decomposition-planner.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-memory-strategy-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-output-validator-&-quality-scorer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-persona-&-personality-designer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-rate-limiter-&-budget-controller.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-agent-self-correction-loop-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-model-comparison.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-playground.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ai-terminology.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/api-schema-agent.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/ashare-backtest-engine.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/ashare-board-rotation.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/ashare-microstructure-analysis.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/aspect-ratio-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/background-remover.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/base64-encode-decode.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/base64-encode.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/binary-hex-decimal.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/binary-to-text.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/bmi-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/bold-text-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/chain-of-thought-logger.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/chain-of-thought-prompt-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/character-counter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/color-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/color-picker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/compound-interest-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/context-window-manager.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/credit-card-validator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/cron-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/css-minifier.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/date-difference.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/dns-lookup.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/duplicate-line-remover.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/email-validator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/embedding-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/encode-uri-component.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/fake-data-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/fake-name-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/favicon-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/few-shot-example-selector-for-ai-prompts.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/fewshot-example-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/fine-tuning-data-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/free-ai-agent-system-prompt-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/gif-maker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/gpa-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/gradient-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/gradients-css.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/grammar-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/handoff-protocol-designer-for-ai-agents.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/hash-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/hashtag-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/hex-to-rgb.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/html-entities.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/html-escape.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/html-formatter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/http-header-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/http-status-codes.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-adjust.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-compare.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-compress-advanced.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-compressor.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-crop.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-dpi.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-effects.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-resize-advanced.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-resizer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-rotate-flip.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-stamp.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-to-base64.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-to-ico.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/image-to-pdf.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/invisible-character.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/iplookup.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/json-formatter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/json-to-csv.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/json-to-tsv.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/json-to-xml.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/json-tool-schema-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/json-validator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/jwt-decoder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/keyword-density-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/line-break-remover.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/lines-to-words.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/llm-cost-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/llm-router.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/loan-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/lorem-ipsum-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/lorem-ipsum.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/markdown-preview.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/meta-tag-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/meta-tag-preview.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/morse-code-translator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/multi-agent-communication-protocol-designer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/multi-agent-designer.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/number-to-words.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/openssl-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/paraphrasing-tool.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/password-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/password-strength-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/password-strength.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/pdf-merge.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/pdf-to-images.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/pdf-to-jpg.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/percentage-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/percentage-change.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/photo-grid-maker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/photo-grid.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/plagiarism-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/png-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/prompt-chaining.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/prompt-injection-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/prompt-templates.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/prompt-version-control.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/punctuation-checker.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/qr-decoder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/qr-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/rag-system-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/random-number.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/random-password-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/react-pattern-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/regex-tester.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/rgb-hex-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/rgb-to-hex.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/robots-txt-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/roman-numeral-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/sentence-counter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/slug-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/small-text-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/sql-formatter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/system-prompt-builder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/text-case-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/text-diff.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/text-to-list.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/text-to-slug.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/timestamp-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/timestamp.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/tip-calculator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/token-counter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/tool-calling-simulator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/tool-use-schema-generator-for-ai-agents.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/unit-converter-length.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/unit-converter-weight.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/unit-converter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/upside-down-text.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/url-encoder-decoder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/url-encoder.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/url-parser.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/user-agent-parser.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://toolgen.xyz/tools/uuid-generator-v4.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/uuid-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/watermark-image.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/whois-lookup.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/wireguard-config-generator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/word-counter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/word-frequency-counter.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/word-unscrambler.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/yaml-to-json.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/yaml-validator.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/youtube-thumbnail.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/tools/youtube-timestamp.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://toolgen.xyz/privacy.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+<url><loc>https://toolgen.xyz/terms.html</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>
